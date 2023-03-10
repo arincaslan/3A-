@@ -3,7 +3,25 @@
   padding: 40px;
   background-color: #f8f8f8;
 }
-
+.container{
+  display: flex!important;
+}
+.columnGeneral{
+  display: flex!important;
+  justify-content: center;
+  align-items: center;
+  width: 100%!important;
+}
+.columnHalf1{
+  width: 60%!important;
+  padding: 30px;
+}
+.columnHalf2{
+  position: relative;
+  top: 25px;
+  width: 40%!important;
+  padding: 30px;
+}
 /* Report List */
 .report-list {
   display: grid;

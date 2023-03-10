@@ -8,7 +8,7 @@ function Navbar() {
             <div className="navbar-container">
                 <div className="navbar-items">
                     <div className='navbar-item'>
-                        <NavbarItem label="Anasayfa" />
+                        <NavbarItem href="./#" label="Anasayfa" />
                     </div>
                     <div className='navbar-item'>
                         <NavbarItem label="Raporlarım" />
