@@ -8,7 +8,7 @@ import CompanyInfoForWord from './ReportComponentsForWord/CompanyInfoForWord';
 import PropertyDetailForWord from './ReportComponentsForWord/PropertyDetailForWord';
 import PropertyLegalInfoForWord from './ReportComponentsForWord/PropertyLegalInfoForWord';
 import LocationMarketInfoForWord from './ReportComponentsForWord/LocationMarketInfoForWord';
-import PropertyPhysicalInfo from './ReportComponents/PropertyPhysicalInfo/PropertyPhysicalInfo';
+import PropertyPhysicalInfoForWord from './ReportComponentsForWord/PropertyPhysicalInfoForWord';
 import SWOTAnalysis from './ReportComponents/SWOTAnalysis/SWOTAnalysis';
 
 
@@ -39,7 +39,7 @@ const ReportContentForWord = ({ report, profileData, sectionRefs, barImage, rada
                 <LocationMarketInfoForWord base64Img={base64Img} barImage={barImage} radarImage={radarImage} info={report} />
             </div>
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[8].ref}>
-                <PropertyPhysicalInfo info={report} />
+                <PropertyPhysicalInfoForWord info={report} />
             </div>
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[9].ref}>
                 <SWOTAnalysis info={report} />

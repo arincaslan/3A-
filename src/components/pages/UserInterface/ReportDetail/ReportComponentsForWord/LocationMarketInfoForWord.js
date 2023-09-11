@@ -43,7 +43,7 @@ const LocationMarketInfoForWord = ({ info, barImage, radarImage, base64Img }) =>
 
     return (
         <div style={{ overflow: "hidden", padding: "6px" }}>
-            <h2 style={{ fontWeight: "bold", fontSize: "24px" }}>5. Bölüm - Konum ve Piyasa Analizi</h2>
+            <h2 style={{ fontWeight: "bold", fontSize: "24px" }}>BÖLÜM 5 - Konum ve Piyasa Analizi</h2>
             <p style={{ marginTop: "16px" }}>
                 Genel olarak Türkiye'deki gayrimenkul piyasası hakkında birkaç bilgi verelim:
             </p>

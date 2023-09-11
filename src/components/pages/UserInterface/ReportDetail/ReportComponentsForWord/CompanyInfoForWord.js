@@ -29,7 +29,7 @@ function CompanyInfoForWord({ profileInfo, info }) {
 
     return (
         <div style={styles.companyBox}>
-            <h2 style={styles.headingLg}>Bölüm 2 - Şirket ve Müşteri Bilgileri</h2>
+            <h2 style={styles.headingLg}>BÖLÜM 2 - Şirket ve Müşteri Bilgileri</h2>
 
             <h3 style={styles.headingMd}>Şirketin Unvanı ve Adresi</h3>
             <p style={styles.companyText}>Değerleme Şirketi: {profileInfo.companyInfo.companyName}</p>

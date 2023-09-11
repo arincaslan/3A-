@@ -30,7 +30,7 @@ const PropertyDetailForWord = ({ info }) => {
 
     return (
         <div style={styles.box}>
-            <h1 style={styles.headingLg}>BÖLÜM 3 - DEĞERLEME KONUSU HAKKINDA GENEL BİLGİLER:</h1>
+            <h1 style={styles.headingLg}>BÖLÜM 3 - Değerleme Konusu Hakkında Genel Bilgiler</h1>
 
             <h2 style={styles.headingMd}>3–1 Gayrimenkulün Yeri Konumu ve Tanımı</h2>
             <p style={styles.text}>Değerleme konusu gayrimenkul; {info.tapuData.location.il} ili, {info.tapuData.location.ilce} ilçesi, {info.tapuData.location.mahalle} Mahallesi, sınırları içerisinde yer almaktadır.</p>

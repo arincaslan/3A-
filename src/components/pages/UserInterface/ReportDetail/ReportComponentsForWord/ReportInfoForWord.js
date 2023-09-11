@@ -27,7 +27,7 @@ function ReportInfoForWord({ info, profileInfo }) {
 
     return (
         <div style={styles.reportBox}>
-            <h2 style={styles.headingLg}>Bölüm 1 - Genel Rapor Bilgileri</h2>
+            <h2 style={styles.headingLg}>BÖLÜM 1 - Genel Rapor Bilgileri</h2>
 
             <h3 style={styles.headingMd}>1–1 Rapor Tarihi ve Numarası</h3>
             <p style={styles.reportText}>Bu rapor şirketimiz tarafından {new Date(info.projectData.valuationDate).toLocaleDateString()} tarihinde {info.projectData.reportNo} rapor numarası ile tanzim edilmiştir.</p>
