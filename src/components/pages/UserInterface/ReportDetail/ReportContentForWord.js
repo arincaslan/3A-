@@ -9,7 +9,10 @@ import PropertyDetailForWord from './ReportComponentsForWord/PropertyDetailForWo
 import PropertyLegalInfoForWord from './ReportComponentsForWord/PropertyLegalInfoForWord';
 import LocationMarketInfoForWord from './ReportComponentsForWord/LocationMarketInfoForWord';
 import PropertyPhysicalInfoForWord from './ReportComponentsForWord/PropertyPhysicalInfoForWord';
-import SWOTAnalysis from './ReportComponents/SWOTAnalysis/SWOTAnalysis';
+import SWOTAnalysisForWord from './ReportComponentsForWord/SwotAnalysisForWord';
+import ValuationMethodologyForWord from './ReportComponentsForWord/ValuationMethodologyForWord';
+import EvaluationAndConclusionForWord from './ReportComponentsForWord/EvaluationAndConclusionForWord';
+import AttachmentsSectionForWord from './ReportComponentsForWord/AttachmentsSectionForWord';
 
 
 
@@ -42,7 +45,16 @@ const ReportContentForWord = ({ report, profileData, sectionRefs, barImage, rada
                 <PropertyPhysicalInfoForWord info={report} />
             </div>
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[9].ref}>
-                <SWOTAnalysis info={report} />
+                <SWOTAnalysisForWord info={report} />
+            </div>
+            <div style={{ marginBottom: "30px" }} ref={sectionRefs[10].ref}>
+                <ValuationMethodologyForWord info={report} />
+            </div>
+            <div style={{ marginBottom: "30px" }} ref={sectionRefs[11].ref}>
+                <EvaluationAndConclusionForWord profileInfo={profileData} info={report} />
+            </div>
+            <div style={{ marginBottom: "30px" }} ref={sectionRefs[12].ref}>
+                <AttachmentsSectionForWord  />
             </div>
         </Box>
     );
