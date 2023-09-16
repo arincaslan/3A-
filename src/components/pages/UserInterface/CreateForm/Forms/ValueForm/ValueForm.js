@@ -8,7 +8,7 @@ import GelirForm from './GelirForm/GelirForm';
 function ValueForm({ onNext, onBack }) {
   const [selectedMethod, setSelectedMethod] = useState('');
   const [emsalData, setEmsalData] = useState({ cevreBilgisi: '', emsaller: [] });
-  const [maaliyetData, setMaaliyetData] = useState({ secilenMetod: '', ikameler: [] });
+  const [maaliyetData, setMaaliyetData] = useState( {yeniden: ""}, );
   const [gelirData, setGelirData] = useState(null);
   const toast = useToast();
 

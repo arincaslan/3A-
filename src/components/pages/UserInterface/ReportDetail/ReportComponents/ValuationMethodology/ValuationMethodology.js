@@ -4,15 +4,15 @@ import { Box, Heading, Text, UnorderedList, ListItem, List } from "@chakra-ui/re
 const ValuationMethodology = ({ info }) => {
   const { emsalData, maaliyetData, gelirData } = info.valueData;
   const methods = [];
-  if (emsalData) methods.push("Emsal Karşılaştırma Metodu");
-  if (maaliyetData) methods.push("Maliyet Yaklaşımı Metodu");
+  if (emsalData.emsaller) methods.push("Emsal Karşılaştırma Metodu");
+  if (maaliyetData.yeniden.faktorler) methods.push("Maliyet Yaklaşımı Metodu");
   if (gelirData) methods.push("Gelir Yaklaşımı Metodu");
 
   return (
     <Box my={5}>
       <Heading fontWeight="bold" as="h2" size="xl" mb={5}>8.Bölüm - Değerlemede Kullanılan Yaklaşımların Analizi / Değerleme Metodolojisi</Heading>
 
-      {emsalData && (
+      {emsalData.emsaller && (
         <Box mb={5}>
           <Heading as="h3" size="lg" mb={3}>Emsal Karşılaştırma Metodu</Heading>
           <Text mb={5}>
@@ -79,7 +79,7 @@ const ValuationMethodology = ({ info }) => {
         </Box>
       )}
 
-      {maaliyetData && (
+      {maaliyetData.yeniden.faktorler && (
         <Box mb={5}>
           <Heading as="h3" size="lg" mb={3}>Maaliyet Yaklaşımı Metodu</Heading>
           <Text mb={3}>
@@ -132,11 +132,9 @@ const ValuationMethodology = ({ info }) => {
             uygulamak bazen karmaşık olabilir ve genellikle profesyonel bir değerlemeye ihtiyaç duyar.
           </Text>
           <Text mb={3}>
-            Değerlemede Seçilen maaliyet metodu: {maaliyetData.secilenMetod === 'ikame' ? 'İkame Maliyet Metodu' : 'Yeniden Üretim Maliyet Metodu'}
-            {maaliyetData.secilenMetod === 'ikame' ?
-              <Text>İkame maliyet yöntemi, bir taşınmazın değerinin, benzer ya da eşdeğer bir taşınmazın maliyeti üzerinden belirlenmesini ifade eder.</Text> :
+            Değerlemede Seçilen maaliyet metodu: 'Yeniden Üretim Maliyet Metodu'
               <Text>Yeniden üretim maliyet yöntemi, bir taşınmazın değerinin, aynı taşınmazın bugünkü maliyeti üzerinden belirlenmesini ifade eder.</Text>
-            }
+            
           </Text>
         </Box>
       )}

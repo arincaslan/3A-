@@ -13,10 +13,10 @@ function EvaluationAndConclusion({ info, profileInfo }) {
         <Box>
             <Text fontSize="xl" fontWeight="bold">9. Bölüm - Analiz Sonuçlarının Değerlendirilmesi ve Sonuç</Text>
             {
-                emsalData && <ComparableMethod info={info} />
+                emsalData.emsaller && <ComparableMethod info={info} />
             }
             {
-                maaliyetData && maaliyetData.secilenMetod && <CostMethod info={info} />
+                maaliyetData.yeniden.faktorler && <CostMethod info={info} />
             }
 
             {

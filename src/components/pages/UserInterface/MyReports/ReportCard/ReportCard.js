@@ -47,7 +47,7 @@ const ReportCard = ({ report }) => {
                         {formatDate(report.projectData.valuationDate)}
                     </Text>
                 </Box>
-                <Button onClick={handleClick} colorScheme="teal">
+                <Button w={300} onClick={handleClick} colorScheme="teal">
                     Raporu Görüntüle
                 </Button>
             </Flex>

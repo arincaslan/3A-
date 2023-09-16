@@ -5,13 +5,17 @@ function CostMethod({ info }) {
     const { yeniden } = info.valueData?.maaliyetData;
     const alan = Number(info.tapuData?.parsel?.yuzolcumu?.replace(",", "."));
     const costYenidenYapim = Number(yeniden?.yapim_maliyeti?.replace(",", "."));
-    const { emsaller } = info.valueData.emsalData;
+    let avgEmsalValuePerM2;
 
+    if (info.valueData?.emsalData?.emsaller) {
+        const { emsaller } = info.valueData.emsalData;
+        const emsalValuesPerM2 = emsaller.map(emsal => Number(emsal.deger) / Number(emsal.tasinmazAlani));
+        avgEmsalValuePerM2 = emsalValuesPerM2.reduce((a, b) => a + b, 0) / emsalValuesPerM2.length;
+    }
     // Her bir emsalin değerini m2'sine bölme işlemi
-    const emsalValuesPerM2 = emsaller.map(emsal => Number(emsal.deger) / Number(emsal.tasinmazAlani));
+    
 
     // Bu değerlerin ortalamasını alma işlemi
-    const avgEmsalValuePerM2 = emsalValuesPerM2.reduce((a, b) => a + b, 0) / emsalValuesPerM2.length;
     const [landValue, setLandValue] = useState(0);
     const [buildingValue, setBuildingValue] = useState(0);
     const [propertyValue, setPropertyValue] = useState(0);
