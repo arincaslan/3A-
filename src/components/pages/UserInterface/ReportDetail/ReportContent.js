@@ -15,23 +15,30 @@ import ValuationMethodology from './ReportComponents/ValuationMethodology/Valuat
 import TableOfContents from './ReportComponents/TableOfContents/TableOfContents';
 
 
-const ReportContent = ({ report, profileData, sectionRefs ,onBarImageUpdate, onRadarImageUpdate, onBase64Upload }) => {
+const ReportContent = ({ report, profileData, sectionRefs, onBarImageUpdate, onRadarImageUpdate, onBase64Upload }) => {
     return (
-        <Box >
-            <div ref={sectionRefs[0].ref}  style={{ marginBottom: "30px", pageBreakAfter: "always" }}>
+        <Box width="210mm"
+            minHeight="297mm"
+            boxShadow="0px 0px 8px rgba(0,0,0,0.5)"
+            border="0px 1px 1px 1px solid #ccc"
+            padding="5px" >
+            <div ref={sectionRefs[0].ref} style={{  pageBreakAfter: "always" }}>
                 <CoverPage info={report} profileInfo={profileData} />
             </div>
-            <TableOfContents ref={sectionRefs[1].ref} refs={sectionRefs} />
-            <div style={{ marginBottom: "30px" }} ref={sectionRefs[2].ref}>
+            <div style={{ pageBreakAfter: "always" }}>
+                <TableOfContents ref={sectionRefs[1].ref} refs={sectionRefs} />
+            </div>
+
+            <div style={{ marginBottom: "30px", pageBreakAfter: "always" }} ref={sectionRefs[2].ref}>
                 <IntroductionPage info={report} />
             </div>
-            <div style={{ marginBottom: "30px" }} ref={sectionRefs[3].ref}>
+            <div style={{ marginBottom: "30px", pageBreakAfter: "always"  }} ref={sectionRefs[3].ref}>
                 <ReportInfo info={report} profileInfo={profileData} />
             </div>
-            <div style={{ marginBottom: "30px" }} ref={sectionRefs[4].ref}>
+            <div style={{ marginBottom: "30px",  pageBreakAfter: "always" }} ref={sectionRefs[4].ref}>
                 <CompanyInfo info={report} profileInfo={profileData} />
             </div>
-            <div style={{ marginBottom: "30px" }} ref={sectionRefs[5].ref}>
+            <div style={{ marginBottom: "30px",  pageBreakAfter: "always"  }} ref={sectionRefs[5].ref}>
                 <PropertyDetail info={report} />
             </div>
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[6].ref}>
@@ -39,7 +46,7 @@ const ReportContent = ({ report, profileData, sectionRefs ,onBarImageUpdate, onR
             </div>
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[7].ref}>
                 <LocationMarketInfo onBase64Upload={onBase64Upload} onBarImageUpdate={onBarImageUpdate}
-                onRadarImageUpdate={onRadarImageUpdate} info={report} />
+                    onRadarImageUpdate={onRadarImageUpdate} info={report} />
             </div>
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[8].ref}>
                 <PropertyPhysicalInfo info={report} />
@@ -53,7 +60,7 @@ const ReportContent = ({ report, profileData, sectionRefs ,onBarImageUpdate, onR
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[11].ref}>
                 <EvaluationAndConclusion profileInfo={profileData} info={report} />
             </div>
-            <div style={{ marginBottom: "30px"}} ref={sectionRefs[12].ref}>
+            <div style={{ marginBottom: "30px" }} ref={sectionRefs[12].ref}>
                 <AttachmentsSection />
             </div>
         </Box>

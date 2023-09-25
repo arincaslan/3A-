@@ -21,24 +21,24 @@ function ReportDetail() {
 
     const handleBarImageUpdate = (image) => {
         setBarImage(image);
-        if(image && radarImage) setIsExportEnabled(true);
+        if (image && radarImage) setIsExportEnabled(true);
     };
-    
+
     const handleRadarImageUpdate = (image) => {
         setRadarImage(image);
-        if(image && barImage) setIsExportEnabled(true);
+        if (image && barImage) setIsExportEnabled(true);
     };
-    
+
     const handleBase64ImageUpdate = (image) => {
         setBase64Image(image);
-        if(image && barImage && radarImage) setIsExportEnabled(true);
+        if (image && barImage && radarImage) setIsExportEnabled(true);
     };
-    
+
 
     const sectionRefs = [
         { name: "Kapak Sayfası", ref: createRef() },
         { name: "İçindekiler", ref: createRef() },
-        { name: "Giriş Sayfası", ref: createRef() },
+        { name: "Genel Bilgiler", ref: createRef() },
         { name: "Rapor Bilgileri", ref: createRef() },
         { name: "Firma Bilgileri", ref: createRef() },
         { name: "Gayrimenkul Özellikleri", ref: createRef() },
@@ -53,7 +53,7 @@ function ReportDetail() {
     const exportToPdf = () => {
         const element = document.getElementById('report-content');
         html2pdf(element, {
-            margin: 1,
+            margin: 0,
             filename: 'report.pdf',
             image: { type: 'jpeg', quality: 0.98 },
             html2canvas: { scale: 2 },
@@ -77,11 +77,16 @@ function ReportDetail() {
         saveAs(converted, 'document.docx');
     };
     return (
-        <Box>
-            <div id="report-content">
-                <ReportContent onBase64Upload={handleBase64ImageUpdate}  onBarImageUpdate={handleBarImageUpdate} 
-                onRadarImageUpdate={handleRadarImageUpdate} report={report} profileData={profileData} sectionRefs={sectionRefs} />
-            </div>
+        <Box >
+            <Box
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                id="report-content">
+                <ReportContent onBase64Upload={handleBase64ImageUpdate} onBarImageUpdate={handleBarImageUpdate}
+                    onRadarImageUpdate={handleRadarImageUpdate} report={report} profileData={profileData} sectionRefs={sectionRefs} />
+            </Box>
             <Button disabled={!isExportEnabled} colorScheme='teal' mt="20px" onClick={exportToWord}>Word'e Dönüştür</Button>
             <Button colorScheme='blue' ml="10px" mt="20px" onClick={exportToPdf}>PDF'e Dönüştür</Button>
         </Box>

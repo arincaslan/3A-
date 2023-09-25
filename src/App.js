@@ -36,10 +36,10 @@ const customTheme = extendTheme({
     }
   },
   fonts: {
-    body: `'Raleway', sans-serif`,
-    body2: "Roboto, sans-serif",
+    body: `'Georgia', 'Times New Roman', Times, serif`,
+    heading2: "Roboto, sans-serif",
     heading1: "Nunito, sans-serif",
-    heading2: "Josefin Sans, sans-serif",
+    body2: "Josefin Sans, sans-serif",
     heading3: "Roboto, sans-serif",
     heading4: "Montserrat, sans-serif",
     heading5: "Open Sans, sans-serif",

@@ -134,7 +134,6 @@ const ValuationMethodology = ({ info }) => {
           <Text mb={3}>
             Değerlemede Seçilen maaliyet metodu: 'Yeniden Üretim Maliyet Metodu'
               <Text>Yeniden üretim maliyet yöntemi, bir taşınmazın değerinin, aynı taşınmazın bugünkü maliyeti üzerinden belirlenmesini ifade eder.</Text>
-            
           </Text>
         </Box>
       )}
