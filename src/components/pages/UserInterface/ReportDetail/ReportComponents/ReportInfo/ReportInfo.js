@@ -31,7 +31,7 @@ function ReportInfo({ info, profileInfo }) {
         fontWeight="bold"
         fontFamily="heading2"  // Roboto
       >
-        1.1 Rapor Tarihi ve Numarası
+        1.1) Rapor Tarihi ve Numarası
       </Heading>
       <Text mb={8} fontSize="16px" fontFamily="body">  {/* Raleway */}
         Bu rapor şirketimiz tarafından {new Date(info.projectData.valuationDate).toLocaleDateString()} tarihinde {info.projectData.reportNo} rapor numarası ile tanzim edilmiştir.
@@ -42,7 +42,7 @@ function ReportInfo({ info, profileInfo }) {
         mb={2}
         fontWeight="bold"
         fontFamily="heading2" >
-        1.2 Rapor Türü
+        1.2) Rapor Türü
       </Heading>
       <Text  mb={8} fontSize="16px" fontFamily="body">
       Raporun Türü: {info.projectData.valuationRequest} Gayrimenkulün Değerleme Raporu. Değerleme çalışmasında ve raporun hazırlanmasında SPK standartları uygunluk sağlanmıştır. Buraya Açıklama gelcek.
@@ -53,7 +53,7 @@ function ReportInfo({ info, profileInfo }) {
         mb={2}
         fontWeight="bold"
         fontFamily="heading2" >
-        1.3 Raporu Hazırlayanlar ile Sorumlu Değerleme Uzmanı Adı Soyadı
+        1.3) Raporu Hazırlayanlar ile Sorumlu Değerleme Uzmanı Adı Soyadı
       </Heading>
       <Text  mb={8} fontSize="16px" fontFamily="body">
         Bu rapor, şirketimiz Sorumlu Değerleme Uzmanı {info.projectData.evaluator} (SPK Lisans No:{evaluator.spkNo}) tarafından hazırlanmış ve şirketimiz Sorumlu Değerleme Uzmanı {info.projectData.inspector} (SPK Lisans No:{inspector.spkNo}) tarafından kontrol edilmiştir.
@@ -64,7 +64,7 @@ function ReportInfo({ info, profileInfo }) {
         mb={2}
         fontWeight="bold"
         fontFamily="heading2" >
-        1.4 Değerleme Tarihi ve Değer Kavramı
+        1.4) Değerleme Tarihi ve Değer Kavramı
       </Heading>
       <Text  mb={8} fontSize="16px" fontFamily="body">
         Değerleme tarihi {new Date(info.projectData.valuationDate).toLocaleDateString()} olup, değerin geçerli olduğu tarih 3 ay ‘dır. Bu raporda geçerli olan değer kavramı ; Piyasa Değeri'dir. Piyasa Değeri; belirli bir tarihte, emlakın satışa çıkarılması durumunda, alıcı ile satıcının hiçbir baskı altında olmadığı ve her iki tarafın da konu hakkında bilgili olduğu bir işlem sonucunda elde edilebilecek tutarı temsil eder.
@@ -75,7 +75,7 @@ function ReportInfo({ info, profileInfo }) {
         mb={2}
         fontWeight="bold"
         fontFamily="heading2" >
-        1.5 Dayanak Sözleşmesi
+        1.5) Dayanak Sözleşmesi
       </Heading>
       <Text  mb={8} fontSize="16px" fontFamily="body">
         Bu değerleme çalışmasının ve raporunun dayanağı; {profileInfo.companyInfo.agreementNo} numaralı sözleşmedir, bu sözleşme {new Date(profileInfo.companyInfo.agreementDate).toLocaleDateString()} tarihinde {profileInfo.companyInfo.companyName} ve {info.projectData.requestingCompany} arasında imzalanmıştır.

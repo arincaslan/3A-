@@ -3,7 +3,7 @@ const PropertyLegalInfoForWord = ({ info }) => {
     
     return (
         <div style={{ padding: '16px' }}>
-            <h1 style={{ fontWeight: 'bold', fontSize: '24px', margin: '16px 0' }}>BÖLÜM 4 - Gayrimenkulün Mülkiyet İmar ve Yasal Durumuna İlişkin Bilgiler / </h1>
+            <h1 style={{ fontWeight: 'bold', fontSize: '24px', margin: '16px 0' }}>BÖLÜM 4 - Gayrimenkulün Mülkiyet İmar ve Yasal Durumuna İlişkin Bilgiler  </h1>
 
             <h2 style={{ fontWeight: 'bold', fontSize: '20px', margin: '12px 0' }}>4–1 Gayrimenkulün Mülkiyet Bilgileri</h2>
             <p style={{ margin: '8px 0' }}>Mülkiyet Sahibi: {info.tapuData.deed.sahibi}</p>

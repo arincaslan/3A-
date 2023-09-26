@@ -13,7 +13,7 @@ function CompanyInfo({ profileInfo, info }) {
         <Box p="6" borderRadius="lg" boxShadow="lg">
             <Heading color="teal.600" fontFamily="heading2" fontWeight="bold" as="h2" size="lg" mb="4">BÖLÜM 2 - Şirket ve Müşteri Bilgileri</Heading>
 
-            <Heading fontFamily="Roboto" fontWeight="bold" as="h3" size="md" mt="4" mb={4}>Şirketin Unvanı ve Adresi</Heading>
+            <Heading fontFamily="Roboto" fontWeight="bold" as="h3" size="md" mt="4" mb={4}>2.1) Şirketin Unvanı ve Adresi</Heading>
             <Box mb={4}>
                 <Text fontSize="16px" fontFamily="body" fontWeight="bold" display="inline">Müşteri:</Text>
                 <Text fontSize="16px" fontFamily="body" display="inline"> {profileInfo.companyInfo.companyName}</Text>
@@ -24,7 +24,7 @@ function CompanyInfo({ profileInfo, info }) {
             </Box>
             <Text fontSize="16px" fontFamily="body" mt="2">{profileInfo.companyInfo.companyName}, {formatDate(profileInfo.companyInfo.companyEstablishDate)} tarihinde kurulmuştur. Şirket, SPK'nın {formatDate(profileInfo.companyInfo.agreementDate)} tarihli kararı ile değerleme hizmeti verecek şirketler listesine alınmıştır.</Text>
 
-            <Heading fontFamily="Roboto" fontWeight="bold" as="h3" size="md" mt="4" mb={4}>Müşteriyi Tanıtıcı Bilgiler ve Adresi</Heading>
+            <Heading fontFamily="Roboto" fontWeight="bold" as="h3" size="md" mt="4" mb={4}>2.2) Müşteriyi Tanıtıcı Bilgiler ve Adresi</Heading>
             <Text fontSize="16px" fontFamily="body" mt="2">{info.projectData.requestingCompany}, {formatDate(info.projectData.customerEstablishmentDate)} tarihinde kurulmuştur. Kayıtlı sermayesi {formatCurrency(info.projectData.registeredCapital)} , ödenmiş sermayesi {formatCurrency(info.projectData.paidCapital)}  'dir.</Text>
             <Text fontSize="16px" fontFamily="body" mt="2">Müşteri, {info.tapuData.location.il} ili, {info.tapuData.location.ilce} ilçesi, {info.tapuData.location.mahalle} mahallesinde, {info.tapuData.parsel.paftaNo} pafta, {info.tapuData.parsel.parselNo} parsel adresindeki {info.projectData.valuationRequest} değerlemesini istemiştir.</Text>
         </Box>

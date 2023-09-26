@@ -1,39 +1,106 @@
-import { Box, Heading, Text, Image } from '@chakra-ui/react';
+import { Box, Heading, List, ListItem, Icon, ListIcon, Image, Text } from '@chakra-ui/react';
+import { CheckCircleIcon } from '@chakra-ui/icons';
 
 const PropertyLegalInfo = ({ info }) => {
-    const imageSrc = info.tapuData.parsel.imarResmi
-    
-    
+    const imageSrc = info.tapuData.parsel.imarResmi;
+    function formatDate(dateString) {
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(dateString).toLocaleDateString(undefined, options);
+    }
+
+
     return (
-        <Box>
-            <Heading fontWeight="bold" as="h1" size="lg" my={4}>BÖLÜM 4 - GAYRİMENKULLERİN MÜLKİYET HAKKI VE İMAR BİLGİLERİ / GAYRİMENKULÜN YASAL DURUMUNA İLİŞKİN BİLGİLER / YASAL VE İMAR BİLGİLERİ:</Heading>
+        <Box p="5" borderRadius="md" boxShadow="lg">
 
-            <Heading fontWeight="bold" as="h2" size="md" my={3}>4–1 Gayrimenkulün Mülkiyet Bilgileri</Heading>
-            <Text my={2}>Mülkiyet Sahibi: {info.tapuData.deed.sahibi}</Text>
-            <Text my={2}>Mülkiyet Bilgisi: {info.tapuData.deed.ownershipInfo}</Text>
-            <Text my={2}>Mülkiyet Edinme Yöntemi: {info.tapuData.deed.ownershipMethod}</Text>
-            <Text my={2}>Mülkiyet Edinme Tarihi: {info.tapuData.deed.ownershipDate}</Text>
+            <div style={{ pageBreakAfter: "always" }} >
+                <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h1" size="lg" mt={2}>BÖLÜM 4 - Gayrimenkulün Mülkiyet İmar ve Yasal Durumuna İlişkin Bilgiler </Heading>
 
-            <Heading fontWeight="bold" as="h2" size="md" my={3}>4–2 Gayrimenkulün İmar Bilgileri</Heading>
-            <Text my={2}>Parsel Niteliği: {info.tapuData.parsel.nitelik}</Text>
-            <Text my={2}>Toplam Yüzölçümü: {info.tapuData.parsel.yuzolcumu}</Text>
-            <Text my={2}>TAKS: {info.tapuData.parsel.taks}</Text>
-            <Text my={2}>KAKS: {info.tapuData.parsel.kaks}</Text>
+                <Heading mb={4} mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" >4.1) Gayrimenkulün Mülkiyet Bilgileri</Heading>
+                <List spacing={4}>
+                    <ListItem display="flex" alignItems="center">
+                        <ListIcon as={CheckCircleIcon} color="green.500" />
+                        <Text my={2}>Mülkiyet Sahibi: {info.tapuData.deed.sahibi}</Text>
+                    </ListItem>
+                    {info.tapuData.deed.ownershipInfo && (
+                        <ListItem display="flex" alignItems="center">
+                            <ListIcon as={CheckCircleIcon} color="green.500" />
+                            <Text my={2}>Mülkiyet Bilgisi: {info.tapuData.deed.ownershipInfo}</Text>
+                        </ListItem>
+                    )}
 
-            <Heading fontWeight="bold" as="h2" size="md" my={3}>4–3 Gayrimenkulün Yasal Durumu</Heading>
-            <Text my={2}>Tapu Tarihi: {info.tapuData.deed.tapuTarihi}</Text>
-            <Text my={2}>Cilt No: {info.tapuData.deed.ciltNo}</Text>
-            <Text my={2}>Sahife No: {info.tapuData.deed.sahifeNo}</Text>
-            <Text my={2}>Yevmiye No: {info.tapuData.deed.yevmiyeNo}</Text>
-            <Heading fontWeight="bold" as="h2" size="md" my={3}>4–4 Yasal ve İmar Sorunları</Heading>
-            {info.tapuData.parsel.imarDurumu != "İmarlı" ? (
-                <Text my={2}>Gayrimenkulün imar durumu: {info.tapuData.parsel.imarDurumu}. Bu durum çeşitli yasal ve imar sorunlarına neden olabilir.</Text>
-            ) : (
-                <Text my={2}>Değerlemeye konu olan gayrimenkulün herhangi bir yasal veya imar sorunu bulunmamaktadır.</Text>
-            )}
+                    {info.tapuData.deed.ownershipMethod && (
+                        <ListItem display="flex" alignItems="center">
+                            <ListIcon as={CheckCircleIcon} color="green.500" />
+                            <Text my={2}>Mülkiyet Edinme Yöntemi: {info.tapuData.deed.ownershipMethod}</Text>
+                        </ListItem>
+                    )}
 
-            <Heading fontWeight="bold" as="h2" size="md" my={3}>4–5 İmar Durumu Resmi</Heading>
-            <Image src={imageSrc} alt="İmar Resmi"   />
+                    {info.tapuData.deed.ownershipDate && (
+                        <ListItem display="flex" alignItems="center">
+                            <ListIcon as={CheckCircleIcon} color="green.500" />
+                            <Text my={2}>Mülkiyet Edinme Tarihi: {formatDate(info.tapuData.deed.ownershipDate)}</Text>
+                        </ListItem>
+                    )}
+
+                </List>
+                <Heading mb={4} mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" >4.2) Gayrimenkulün İmar Bilgileri</Heading>
+                <List spacing={4}>
+                    <ListItem display="flex" alignItems="center">
+                        <ListIcon as={CheckCircleIcon} color="green.500" />
+                        <Text my={2}>Parsel Niteliği: {info.tapuData.parsel.nitelik}</Text>
+                    </ListItem>
+                    <ListItem display="flex" alignItems="center">
+                        <ListIcon as={CheckCircleIcon} color="green.500" />
+                        <Text my={2}>Toplam Yüzölçümü: {info.tapuData.parsel.yuzolcumu}</Text>
+                    </ListItem>
+                    {info.tapuData.parsel.taks && (
+                        <ListItem display="flex" alignItems="center">
+                            <ListIcon as={CheckCircleIcon} color="green.500" />
+                            <Text my={2}>TAKS: {info.tapuData.parsel.taks}</Text>
+                        </ListItem>
+                    )}
+
+                    {info.tapuData.parsel.kaks && (
+                        <ListItem display="flex" alignItems="center">
+                            <ListIcon as={CheckCircleIcon} color="green.500" />
+                            <Text my={2}>KAKS: {info.tapuData.parsel.kaks}</Text>
+                        </ListItem>
+                    )}
+
+                </List>
+                <Heading mb={4} mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" >4.3) Gayrimenkulün Yasal Durumu</Heading>
+                <List spacing={4}>
+                    <ListItem display="flex" alignItems="center">
+                        <ListIcon as={CheckCircleIcon} color="green.500" />
+                        <Text my={2}>Tapu Tarihi: {formatDate(info.tapuData.deed.tapuTarihi)}</Text>
+                    </ListItem>
+                    <ListItem display="flex" alignItems="center">
+                        <ListIcon as={CheckCircleIcon} color="green.500" />
+                        <Text my={2}>Cilt No: {info.tapuData.deed.ciltNo}</Text>
+                    </ListItem>
+                    <ListItem display="flex" alignItems="center">
+                        <ListIcon as={CheckCircleIcon} color="green.500" />
+                        <Text my={2}>Sahife No: {info.tapuData.deed.sahifeNo}</Text>
+                    </ListItem>
+                    <ListItem display="flex" alignItems="center">
+                        <ListIcon as={CheckCircleIcon} color="green.500" />
+                        <Text my={2}>Yevmiye No: {info.tapuData.deed.yevmiyeNo}</Text>
+                    </ListItem>
+                </List>
+                <Heading mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" >4.4) Yasal ve İmar Sorunları</Heading>
+                {info.tapuData.parsel.imarDurumu != "İmarlı" ? (
+                    <Text my={2}>Gayrimenkulün imar durumu: {info.tapuData.parsel.imarDurumu}. Bu durum çeşitli yasal ve imar sorunlarına neden olabilir.</Text>
+                ) : (
+                    <Text my={2}>Değerlemeye konu olan gayrimenkulün herhangi bir yasal veya imar sorunu bulunmamaktadır.</Text>
+                )}
+            </div>
+            <Box width="790px" maxH="1050px" height="1050px"> {/* A4 boyutu genişlik olarak 210mm ve yükseklik olarak 297mm'dir */}
+                <Heading mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" mb={8} >4.5) İmar Durumu Resmi</Heading>
+
+                {/* maxHeight'tan otomatik olarak başlık yüksekliği çıkarılacaktır. */}
+                <Image height="950px" src={imageSrc} alt="İmar Resmi" />
+            </Box>
+
         </Box>
     );
 }
