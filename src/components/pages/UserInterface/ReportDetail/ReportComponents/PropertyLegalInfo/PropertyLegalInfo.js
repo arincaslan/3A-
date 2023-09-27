@@ -94,8 +94,8 @@ const PropertyLegalInfo = ({ info }) => {
                     <Text my={2}>Değerlemeye konu olan gayrimenkulün herhangi bir yasal veya imar sorunu bulunmamaktadır.</Text>
                 )}
             </div>
-            <Box width="790px" maxH="1050px" height="1050px"> {/* A4 boyutu genişlik olarak 210mm ve yükseklik olarak 297mm'dir */}
-                <Heading mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" mb={8} >4.5) İmar Durumu Resmi</Heading>
+            <Box width="790px" maxH="1050px" height="1000px"> {/* A4 boyutu genişlik olarak 210mm ve yükseklik olarak 297mm'dir */}
+                <Heading mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" mb={6} >4.5) İmar Durumu Resmi</Heading>
 
                 {/* maxHeight'tan otomatik olarak başlık yüksekliği çıkarılacaktır. */}
                 <Image height="950px" src={imageSrc} alt="İmar Resmi" />

@@ -44,7 +44,7 @@ const ReportContent = ({ report, profileData, sectionRefs, onBarImageUpdate, onR
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[6].ref}>
                 <PropertyLegalInfo info={report} />
             </div>
-            <div style={{ marginBottom: "30px",  pageBreakAfter: "always"  }} ref={sectionRefs[7].ref}>
+            <div style={{ marginBottom: "30px" }} ref={sectionRefs[7].ref}>
                 <LocationMarketInfo onBase64Upload={onBase64Upload} onBarImageUpdate={onBarImageUpdate}
                     onRadarImageUpdate={onRadarImageUpdate} info={report} />
             </div>
