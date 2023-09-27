@@ -10,7 +10,7 @@ function CompanyInfo({ profileInfo, info }) {
     }
 
     return (
-        <Box p="6" borderRadius="lg" boxShadow="lg">
+        <Box minHeight="1000px" p="6" borderRadius="lg" boxShadow="lg">
             <Heading color="teal.600" fontFamily="heading2" fontWeight="bold" as="h2" size="lg" mb="4">BÖLÜM 2 - Şirket ve Müşteri Bilgileri</Heading>
 
             <Heading fontFamily="Roboto" fontWeight="bold" as="h3" size="md" mt="4" mb={4}>2.1) Şirketin Unvanı ve Adresi</Heading>

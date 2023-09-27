@@ -13,6 +13,7 @@ function ReportInfo({ info, profileInfo }) {
       borderRadius="lg"
       boxShadow="lg"
       bgColor="white"
+      minHeight="1000px"
     >
       <Heading
         as="h2"

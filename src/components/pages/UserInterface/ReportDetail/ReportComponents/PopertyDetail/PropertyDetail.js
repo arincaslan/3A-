@@ -11,7 +11,7 @@ const PropertyDetail = ({ info }) => {
     };
 
     return (
-        <Box p="5" borderRadius="md" boxShadow="lg">
+        <Box minHeight="1000px" p="5" borderRadius="md" boxShadow="lg">
             <Heading color="teal.600" fontFamily="heading2" fontWeight="bold" as="h1" size="lg" my={4}>BÖLÜM 3 - Değerleme Konusu Hakkında Genel Bilgiler</Heading>
 
             <Heading mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" my={3}>3.1) Gayrimenkulün Yeri Konumu ve Tanımı</Heading>

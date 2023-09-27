@@ -1,7 +1,7 @@
 import { Box, Heading, List, ListItem, Icon, ListIcon, Image, Text } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons';
 
-const PropertyLegalInfo = ({ info }) => {
+const PropertyLegalInfo = ({ info, renderPageFooter }) => {
     const imageSrc = info.tapuData.parsel.imarResmi;
     function formatDate(dateString) {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -10,7 +10,7 @@ const PropertyLegalInfo = ({ info }) => {
 
 
     return (
-        <Box p="5" borderRadius="md" boxShadow="lg">
+        <Box minHeight="1000px" p="5" borderRadius="md" boxShadow="lg">
 
             <div style={{ pageBreakAfter: "always" }} >
                 <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h1" size="lg" mt={2}>BÖLÜM 4 - Gayrimenkulün Mülkiyet İmar ve Yasal Durumuna İlişkin Bilgiler </Heading>
@@ -93,6 +93,9 @@ const PropertyLegalInfo = ({ info }) => {
                 ) : (
                     <Text my={2}>Değerlemeye konu olan gayrimenkulün herhangi bir yasal veya imar sorunu bulunmamaktadır.</Text>
                 )}
+                <div style={{ position: "relative" }} >
+                    {renderPageFooter(5)}
+                </div>
             </div>
             <Box width="790px" maxH="1050px" height="1000px"> {/* A4 boyutu genişlik olarak 210mm ve yükseklik olarak 297mm'dir */}
                 <Heading mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" mb={6} >4.5) İmar Durumu Resmi</Heading>

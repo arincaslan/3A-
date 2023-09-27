@@ -20,11 +20,18 @@ function imageToBase64(imgUrl, callback) {
     img.src = imgUrl;
 }
 
-const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase64Upload }) => {
+const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase64Upload, renderPageFooter, setPage }) => {
     const isDataLoading = !info?.valueData?.emsalData?.emsaller;
     const barChartRef = useRef(null);
     const radarChartRef = useRef(null);
     let barData, radarData, formattedVal, formattedM2Val, formattedPropertyEstimation, maxDeger, maxRadarValue;
+    const nextPageNumber = isDataLoading ? 8 : 9;
+
+    if (isDataLoading) {
+        setPage(9);
+    }else{
+        setPage(10);
+    }
 
     useEffect(() => {
         if (barChartRef.current) {
@@ -95,8 +102,8 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
     }
 
     return (
-        <Box p="5" borderRadius="md" boxShadow="lg">
-            <Box height="900px">
+        <Box minHeight="2000px" p="5" borderRadius="md" boxShadow="lg" position="relative">
+            <Box minHeight="1000px" position="relative" paddingBottom="50px">
                 <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl">BÖLÜM 5 - Konum ve Piyasa Analizi</Heading>
                 <Text fontFamily="body" mt={4}>
                     Genel olarak Türkiye'deki gayrimenkul piyasası hakkında birkaç bilgi verelim:
@@ -126,15 +133,19 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                     Ancak kur, faiz ve zamana bağlı inişler ve çıkışlarda gözlemlenmektedir.
                     Bu, Türkiye'deki gayrimenkul piyasasının dinamik doğasını ve farklı bölgelerdeki ekonomik koşulların gayrimenkul fiyatları üzerindeki etkisini ifade eder.
                 </Text>
-                
+                <div style={{ position: "absolute", bottom: "10px", width: "100%", textAlign: "center" }} >
+                    {renderPageFooter(7)}
+                </div>
+
             </Box>
 
-            <br style={{ pageBreakAfter: "always" }}></br>
-       
-                {isDataLoading ? (
-                    <Text>Veriler yükleniyor...</Text>
-                ) : (
-                    <>
+
+
+            {isDataLoading ? (
+                <Box></Box>
+            ) : (
+                <>
+                    <Box minHeight="1000px" position="relative" paddingBottom="50px">
                         <Text fontFamily="body" mt={12}>
                             Proje, {info.projectData.location} konumunda bulunmaktadır. Bu konum, tapu bilgilerine göre {info.tapuData.location.il} / {info.tapuData.location.ilce} / {info.tapuData.location.mahalle}'de yer almaktadır. Bölgenin genel yapısı ve yerleşim koşullarına göre çevre bilgisi "{info.valueData.emsalData.cevreBilgisi}" bölgesi olarak tanımlanmıştır.
                         </Text>
@@ -149,11 +160,15 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                         </Text>
                         <Text fontFamily="body" mt={4}>1. Blok Grafikte emsallerin ve bu emsallerin değerleri görülmektedir. Bu emsallerin {new Date(info.projectData.valuationDate).toLocaleDateString()} tarihteki piyasa değerleri aşağıda belirtilmiştir.</Text>
                         <Text fontFamily="body">2. Radar grafikte, piyasa m2 başına fiyat üzerinden emsallerin değerleme projeksiyonu gösterilmektedir. Bu projeksiyonlara göre emsallerin değerlemeleri aşağıda belirtilmiştir.</Text>
-
+                        <div style={{ position: "absolute", bottom: "10px", width: "100%", textAlign: "center" }} >
+                            {renderPageFooter(8)}
+                        </div>
+                    </Box>
+                    <Box maxHeight="1000px" minHeight="1000px" position="relative" paddingBottom="50px">
                         <Flex flexDirection="column" alignItems="center" justifyContent="center">
                             <Box mt={6} width="800px" ref={barChartRef}>
                                 <Text mb={4} fontFamily="heading2" align="center" fontWeight="bold" color="primary.900">Emsal M2 ve Değer Dağılımı</Text>
-                                <BarChart width={700} height={500} data={barData}>
+                                <BarChart width={700} height={450} data={barData}>
                                     <CartesianGrid strokeDasharray="3 3" />
                                     <XAxis fontWeight="bold" dataKey="name" interval={0} angle={-45} textAnchor="end" height={80} fontSize={8} />
                                     <YAxis fontWeight="bold" width={120} tickFormatter={formatAxis} domain={[0, maxDeger]} fontSize={10} />
@@ -162,9 +177,10 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                                     <Bar dataKey="deger" fill="#82ca9d" />
                                 </BarChart>
                             </Box>
-                            <Box mt={16} maxWidth="800px" ref={radarChartRef}>
+
+                            <Box mt={8} maxWidth="800px" ref={radarChartRef}>
                                 <Text mb={4} fontFamily="heading2" align="center" fontWeight="bold" color="primary.900">Emsal M2 Başına Değer Projeksiyon Dağılımı</Text>
-                                <RadarChart cx={300} cy={250} outerRadius={150} width={600} height={500} data={radarData}>
+                                <RadarChart cx={300} cy={250} outerRadius={150} width={600} height={450} data={radarData}>
                                     <PolarGrid />
                                     <PolarAngleAxis fontWeight="bold" height={80} fontSize={10} dataKey="subject" />
                                     <PolarRadiusAxis angle={150} domain={[0, maxRadarValue]} tickFormatter={formatAxis} />
@@ -172,9 +188,15 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                                 </RadarChart>
                             </Box>
                         </Flex>
+                        <div style={{ position: "absolute", bottom: "10px", width: "100%", textAlign: "center" }} >
+                            {renderPageFooter(nextPageNumber)}
+                        </div>
 
-                    </>
-                )}
+                    </Box>
+
+                </>
+            )}
+            <br style={{ pageBreakAfter: "always" }}></br>
         </Box>
     );
 }

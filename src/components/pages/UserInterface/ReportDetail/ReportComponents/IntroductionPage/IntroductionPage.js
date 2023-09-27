@@ -12,6 +12,7 @@ function IntroductionPage({ info }) {
             padding={6}
             borderRadius="lg"
             boxShadow="lg"
+            minHeight="1000px"
         >
             <Text
             mt="20px"

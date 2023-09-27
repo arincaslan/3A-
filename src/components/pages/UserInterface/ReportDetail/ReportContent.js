@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box } from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Box, Text } from '@chakra-ui/react';
 import ReportInfo from './ReportComponents/ReportInfo/ReportInfo';
 import CompanyInfo from './ReportComponents/CompanyInfo/CompanyInfo';
 import PropertyDetail from './ReportComponents/PopertyDetail/PropertyDetail';
@@ -16,40 +16,61 @@ import TableOfContents from './ReportComponents/TableOfContents/TableOfContents'
 
 
 const ReportContent = ({ report, profileData, sectionRefs, onBarImageUpdate, onRadarImageUpdate, onBase64Upload }) => {
+    const [currentPage, setCurrentPage] = useState();
+    const renderPageFooter = (pageNumber) => {
+        return (
+          <div style={{ position: "absolute", right: "10px", bottom: "10px" }}>
+            <Text>{pageNumber}</Text>
+          </div>
+        );
+      };
+      const setPage = (page) => {
+        setCurrentPage(page);
+      }
+
+
     return (
         <Box width="210mm"
             minHeight="297mm"
             boxShadow="0px 0px 8px rgba(0,0,0,0.5)"
             border="0px 1px 1px 1px solid #ccc"
             padding="5px" >
-            <div ref={sectionRefs[0].ref} style={{  pageBreakAfter: "always" }}>
+            <div style={{ pageBreakAfter: "always" }}>
                 <CoverPage info={report} profileInfo={profileData} />
             </div>
             <div style={{ pageBreakAfter: "always" }}>
                 <TableOfContents ref={sectionRefs[1].ref} refs={sectionRefs} />
             </div>
 
-            <div style={{ marginBottom: "30px", pageBreakAfter: "always" }} ref={sectionRefs[2].ref}>
+            <div style={{ position: "relative", marginBottom: "30px", pageBreakAfter: "always" }} ref={sectionRefs[2].ref}>
                 <IntroductionPage info={report} />
+                {renderPageFooter(1)}
             </div>
-            <div style={{ marginBottom: "30px", pageBreakAfter: "always"  }} ref={sectionRefs[3].ref}>
+
+            <div style={{ position: "relative", marginBottom: "30px", pageBreakAfter: "always" }} ref={sectionRefs[3].ref}>
                 <ReportInfo info={report} profileInfo={profileData} />
+                {renderPageFooter(2)}
             </div>
-            <div style={{ marginBottom: "30px",  pageBreakAfter: "always" }} ref={sectionRefs[4].ref}>
+            <div style={{position: "relative", marginBottom: "30px", pageBreakAfter: "always" }} ref={sectionRefs[4].ref}>
                 <CompanyInfo info={report} profileInfo={profileData} />
+                {renderPageFooter(3)}
             </div>
-            <div style={{ marginBottom: "30px",  pageBreakAfter: "always"  }} ref={sectionRefs[5].ref}>
+            <div style={{position: "relative", marginBottom: "30px", pageBreakAfter: "always" }} ref={sectionRefs[5].ref}>
                 <PropertyDetail info={report} />
+                {renderPageFooter(4)}
             </div>
-            <div style={{ marginBottom: "30px" }} ref={sectionRefs[6].ref}>
-                <PropertyLegalInfo info={report} />
+            <div style={{position: "relative", marginBottom: "30px" }} ref={sectionRefs[6].ref}>
+                <PropertyLegalInfo renderPageFooter={renderPageFooter} info={report} />
+                {renderPageFooter(6)}
             </div>
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[7].ref}>
-                <LocationMarketInfo onBase64Upload={onBase64Upload} onBarImageUpdate={onBarImageUpdate}
+                <LocationMarketInfo setPage={setPage} renderPageFooter={renderPageFooter} onBase64Upload={onBase64Upload} onBarImageUpdate={onBarImageUpdate}
                     onRadarImageUpdate={onRadarImageUpdate} info={report} />
+                    
             </div>
-            <div style={{ marginBottom: "30px" }} ref={sectionRefs[8].ref}>
+            <div style={{position: "relative", marginBottom: "30px" }} ref={sectionRefs[8].ref}>
                 <PropertyPhysicalInfo info={report} />
+                {renderPageFooter(currentPage)}
             </div>
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[9].ref}>
                 <SWOTAnalysis info={report} />
