@@ -12,7 +12,7 @@ const PropertyLegalInfo = ({ info, renderPageFooter }) => {
     return (
         <Box minHeight="1000px" p="5" borderRadius="md" boxShadow="lg">
 
-            <div style={{ pageBreakAfter: "always" }} >
+            <div style={{ pageBreakAfter: "always" , paddingBottom: "50px", position:"relative" }} >
                 <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h1" size="lg" mt={2}>BÖLÜM 4 - Gayrimenkulün Mülkiyet İmar ve Yasal Durumuna İlişkin Bilgiler </Heading>
 
                 <Heading mb={4} mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" >4.1) Gayrimenkulün Mülkiyet Bilgileri</Heading>
@@ -44,7 +44,7 @@ const PropertyLegalInfo = ({ info, renderPageFooter }) => {
 
                 </List>
                 <Heading mb={4} mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" >4.2) Gayrimenkulün İmar Bilgileri</Heading>
-                <List spacing={4}>
+                <List spacing={3}>
                     <ListItem display="flex" alignItems="center">
                         <ListIcon as={CheckCircleIcon} color="green.500" />
                         <Text my={2}>Parsel Niteliği: {info.tapuData.parsel.nitelik}</Text>
@@ -69,7 +69,7 @@ const PropertyLegalInfo = ({ info, renderPageFooter }) => {
 
                 </List>
                 <Heading mb={4} mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" >4.3) Gayrimenkulün Yasal Durumu</Heading>
-                <List spacing={4}>
+                <List spacing={3}>
                     <ListItem display="flex" alignItems="center">
                         <ListIcon as={CheckCircleIcon} color="green.500" />
                         <Text my={2}>Tapu Tarihi: {formatDate(info.tapuData.deed.tapuTarihi)}</Text>
@@ -93,7 +93,7 @@ const PropertyLegalInfo = ({ info, renderPageFooter }) => {
                 ) : (
                     <Text my={2}>Değerlemeye konu olan gayrimenkulün herhangi bir yasal veya imar sorunu bulunmamaktadır.</Text>
                 )}
-                <div style={{ position: "relative" }} >
+                <div style={{position: "absolute", bottom: "10px", width: "100%", textAlign: "center" }} >
                     {renderPageFooter(5)}
                 </div>
             </div>

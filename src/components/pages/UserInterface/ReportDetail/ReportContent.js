@@ -42,24 +42,24 @@ const ReportContent = ({ report, profileData, sectionRefs, onBarImageUpdate, onR
                 <TableOfContents ref={sectionRefs[1].ref} refs={sectionRefs} />
             </div>
 
-            <div style={{ position: "relative", marginBottom: "30px", pageBreakAfter: "always" }} ref={sectionRefs[2].ref}>
+            <div style={{ position: "relative", pageBreakAfter: "always" }} ref={sectionRefs[2].ref}>
                 <IntroductionPage info={report} />
                 {renderPageFooter(1)}
             </div>
 
-            <div style={{ position: "relative", marginBottom: "30px", pageBreakAfter: "always" }} ref={sectionRefs[3].ref}>
+            <div style={{ position: "relative", pageBreakAfter: "always" }} ref={sectionRefs[3].ref}>
                 <ReportInfo info={report} profileInfo={profileData} />
                 {renderPageFooter(2)}
             </div>
-            <div style={{position: "relative", marginBottom: "30px", pageBreakAfter: "always" }} ref={sectionRefs[4].ref}>
+            <div style={{position: "relative", pageBreakAfter: "always" }} ref={sectionRefs[4].ref}>
                 <CompanyInfo info={report} profileInfo={profileData} />
                 {renderPageFooter(3)}
             </div>
-            <div style={{position: "relative", marginBottom: "30px", pageBreakAfter: "always" }} ref={sectionRefs[5].ref}>
+            <div style={{position: "relative", pageBreakAfter: "always" }} ref={sectionRefs[5].ref}>
                 <PropertyDetail info={report} />
                 {renderPageFooter(4)}
             </div>
-            <div style={{position: "relative", marginBottom: "30px" }} ref={sectionRefs[6].ref}>
+            <div style={{position: "relative" }} ref={sectionRefs[6].ref}>
                 <PropertyLegalInfo renderPageFooter={renderPageFooter} info={report} />
                 {renderPageFooter(6)}
             </div>
@@ -68,12 +68,12 @@ const ReportContent = ({ report, profileData, sectionRefs, onBarImageUpdate, onR
                     onRadarImageUpdate={onRadarImageUpdate} info={report} />
                     
             </div>
-            <div style={{position: "relative", marginBottom: "30px" }} ref={sectionRefs[8].ref}>
-                <PropertyPhysicalInfo info={report} />
-                {renderPageFooter(currentPage)}
+            <div style={{position: "relative" }} ref={sectionRefs[8].ref}>
+                <PropertyPhysicalInfo renderPageFooter={renderPageFooter} currentPage={currentPage} info={report} />
+                {renderPageFooter(currentPage+1)}
             </div>
-            <div style={{ marginBottom: "30px" }} ref={sectionRefs[9].ref}>
-                <SWOTAnalysis info={report} />
+            <div style={{ pageBreakAfter:"always" }} ref={sectionRefs[9].ref}>
+                <SWOTAnalysis currentPage={currentPage} renderPageFooter={renderPageFooter} info={report} />
             </div>
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[10].ref}>
                 <ValuationMethodology info={report} />

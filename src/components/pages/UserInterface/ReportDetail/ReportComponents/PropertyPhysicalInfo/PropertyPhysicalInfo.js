@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Heading, Text, Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
 
-const PropertyPhysicalInfo = ({ info }) => {
+const PropertyPhysicalInfo = ({ info, currentPage, renderPageFooter }) => {
   let yerelZeminSinifiAciklama;
   let zeminGrubuAciklama;
   let zeminFormasyonCinsiAciklama;
@@ -62,77 +62,87 @@ const PropertyPhysicalInfo = ({ info }) => {
     zeminGrubuAciklama = 'Bu grup, zeminin performansını ifade eder';
   }
   return (
-    <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p="6">
-      <Heading fontWeight="bold" as="h2" size="xl">6. Bölüm - Gayrimenkul Fiziksel Bilgileri / Yapı ve Arazi Bilgileri</Heading>
-      <Text mt={4}>Adres: {info.tapuData.location.il} / {info.tapuData.location.ilce} / {info.tapuData.location.mahalle}</Text>
-      <Text mt={4}>Arazi Alanı: {info.tapuData.parsel.yuzolcumu} m². Bu alan, arsanın toplam metre kare cinsinden büyüklüğünü ifade eder.</Text>
+    <Box minxHeight="2000px" p="5" borderRadius="md" boxShadow="lg" position="relative">
 
-      <Heading fontWeight="bold" as="h3" size="lg" mt={6}>Zemin Bilgileri</Heading>
-      <Text mt={4}>Aşağıdaki tabloda verilen veriler aracılığıyla detaylı bir zemin analizi yapılmıştır. Her bir değer ve kıstas, zeminin farklı özelliklerini temsil eder ve bir arada değerlendirildiğinde zeminin genel durumunu ve yapı inşa etme potansiyelini anlaşılmasına yardımcı olur.</Text>
-      <Table variant="striped" borderWidth="1px" borderColor="gray.500" my={4}>
-        <Thead>
-          <Tr>
-            <Th borderColor="black" borderWidth="1px" bg="gray.200">Veri</Th>
-            <Th borderColor="black" borderWidth="1px" bg="gray.200">Değer</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          <Tr>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">Bina Önem Katsayısı</Td>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">{info.zeminData.binaOnemKatsayisi}</Td>
-          </Tr>
-          <Tr>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">Etkin Yer İvme Katsayısı</Td>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">{info.zeminData.etkinYerIvmeKatsayisi}</Td>
-          </Tr>
-          <Tr>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">Yerel Zemin Sınıfı</Td>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">{info.zeminData.yerelZeminSinifi}</Td>
-          </Tr>
-          <Tr>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">Zemin Deprem Bölge Derecesi</Td>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">{info.zeminData.zeminDepremBolgeDerecesi}</Td>
-          </Tr>
-          <Tr>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">Zemin Emniyet Gerilmesi</Td>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">{info.zeminData.zeminEmniyetGerilmesi}</Td>
-          </Tr>
-          <Tr>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">Zemin Formasyon Cinsi</Td>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">{info.zeminData.zeminFormasyonCinsi}</Td>
-          </Tr>
-          <Tr>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">Zemin Grubu</Td>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">{info.zeminData.zeminGrubu}</Td>
-          </Tr>
-          <Tr>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">Zemin Hakim Titreşim Periyodu</Td>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">{info.zeminData.zeminHakimTitresimPeriyodu}</Td>
-          </Tr>
-          <Tr>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">Zemin Karakteristik Periyot TA</Td>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">{info.zeminData.zeminKarakteristikPeriyotTA}</Td>
-          </Tr>
-          <Tr>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">Zemin Karakteristik Periyot TB</Td>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">{info.zeminData.zeminKarakteristikPeriyotTB}</Td>
-          </Tr>
-          <Tr>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">Zemin Yatak Katsayısı</Td>
-            <Td borderColor="black" borderWidth="1px" bg="gray.200">{info.zeminData.zeminYatakKatsayisi}</Td>
-          </Tr>
-        </Tbody>
-      </Table>
-      <Heading fontWeight="bold" as="h3" size="lg" mt={6}>Zemin Bilgileri</Heading>
+      <Box paddingBottom="50px" position="relative" minHeight="1000px" >
+        <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl">BÖLÜM 6 - Gayrimenkul Fiziksel Bilgileri / Yapı ve Arazi Bilgileri</Heading>
+        <Text fontFamily="body" mt={4} lineHeight="tall">Adres: {info.tapuData.location.il} / {info.tapuData.location.ilce} / {info.tapuData.location.mahalle}</Text>
+        <Text fontFamily="body" mt={4} lineHeight="tall">Arazi Alanı: {info.tapuData.parsel.yuzolcumu} m². Bu alan, arsanın toplam metre kare cinsinden büyüklüğünü ifade eder.</Text>
+        <Heading fontFamily="heading" color="secondary.700" fontWeight="bold" as="h3" size="lg" mt={6}>Zemin Bilgileri</Heading>
+        <Text mt={4}>Aşağıdaki tabloda verilen veriler aracılığıyla detaylı bir zemin analizi yapılmıştır. Her bir değer ve kıstas, zeminin farklı özelliklerini temsil eder ve bir arada değerlendirildiğinde zeminin genel durumunu ve yapı inşa etme potansiyelini anlaşılmasına yardımcı olur.</Text>
+        <Table variant="simple" size="md" borderWidth="1px" borderColor="gray.300" my={4}>
+          <Thead>
+            <Tr>
+              <Th borderColor="gray.300" borderWidth="1px" fontFamily="heading2">Veri</Th>
+              <Th borderColor="gray.300" borderWidth="1px" fontFamily="heading2">Değer</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            <Tr>
+              <Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" bg="gray.50">Bina Önem Katsayısı</Td>
+              <Td Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" color="secondary.700">{info.zeminData.binaOnemKatsayisi}</Td>
+            </Tr>
+            <Tr>
+              <Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" bg="gray.50">Etkin Yer İvme Katsayısı</Td>
+              <Td Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" color="secondary.700">{info.zeminData.etkinYerIvmeKatsayisi}</Td>
+            </Tr>
+            <Tr>
+              <Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" bg="gray.50">Yerel Zemin Sınıfı</Td>
+              <Td Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" color="secondary.700">{info.zeminData.yerelZeminSinifi}</Td>
+            </Tr>
+            <Tr>
+              <Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" bg="gray.50">Zemin Deprem Bölge Derecesi</Td>
+              <Td Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" color="secondary.700">{info.zeminData.zeminDepremBolgeDerecesi}</Td>
+            </Tr>
+            <Tr>
+              <Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" bg="gray.50">Zemin Emniyet Gerilmesi</Td>
+              <Td Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" color="secondary.700">{info.zeminData.zeminEmniyetGerilmesi}</Td>
+            </Tr>
+            <Tr>
+              <Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" bg="gray.50">Zemin Formasyon Cinsi</Td>
+              <Td Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" color="secondary.700">{info.zeminData.zeminFormasyonCinsi}</Td>
+            </Tr>
+            <Tr>
+              <Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" bg="gray.50">Zemin Grubu</Td>
+              <Td Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" color="secondary.700">{info.zeminData.zeminGrubu}</Td>
+            </Tr>
+            <Tr>
+              <Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" bg="gray.50">Zemin Hakim Titreşim Periyodu</Td>
+              <Td Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" color="secondary.700">{info.zeminData.zeminHakimTitresimPeriyodu}</Td>
+            </Tr>
+            <Tr>
+              <Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" bg="gray.50">Zemin Karakteristik Periyot TA</Td>
+              <Td Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" color="secondary.700">{info.zeminData.zeminKarakteristikPeriyotTA}</Td>
+            </Tr>
+            <Tr>
+              <Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" bg="gray.50">Zemin Karakteristik Periyot TB</Td>
+              <Td Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" color="secondary.700">{info.zeminData.zeminKarakteristikPeriyotTB}</Td>
+            </Tr>
+            <Tr>
+              <Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" bg="gray.50">Zemin Yatak Katsayısı</Td>
+              <Td Td borderColor="gray.300" borderWidth="1px" fontFamily="body2" color="secondary.700">{info.zeminData.zeminYatakKatsayisi}</Td>
+            </Tr>
+          </Tbody>
+        </Table>
+
+      
+          {renderPageFooter(currentPage)}
+      
+      </Box>
+      <br style={{ pageBreakAfter: "always" }}></br>
+      <Box paddingBottom="50px" minHeight="1000px">
       <Text mt={4}>
         Bir binanın güvenli ve dayanıklı olmasını sağlamak için zemin bilgileri büyük önem taşır. Değerlenen binanın önem katsayısı {info.zeminData.binaOnemKatsayisi} çıkmıştır. Binanın Önem katsayısı binanın kullanım amacına göre değişir ve yapıyı destekleyen zeminin önem derecesini belirler. Zeminin deprem sırasında hareketine ne kadar direnç gösterebileceğini belirleyen bir unsur etkin yer ivme katsayısıdır. Değerlenen gayrimenkul için bu katsayı {info.zeminData.etkinYerIvmeKatsayisi} olarak belirlenmiştir, bu değişken zeminin genel yapısına ve sismik aktiviteye olan direncine bağlıdır.
-        Yerel zemin sınıfı, {info.zeminData.yerelZeminSinifi} olarak belirlenmiştir. {yerelZeminSinifiAciklama}. Zeminin deprem bölge derecesi {info.zeminData.zeminDepremBolgeDerecesi} olarak belirlenmiştir. {zeminDepremBolgeDerecesiAciklama}. 
-        Zeminin emniyet gerilmesi {info.zeminData.zeminEmniyetGerilmesi} olarak tespit edilmiştir. Bu değer zeminin ne kadar güvenli olduğunu belirler. 
-        Zemin formasyon cinsi {info.zeminData.zeminFormasyonCinsi} olarak belirlenmiştir. {zeminFormasyonCinsiAciklama}. Zemin grubu ise {info.zeminData.zeminGrubu} olarak saptanmıştır. {zeminGrubuAciklama}. 
-        Zeminin hakim titreşim periyodu {info.zeminData.zeminHakimTitresimPeriyodu} olarak bulunmuştur. Bu değer, zeminin hangi periyotta titreşim göstereceğini belirler. 
-        Zeminin karakteristik periyotları TA ve TB {info.zeminData.zeminKarakteristikPeriyotTA} ve {info.zeminData.zeminKarakteristikPeriyotTB} olarak belirlenmiştir. Bu değerler, zeminin belirli periyotlardaki hareketlerini belirler. 
+        Yerel zemin sınıfı, {info.zeminData.yerelZeminSinifi} olarak belirlenmiştir. {yerelZeminSinifiAciklama}. Zeminin deprem bölge derecesi {info.zeminData.zeminDepremBolgeDerecesi} olarak belirlenmiştir. {zeminDepremBolgeDerecesiAciklama}.
+        Zeminin emniyet gerilmesi {info.zeminData.zeminEmniyetGerilmesi} olarak tespit edilmiştir. Bu değer zeminin ne kadar güvenli olduğunu belirler.
+        Zemin formasyon cinsi {info.zeminData.zeminFormasyonCinsi} olarak belirlenmiştir. {zeminFormasyonCinsiAciklama}. Zemin grubu ise {info.zeminData.zeminGrubu} olarak saptanmıştır. {zeminGrubuAciklama}.
+        Zeminin hakim titreşim periyodu {info.zeminData.zeminHakimTitresimPeriyodu} olarak bulunmuştur. Bu değer, zeminin hangi periyotta titreşim göstereceğini belirler.
+        Zeminin karakteristik periyotları TA ve TB {info.zeminData.zeminKarakteristikPeriyotTA} ve {info.zeminData.zeminKarakteristikPeriyotTB} olarak belirlenmiştir. Bu değerler, zeminin belirli periyotlardaki hareketlerini belirler.
         Zeminin yatak katsayısı {info.zeminData.zeminYatakKatsayisi} olarak belirlenmiştir. Bu katsayı, zeminin deprem sırasında ne kadar stabil kalabileceğini belirler.
       </Text>
+      </Box>
+      
+
     </Box>
   );
 }

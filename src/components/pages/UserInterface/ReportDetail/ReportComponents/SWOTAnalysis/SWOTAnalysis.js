@@ -1,52 +1,52 @@
 import React from 'react';
 import { Box, Table, Thead, Tbody, Tr, Th, Td, TableCaption, Heading, Flex, Text } from '@chakra-ui/react';
 
-function SWOTAnalysis({ info }) {
+function SWOTAnalysis({ info, currentPage, renderPageFooter }) {
     const cevreBilgisi = info.valueData.emsalData.cevreBilgisi;
     const nitelik = info.tapuData.parsel.nitelik;
     const faktorler = info.valueData?.maaliyetData?.yeniden?.faktorler;
 
-let swotDataFaktorler = {
-    strengths: [],
-    weaknesses: [],
-    opportunities: [],
-    threats: []
-};
+    let swotDataFaktorler = {
+        strengths: [],
+        weaknesses: [],
+        opportunities: [],
+        threats: []
+    };
 
-if (faktorler) {
-    if (faktorler.bakimDurumu >= 4) {
-        swotDataFaktorler.strengths.push('Yüksek bakım durumu');
-    } else if (faktorler.bakimDurumu <= 2) {
-        swotDataFaktorler.weaknesses.push('Düşük bakım durumu');
+    if (faktorler) {
+        if (faktorler.bakimDurumu >= 4) {
+            swotDataFaktorler.strengths.push('Yüksek bakım durumu');
+        } else if (faktorler.bakimDurumu <= 2) {
+            swotDataFaktorler.weaknesses.push('Düşük bakım durumu');
+        }
+
+        if (faktorler.insaatKalitesi >= 4) {
+            swotDataFaktorler.strengths.push('Yüksek inşaat kalitesi');
+        } else if (faktorler.insaatKalitesi <= 2) {
+            swotDataFaktorler.weaknesses.push('Düşük inşaat kalitesi');
+        }
+
+        if (faktorler.konum >= 4) {
+            swotDataFaktorler.opportunities.push('İyi konum');
+        } else if (faktorler.konum <= 2) {
+            swotDataFaktorler.threats.push('Kötü konum');
+        }
+
+        if (faktorler.malzemeKalitesi >= 4) {
+            swotDataFaktorler.opportunities.push('Yüksek malzeme kalitesi');
+        } else if (faktorler.malzemeKalitesi <= 2) {
+            swotDataFaktorler.threats.push('Düşük malzeme kalitesi');
+        }
+
+        if (faktorler.yas >= 4) {
+            swotDataFaktorler.strengths.push('Yeni bina yaşı');
+        } else if (faktorler.yas <= 2) {
+            swotDataFaktorler.weaknesses.push('Eski bina yaşı');
+        }
     }
 
-    if (faktorler.insaatKalitesi >= 4) {
-        swotDataFaktorler.strengths.push('Yüksek inşaat kalitesi');
-    } else if (faktorler.insaatKalitesi <= 2) {
-        swotDataFaktorler.weaknesses.push('Düşük inşaat kalitesi');
-    }
-
-    if (faktorler.konum >= 4) {
-        swotDataFaktorler.opportunities.push('İyi konum');
-    } else if (faktorler.konum <= 2) {
-        swotDataFaktorler.threats.push('Kötü konum');
-    }
-
-    if (faktorler.malzemeKalitesi >= 4) {
-        swotDataFaktorler.opportunities.push('Yüksek malzeme kalitesi');
-    } else if (faktorler.malzemeKalitesi <= 2) {
-        swotDataFaktorler.threats.push('Düşük malzeme kalitesi');
-    }
-
-    if (faktorler.yas >= 4) {
-        swotDataFaktorler.strengths.push('Yeni bina yaşı');
-    } else if (faktorler.yas <= 2) {
-        swotDataFaktorler.weaknesses.push('Eski bina yaşı');
-    }
-}
 
 
-    
 
     let swotDataCevre;
     // Çevre bilgisine göre SWOT analizi
@@ -114,52 +114,60 @@ if (faktorler) {
         opportunities: [...(swotDataCevre?.opportunities || []), ...(swotDataNitelik?.opportunities || []), ...(swotDataFaktorler.opportunities || [])],
         threats: [...(swotDataCevre?.threats || []), ...(swotDataNitelik?.threats || []), ...(swotDataFaktorler.threats || [])],
     };
-    
+
 
     return (
-        <Flex direction="column" align="center" justify="center">
-            <Heading as="h3" fontWeight="bold" size="lg" mb={4}>7. Bölüm - SWOT Analizi</Heading>
-            <Text mb={4}>SWOT analizi, bir durumun iç ve dış çevresini değerlendirmek için kullanılan bir stratejik planlama aracıdır. SWOT, Strengths (Güçlü Yönler), Weaknesses (Zayıf Yönler), Opportunities (Fırsatlar) ve Threats (Tehditler) kelimelerinin baş harflerinden oluşur.
+        <Box paddingBottom="50px" minHeight="1000px" p="5" borderRadius="md" boxShadow="lg" position="relative">
+          
+            <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl">BÖLÜM 7 - SWOT Analizi</Heading>
+            <Flex direction="column" align="center" justify="center">
 
-                Güçlü Yönler (Strengths): Bir organizasyonun iç çevresindeki pozitif unsurları, yetenekleri ve kaynakları temsil eder. Bu, organizasyonun kontrolü altında olan ve performansını iyileştirmek için kullanılabilecek faktörlerdir.
+                <Text fontFamily="body" mt={4} mb={4}>SWOT analizi, bir durumun iç ve dış çevresini değerlendirmek için kullanılan bir stratejik planlama aracıdır. SWOT, Strengths (Güçlü Yönler), Weaknesses (Zayıf Yönler), Opportunities (Fırsatlar) ve Threats (Tehditler) kelimelerinin baş harflerinden oluşur.
 
-                Zayıf Yönler (Weaknesses): Organizasyonun iç çevresindeki olumsuz unsurları, eksiklikleri ve alanları temsil eder. Bu, organizasyonun kontrolü altında olan ve performansını düşürebilecek veya rekabet avantajını sınırlayabilecek faktörlerdir.
+                    Güçlü Yönler (Strengths): Bir organizasyonun iç çevresindeki pozitif unsurları, yetenekleri ve kaynakları temsil eder. Bu, organizasyonun kontrolü altında olan ve performansını iyileştirmek için kullanılabilecek faktörlerdir.
 
-                Fırsatlar (Opportunities): Organizasyonun dış çevresinde bulunan ve işin büyümesini, gelirini ve/veya verimliliğini artırabilecek potansiyel faktörleri temsil eder.
+                    Zayıf Yönler (Weaknesses): Organizasyonun iç çevresindeki olumsuz unsurları, eksiklikleri ve alanları temsil eder. Bu, organizasyonun kontrolü altında olan ve performansını düşürebilecek veya rekabet avantajını sınırlayabilecek faktörlerdir.
 
-                Tehditler (Threats): Organizasyonun dış çevresinde bulunan ve işin büyümesini, gelirini ve/veya verimliliğini olumsuz yönde etkileyebilecek potansiyel faktörleri temsil eder.
+                    Fırsatlar (Opportunities): Organizasyonun dış çevresinde bulunan ve işin büyümesini, gelirini ve/veya verimliliğini artırabilecek potansiyel faktörleri temsil eder.
 
-                SWOT analizi, bir organizasyonun durum analizini yapmak ve gelecekteki stratejileri planlamak için kullanılır. Bu analiz, bir işletmenin mevcut durumunu, rekabet avantajlarını ve potansiyel büyüme alanlarını belirlemeye yardımcı olur.</Text>
-            <Text mb={4}>
-                Aşağıda çevre bilgisi ve nitelik değerlerine dayalı olarak oluşturulan SWOT analizi tablosu yer almaktadır.
-            </Text>
-            <Box>
-                <Table variant="striped" colorScheme="teal">
-                    <Thead>
-                        <Tr>
-                            <Th borderWidth="1px" borderColor="gray.200">Avantajlar</Th>
-                            <Th borderWidth="1px" borderColor="gray.200">Zayıflıklar</Th>
-                            <Th borderWidth="1px" borderColor="gray.200">Fırsatlar</Th>
-                            <Th borderWidth="1px" borderColor="gray.200">Tehditler</Th>
-                        </Tr>
-                    </Thead>
-                    <Tbody>
-                        <Tr>
-                            <Td borderWidth="1px" borderColor="gray.200">{swotData.strengths.join(', ')}</Td>
-                            <Td borderWidth="1px" borderColor="gray.200">{swotData.weaknesses.join(', ')}</Td>
-                            <Td borderWidth="1px" borderColor="gray.200">{swotData.opportunities.join(', ')}</Td>
-                            <Td borderWidth="1px" borderColor="gray.200">{swotData.threats.join(', ')}</Td>
-                        </Tr>
-                    </Tbody>
-                </Table>
-            </Box>
-            <Text mt={4}>
-                Bu tabloda belirtilen güçlü yönler şunlardır: {swotData.strengths.join(', ')}.
-                Zayıf yönler: {swotData.weaknesses.join(', ')}.
-                Fırsatlar: {swotData.opportunities.join(', ')}.
-                Tehditler: {swotData.threats.join(', ')}.
-            </Text>
-        </Flex>
+                    Tehditler (Threats): Organizasyonun dış çevresinde bulunan ve işin büyümesini, gelirini ve/veya verimliliğini olumsuz yönde etkileyebilecek potansiyel faktörleri temsil eder.
+
+                    SWOT analizi, bir organizasyonun durum analizini yapmak ve gelecekteki stratejileri planlamak için kullanılır. Bu analiz, bir işletmenin mevcut durumunu, rekabet avantajlarını ve potansiyel büyüme alanlarını belirlemeye yardımcı olur.</Text>
+                <Text mb={4}>
+                    Aşağıda çevre bilgisi ve nitelik değerlerine dayalı olarak oluşturulan SWOT analizi tablosu yer almaktadır.
+                </Text>
+                <Box>
+                    <Table variant="simple" bgColor="primary.100" borderRadius="md" overflow="hidden">
+                        <Thead>
+                            <Tr bgColor="primary.700">
+                                <Th borderWidth="1px" borderColor="primary.900" color="primary.100" fontFamily="heading1">Avantajlar</Th>
+                                <Th borderWidth="1px" borderColor="primary.900" color="primary.100" fontFamily="heading1">Zayıflıklar</Th>
+                                <Th borderWidth="1px" borderColor="primary.900" color="primary.100" fontFamily="heading1">Fırsatlar</Th>
+                                <Th borderWidth="1px" borderColor="primary.900" color="primary.100" fontFamily="heading1">Tehditler</Th>
+                            </Tr>
+                        </Thead>
+                        <Tbody>
+                            <Tr>
+                                <Td fontSize="12px" borderWidth="1px" borderColor="primary.900" color="secondary.800" fontFamily="body2">{swotData.strengths.join(', ')}</Td>
+                                <Td fontSize="12px" borderWidth="1px" borderColor="primary.900" color="secondary.800" fontFamily="body2">{swotData.weaknesses.join(', ')}</Td>
+                                <Td fontSize="12px" borderWidth="1px" borderColor="primary.900" color="secondary.800" fontFamily="body2">{swotData.opportunities.join(', ')}</Td>
+                                <Td fontSize="12px" borderWidth="1px" borderColor="primary.900" color="secondary.800" fontFamily="body2">{swotData.threats.join(', ')}</Td>
+                            </Tr>
+                        </Tbody>
+                    </Table>
+
+                </Box>
+                <Text fontFamily="body" mb={4} mt={4}>
+                    Bu tabloda belirtilen güçlü yönler şunlardır: {swotData.strengths.join(', ')}.
+                    Zayıf yönler: {swotData.weaknesses.join(', ')}.
+                    Fırsatlar: {swotData.opportunities.join(', ')}.
+                    Tehditler: {swotData.threats.join(', ')}.
+                </Text>
+            </Flex>
+
+                {renderPageFooter(currentPage + 2)}
+           
+        </Box>
     );
 }
 

@@ -164,7 +164,7 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                             {renderPageFooter(8)}
                         </div>
                     </Box>
-                    <Box maxHeight="1000px" minHeight="1000px" position="relative" paddingBottom="50px">
+                    <Box marginTop="30px" maxHeight="1000px" minHeight="1000px" position="relative" >
                         <Flex flexDirection="column" alignItems="center" justifyContent="center">
                             <Box mt={6} width="800px" ref={barChartRef}>
                                 <Text mb={4} fontFamily="heading2" align="center" fontWeight="bold" color="primary.900">Emsal M2 ve Değer Dağılımı</Text>
@@ -196,7 +196,7 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
 
                 </>
             )}
-            <br style={{ pageBreakAfter: "always" }}></br>
+           
         </Box>
     );
 }
