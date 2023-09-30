@@ -93,9 +93,9 @@ const PropertyLegalInfo = ({ info, renderPageFooter }) => {
                 ) : (
                     <Text my={2}>Değerlemeye konu olan gayrimenkulün herhangi bir yasal veya imar sorunu bulunmamaktadır.</Text>
                 )}
-                <div style={{position: "absolute", bottom: "10px", width: "100%", textAlign: "center" }} >
+                
                     {renderPageFooter(5)}
-                </div>
+              
             </div>
             <Box width="790px" maxH="1050px" height="1000px"> {/* A4 boyutu genişlik olarak 210mm ve yükseklik olarak 297mm'dir */}
                 <Heading mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" mb={6} >4.5) İmar Durumu Resmi</Heading>

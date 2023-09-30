@@ -102,7 +102,7 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
     }
 
     return (
-        <Box minHeight="2000px" p="5" borderRadius="md" boxShadow="lg" position="relative">
+        <Box p="5" borderRadius="md" boxShadow="lg" position="relative">
             <Box minHeight="1000px" position="relative" paddingBottom="50px">
                 <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl">BÖLÜM 5 - Konum ve Piyasa Analizi</Heading>
                 <Text fontFamily="body" mt={4}>
@@ -133,9 +133,9 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                     Ancak kur, faiz ve zamana bağlı inişler ve çıkışlarda gözlemlenmektedir.
                     Bu, Türkiye'deki gayrimenkul piyasasının dinamik doğasını ve farklı bölgelerdeki ekonomik koşulların gayrimenkul fiyatları üzerindeki etkisini ifade eder.
                 </Text>
-                <div style={{ position: "absolute", bottom: "10px", width: "100%", textAlign: "center" }} >
+            
                     {renderPageFooter(7)}
-                </div>
+             
 
             </Box>
 
@@ -160,9 +160,9 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                         </Text>
                         <Text fontFamily="body" mt={4}>1. Blok Grafikte emsallerin ve bu emsallerin değerleri görülmektedir. Bu emsallerin {new Date(info.projectData.valuationDate).toLocaleDateString()} tarihteki piyasa değerleri aşağıda belirtilmiştir.</Text>
                         <Text fontFamily="body">2. Radar grafikte, piyasa m2 başına fiyat üzerinden emsallerin değerleme projeksiyonu gösterilmektedir. Bu projeksiyonlara göre emsallerin değerlemeleri aşağıda belirtilmiştir.</Text>
-                        <div style={{ position: "absolute", bottom: "10px", width: "100%", textAlign: "center" }} >
+                
                             {renderPageFooter(8)}
-                        </div>
+                   
                     </Box>
                     <Box marginTop="30px" maxHeight="1000px" minHeight="1000px" position="relative" >
                         <Flex flexDirection="column" alignItems="center" justifyContent="center">
@@ -179,7 +179,7 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                             </Box>
 
                             <Box mt={8} maxWidth="800px" ref={radarChartRef}>
-                                <Text mb={4} fontFamily="heading2" align="center" fontWeight="bold" color="primary.900">Emsal M2 Başına Değer Projeksiyon Dağılımı</Text>
+                                <Text  fontFamily="heading2" align="center" fontWeight="bold" color="primary.900">Emsal M2 Başına Değer Projeksiyon Dağılımı</Text>
                                 <RadarChart cx={300} cy={250} outerRadius={150} width={600} height={450} data={radarData}>
                                     <PolarGrid />
                                     <PolarAngleAxis fontWeight="bold" height={80} fontSize={10} dataKey="subject" />
@@ -188,9 +188,9 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                                 </RadarChart>
                             </Box>
                         </Flex>
-                        <div style={{ position: "absolute", bottom: "10px", width: "100%", textAlign: "center" }} >
+                   
                             {renderPageFooter(nextPageNumber)}
-                        </div>
+                     
 
                     </Box>
 
