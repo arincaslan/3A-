@@ -18,7 +18,13 @@ import TableOfContents from './ReportComponents/TableOfContents/TableOfContents'
 const ReportContent = ({ report, profileData, sectionRefs, onBarImageUpdate, onRadarImageUpdate, onBase64Upload }) => {
     const [currentPage, setCurrentPage] = useState();
     const [newCurrentPage, setNewCurrentPage] =useState();
-    console.log(newCurrentPage);
+
+    const [evalPage, setEvalPage] =useState();
+
+    const setNewEvalPage = (page) => {
+        setEvalPage(page);
+      }
+
 
     const renderPageFooter = (pageNumber) => {
         return (
@@ -81,12 +87,11 @@ const ReportContent = ({ report, profileData, sectionRefs, onBarImageUpdate, onR
             <div style={{ pageBreakAfter:"always" }} ref={sectionRefs[9].ref}>
                 <SWOTAnalysis currentPage={currentPage} renderPageFooter={renderPageFooter} info={report} />
             </div>
-            <div style={{ marginBottom: "30px", pageBreakAfter:"always" }} ref={sectionRefs[10].ref}>
+            <div style={{  pageBreakAfter:"always" }} ref={sectionRefs[10].ref}>
                 <ValuationMethodology setNewPage={setNewPage} currentPage={currentPage} renderPageFooter={renderPageFooter} info={report} />
             </div>
             <div style={{ marginBottom: "30px", position: "relative" }} ref={sectionRefs[11].ref}>
-                <EvaluationAndConclusion profileInfo={profileData} info={report} />
-                {renderPageFooter(newCurrentPage)}
+                <EvaluationAndConclusion evalPage={evalPage} setNewEvalPage={setNewEvalPage} renderPageFooter={renderPageFooter} profileInfo={profileData} info={report} newCurrentPage={newCurrentPage} />
             </div>
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[12].ref}>
                 <AttachmentsSection />

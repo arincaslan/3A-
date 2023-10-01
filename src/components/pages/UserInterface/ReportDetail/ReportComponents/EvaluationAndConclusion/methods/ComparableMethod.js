@@ -4,17 +4,17 @@ import ResidentialArea from './ComparableEnvs/ResidentialArea';
 import IndustrialArea from './ComparableEnvs/IndustrialArea';
 import SeperatedArea from './ComparableEnvs/SeperatedArea';
 
-function ComparableMethod({ info }) {
+function ComparableMethod({ info, renderPageFooter , emsalPage }) {
     // info içindeki emsalData'yı alabilirsiniz
     const { cevreBilgisi } = info.valueData.emsalData;
 
 
     return (
         <Box>
-            <Text fontSize="lg" fontWeight="bold">Emsal Karşılaştırma Yaklaşımı Değerlemesi</Text>
-            {cevreBilgisi === "yerlesim" && <ResidentialArea info={info} />}
-            {cevreBilgisi === "sanayi" && <IndustrialArea info={info} />}
-            {cevreBilgisi === "ayrik" && <SeperatedArea info={info} />}
+            <Text fontFamily="heading" color="secondary.700" fontSize="xl" fontWeight="bold" mt={4}>Emsal Karşılaştırma Yaklaşımı Değerlemesi</Text>
+            {cevreBilgisi === "yerlesim" && <ResidentialArea renderPageFooter={renderPageFooter} emsalPage={emsalPage} info={info} />}
+            {cevreBilgisi === "sanayi" && <IndustrialArea renderPageFooter={renderPageFooter} emsalPage={emsalPage} info={info} />}
+            {cevreBilgisi === "ayrik" && <SeperatedArea renderPageFooter={renderPageFooter} emsalPage={emsalPage} info={info} />}
         </Box>
     );
 }

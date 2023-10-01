@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Text, VStack, Flex , Badge } from '@chakra-ui/react';
+import { Box, Text, VStack, Flex, Badge } from '@chakra-ui/react';
 
-function CostMethod({ info }) {
+function CostMethod({ info, renderPageFooter, maliyetPage }) {
     const { yeniden } = info.valueData?.maaliyetData;
     const alan = Number(info.tapuData?.parsel?.yuzolcumu?.replace(",", "."));
     const costYenidenYapim = Number(yeniden?.yapim_maliyeti?.replace(",", "."));
@@ -13,7 +13,7 @@ function CostMethod({ info }) {
         avgEmsalValuePerM2 = emsalValuesPerM2.reduce((a, b) => a + b, 0) / emsalValuesPerM2.length;
     }
     // Her bir emsalin değerini m2'sine bölme işlemi
-    
+
 
     // Bu değerlerin ortalamasını alma işlemi
     const [landValue, setLandValue] = useState(0);
@@ -58,47 +58,72 @@ function CostMethod({ info }) {
     }, [yeniden]);
 
     return (
-        <Box>
-            <Text fontSize="lg" fontWeight="bold">Maliyet Yaklaşımı Değerlemesi</Text>
+        <Box style={{ pageBreakAfter: 'always' }} minHeight="850px" paddingBottom="50px" position="relative">
+            <Text fontFamily="heading" color="secondary.700" fontSize="xl" fontWeight="bold" mt={4}>Maliyet Yaklaşımı Değerlemesi</Text>
             <Box>
                 <Text>
                     "Yeniden" üretim değerleme metodu ile gayrimenkul değerlemesi tercih edilmiştir. Bu yöntem, genellikle benzersiz ya da nadiren satılan gayrimenkuller (örneğin, özel yapılar, endüstriyel tesisler, vs.) için uygundur. Bu tür gayrimenkullerin piyasada karşılaştırılabilir örnekleri genellikle bulunmaz ve bu nedenle yeniden üretim maliyetine dayalı değerleme yöntemi kullanılır.
                 </Text>
 
-                <VStack align="start" spacing={4}>
-                    <Text>
-                        1. Arsa Değeri: Arsa birim maliyeti ile arsa alanının çarpımı ile elde edilir. Bu, gayrimenkulün üzerinde bulunduğu arsanın güncel piyasa değerini temsil eder.
+                <VStack mt={2} align="start" spacing={4}>
+                    <Text fontFamily="heading4" fontSize="md" fontWeight="medium" color="secondary.500">
+                        1. Arsa Değeri: Arsa birim maliyeti ile arsa alanının çarpımı ile elde edilir...
                     </Text>
-                    <Text>
-                        Arsa değeri = Alan ({alan} m²) * Ortalama emsal değeri/m² ({formatCurrency(avgLandValuePerM2)} /m²) = {formatCurrency(landValue)};
+                    <Box bg="primary.100" p={3} borderRadius="md">
+                        <Text fontFamily="body2" fontSize="lg" color="primary.700" >
+                            Arsa değeri = Alan ({alan} m²) x Ortalama emsal değeri/m² ({formatCurrency(avgLandValuePerM2)} /m²) = {formatCurrency(landValue)}
+                        </Text>
+                    </Box>
+
+                    <Text fontFamily="heading4" fontSize="md" fontWeight="medium" color="secondary.500">
+                        2. Bina Değeri: Bina değeri, inşaat maliyetleri ve amortisman miktarı göz önünde bulundurularak hesaplanır...
                     </Text>
-                    <Text>
-                        2. Bina Değeri: Bina değeri, inşaat maliyetleri ve amortisman miktarı göz önünde bulundurularak hesaplanır. İlk olarak, toplam inşaat alanı ile yeniden üretim birim maliyeti çarpılır. Ardından, bu değerden belirli bir amortisman miktarı çıkarılır. Amortisman oranı, gayrimenkulün yaşı, bakım durumu, malzeme kalitesi, konumu ve inşaat & tasarım kalitesi gibi faktörler dikkate alınarak hesaplanır.
+                    <Box bg="primary.100" p={3} borderRadius="md">
+                        <Text fontFamily="body2" fontSize="lg" color="primary.700" >
+                            Amortisman oranı = ({Object.values(yeniden?.faktorler).join(' + ')}) / {Object.values(yeniden?.faktorler).length} = {depreciation.toFixed(2)} %
+                        </Text>
+
+                    </Box>
+                    <Box bg="primary.100" p={3} borderRadius="md">
+                        <Text fontFamily="body2" fontSize="lg" color="primary.700" >
+                            Bina değeri = Yeniden yapım maliyeti ({formatCurrency(costYenidenYapim)}) - (Yeniden yapım maliyeti ({formatCurrency(costYenidenYapim)}) x Amortisman Oranı (%{depreciation.toFixed(2)}) / 100) = {formatCurrency(buildingValue)}
+                        </Text>
+                    </Box>
+                    <Text fontFamily="heading4" fontSize="md" fontWeight="medium" color="secondary.500">
+                        3. Gayrimenkul Değeri: Gayrimenkul değeri, arsa değeri ve bina değeri toplamıdır...
                     </Text>
-                    <Text>
-                        Amortisman oranı = ({Object.values(yeniden?.faktorler).join(' + ')}) / {Object.values(yeniden?.faktorler).length} = {depreciation.toFixed(2)} %
-                    </Text>
-                    <Text>
-                        Bina değeri = Yeniden yapım maliyeti ({formatCurrency(costYenidenYapim)}) - (Yeniden yapım maliyeti ({formatCurrency(costYenidenYapim)}) * Amortisman Oranı ({depreciation.toFixed(2)}) / 100) = {formatCurrency(buildingValue)}
-                    </Text>
-                    <Text>
-                        3. Gayrimenkul Değeri: Gayrimenkul değeri, arsa değeri ve bina değeri toplamıdır. Bu değer, gayrimenkulün bugünkü piyasa koşullarında yeniden üretilebilme maliyetini temsil eder.
-                    </Text>
-                    <Flex my={4} w="100%" justifyContent="center">
-                        <Badge colorScheme="green" p="4" fontSize="xl">
-                            Gayrimenkul Değeri = Arsa Değeri ({formatCurrency(landValue)}) + Bina Değeri ({formatCurrency(buildingValue)}) = <strong>{formatCurrency(propertyValue)}</strong>
-                        </Badge>
+                    <Flex my={4} w="100%" justifyContent="center" alignItems="center">
+                        <Box
+
+                            bg="secondary.100"
+                            boxShadow="lg"
+                            p="4"
+                            rounded="lg"
+                            border="2px"
+                            borderColor="secondary.500"
+                        >
+                            <Text fontFamily="heading2" color="secondary.800" fontSize="xl" fontWeight="bold" textAlign="center">
+                                Değerlemesi yapılan gayrimenkulün değeri:
+                            </Text>
+                            <Text fontFamily="heading" color="secondary.700" fontSize="lg" mt={2} textAlign="center">
+                                Arsa Değeri ({formatCurrency(landValue)}) + Bina Değeri ({formatCurrency(buildingValue)}) =
+                                <Text fontFamily="heading" as="span" fontWeight="bold" color="secondary.900">
+                                    {formatCurrency(propertyValue)}
+                                </Text>
+                            </Text>
+                        </Box>
                     </Flex>
                 </VStack>
 
-                <Text>
+                <Text mt={4}>
                     Yeniden üretim maliyet metodu, gayrimenkulün değerini belirlerken inşaat maliyetlerini,
                     arsa değerini ve amortismanı dikkate alır. Bu yöntem, mülkiyetin yeniden üretim veya
                     inşa maliyetlerinin, belirli bir amortisman miktarı düşüldükten sonra, arsa maliyeti ile
                     toplanmasına dayanır. Amortisman, gayrimenkulün yaşı, bakım durumu, malzeme kalitesi,
-                    konumu ve inşaat & tasarım kalitesi gibi faktörler dikkate alınarak hesaplanır.
+                    konumu ve inşaat & tasarım kalitesi gibi faktörler dikkate alınarak hesaplanmıştır.
                 </Text>
             </Box>
+            {renderPageFooter(maliyetPage)}
         </Box>
     );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Text, Flex, Badge } from '@chakra-ui/react';
 
-function IncomeApproach({ info }) {
+function IncomeApproach({ info, renderPageFooter, gelirPage }) {
     const { gelirData } = info.valueData;
     const { valuationDate } = info.projectData;
 
@@ -34,8 +34,8 @@ function IncomeApproach({ info }) {
 
 
     return (
-        <Box>
-            <Text fontSize="lg" fontWeight="bold">Gelir Yaklaşımı Değerlemesi</Text>
+        <Box style={{ pageBreakAfter: 'always' }} minHeight="850px" paddingBottom="50px" position="relative">
+            <Text fontFamily="heading" color="secondary.700" fontSize="xl" fontWeight="bold" mt={4}>Gelir Yaklaşımı Değerlemesi</Text>
             <Text mt={2}>
                 Gelir yaklaşımı, bir gayrimenkulün değerini, gayrimenkulden elde edilebilecek potansiyel gelirler üzerinden belirler. Bu yöntem, genellikle gelir üreten gayrimenkullerin değerlemesi için kullanılır.
             </Text>
@@ -54,10 +54,27 @@ function IncomeApproach({ info }) {
                         Sonrasında, bu yıllık kira gelirini brüt kira çarpanı ile çarpıyoruz.
                         Bu çarpan genellikle bölgedeki benzer gayrimenkullerin satış fiyatları ve kira getirileri baz alınarak belirlenir.
                     </Text>
-                    <Flex my={4} w="100%" justifyContent="center">
-                        <Badge colorScheme="green" p="4" fontSize="xl">
-                            Bu değerleme için brüt kira çarpanı ({formatter.format(kiraCarpani)}). Sonuç olarak gayrimenkulün değerini <strong>{formatter.format(gayrimenkulDegeriKira)}</strong> olarak tahmin ediyoruz.
-                        </Badge>
+                    <Flex my={4} w="100%" justifyContent="center" alignItems="center">
+                        <Box
+
+                            bg="secondary.100"
+                            boxShadow="lg"
+                            p="4"
+                            rounded="lg"
+                            border="2px"
+                            borderColor="secondary.500"
+                        >
+                            <Text fontFamily="heading2" color="secondary.800" fontSize="xl" fontWeight="bold" textAlign="center">
+                                Bu değerleme için brüt kira çarpanı ({formatter.format(kiraCarpani)}).
+                                Sonuç olarak gayrimenkulün değerini
+                            </Text>
+                            <Text fontFamily="heading" color="secondary.700" fontSize="lg" mt={2} textAlign="center">
+                                <Text fontFamily="heading" as="span" fontWeight="bold" color="secondary.900">
+                                    {formatter.format(gayrimenkulDegeriKira)}
+                                </Text>
+                                olarak değerliyoruz.
+                            </Text>
+                        </Box>
                     </Flex>
                 </Box>
             )}
@@ -78,14 +95,30 @@ function IncomeApproach({ info }) {
                     <Text fontSize="lg" mb="4">
                         Bu hesaplamalar sonucunda, kredi tutarı ve kredi değer oranı kullanılarak bulunan gayrimenkulün değeri {formatter.format(gayrimenkulDegeriKredi)} olarak hesaplanmıştır. Bu değer, bugünkü değeri {formatter.format(gayrimenkulDegeriKrediBugunku)} olarak bulunan gayrimenkulün değeri üzerinden faiz oranı ile düzeltilmiştir.
                     </Text>
-                    <Flex my={4} w="100%" justifyContent="center">
-                        <Badge colorScheme="green" p="4" fontSize="xl">
-                            Bu hesaplamaların sonucunda, gayrimenkulün bugünkü değerini <strong>{formatter.format(gayrimenkulDegeriKrediBugunku)}</strong> olarak değerliyoruz.
-                        </Badge>
+                    <Flex my={4} w="100%" justifyContent="center" alignItems="center">
+                        <Box
+
+                            bg="secondary.100"
+                            boxShadow="lg"
+                            p="4"
+                            rounded="lg"
+                            border="2px"
+                            borderColor="secondary.500"
+                        >
+                            <Text fontFamily="heading2" color="secondary.800" fontSize="xl" fontWeight="bold" textAlign="center">
+                                Bu hesaplamaların sonucunda, gayrimenkulün bugünkü değerini:
+                            </Text>
+                            <Text fontFamily="heading" color="secondary.700" fontSize="lg" mt={2} textAlign="center">
+                                <Text fontFamily="heading" as="span" fontWeight="bold" color="secondary.900">
+                                    {formatter.format(gayrimenkulDegeriKrediBugunku)}
+                                </Text>
+                                olarak değerliyoruz.
+                            </Text>
+                        </Box>
                     </Flex>
                 </Box>
             )}
-
+            {renderPageFooter(gelirPage)}
         </Box>
     );
 }

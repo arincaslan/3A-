@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, Text, UnorderedList, ListItem, List, Divider } from "@chakra-ui/react"
+import { Box, Heading, Text, UnorderedList, ListItem, List } from "@chakra-ui/react"
 
 const ValuationMethodology = ({ info, currentPage, setNewPage, renderPageFooter }) => {
 
