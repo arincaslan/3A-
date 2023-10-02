@@ -16,11 +16,12 @@ function ReportInfo({ info, profileInfo }) {
       minHeight="1000px"
     >
       <Heading
+      borderBottom="2px solid" borderColor="teal.500" pb={6}
         as="h2"
         size="lg"
         fontWeight="bold"
         color="teal"
-        mb={8}
+        mb={6}
         fontFamily="heading2"  // Roboto
       >
         BÖLÜM 1 - Genel Rapor Bilgileri

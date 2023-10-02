@@ -12,7 +12,7 @@ const PropertyDetail = ({ info }) => {
 
     return (
         <Box minHeight="1000px" p="5" borderRadius="md" boxShadow="lg">
-            <Heading color="teal.600" fontFamily="heading2" fontWeight="bold" as="h1" size="lg" my={4}>BÖLÜM 3 - Değerleme Konusu Hakkında Genel Bilgiler</Heading>
+            <Heading borderBottom="2px solid" borderColor="teal.500" pb={6} color="teal" fontFamily="heading2" fontWeight="bold" as="h1" size="lg" my={4}>BÖLÜM 3 - Değerleme Konusu Hakkında Genel Bilgiler</Heading>
 
             <Heading mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" my={3}>3.1) Gayrimenkulün Yeri Konumu ve Tanımı</Heading>
             <Text my={2}>Değerleme konusu gayrimenkul; {info.tapuData.location.il} ili, {info.tapuData.location.ilce} ilçesi, {info.tapuData.location.mahalle} Mahallesi, sınırları içerisinde yer almaktadır.</Text>

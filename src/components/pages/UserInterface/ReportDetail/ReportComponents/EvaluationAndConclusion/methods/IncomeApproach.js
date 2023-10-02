@@ -1,12 +1,16 @@
 import React from 'react';
 import { Box, Text, Flex, Badge } from '@chakra-ui/react';
+import { useEffect } from 'react';
 
-function IncomeApproach({ info, renderPageFooter, gelirPage }) {
+function IncomeApproach({ info, renderPageFooter, gelirPage, setGelirResult }) {
     const { gelirData } = info.valueData;
     const { valuationDate } = info.projectData;
+    
 
     const { secilenYontem, kiraCarpani, krediTutari, krediDegerOrani,
         aylikKiraBedeli, degerlemeTarihi, faizOrani, aciklama } = gelirData;
+
+        
 
     let currentDate = new Date(valuationDate);
     let valuationDateObject = new Date(degerlemeTarihi);
@@ -31,7 +35,11 @@ function IncomeApproach({ info, renderPageFooter, gelirPage }) {
     let brütKiraÇarpanı = kiraCarpani;  // bu değer genellikle bölgedeki emlak piyasası ve ekonomik koşullara bağlıdır
     let gayrimenkulDegeriKira = brütKiraÇarpanı * yillikKiraGeliri;
 
-
+    const result = gayrimenkulDegeriKira ? gayrimenkulDegeriKira : gayrimenkulDegeriKredi;
+    
+    useEffect(() => {
+        setGelirResult(result);
+    }, []);
 
     return (
         <Box style={{ pageBreakAfter: 'always' }} minHeight="850px" paddingBottom="50px" position="relative">

@@ -1,11 +1,16 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { Box, Text, Table, Thead, Tr, Th, Tbody, Td, VStack, Flex, Badge } from '@chakra-ui/react';
 
-function SeperatedArea({ info ,renderPageFooter, emsalPage }) {
+function SeperatedArea({ info ,renderPageFooter, emsalPage, setEmsalResult  }) {
     const formatter = new Intl.NumberFormat('tr-TR', {
         style: 'currency',
         currency: 'TRY',
     });
+    useEffect(() => {
+        setEmsalResult(gayrimenkulDeger);
+    }, []);
+
     const { emsaller } = info.valueData.emsalData;
     const { menkulEkBilgi } = info.valueData.emsalData;
     const { cephe, derinlik, yanBahceMesafesi, onBahceMesafesi, parselTuru, katSayisi, katYuksekligi } = menkulEkBilgi;
@@ -44,6 +49,7 @@ function SeperatedArea({ info ,renderPageFooter, emsalPage }) {
 
     const ortalamaM2BasinaDeger = emsalM2BasinaDegerleri.reduce((a, b) => a + b, 0) / emsalM2BasinaDegerleri.length;
     const gayrimenkulDeger = ortalamaM2BasinaDeger * toplamInsaatAlani;
+
 
     return (
         <VStack align="start">

@@ -1,7 +1,8 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { Box, Text, Table, Thead, Tr, Th, Tbody, Td, VStack, Flex, Badge } from '@chakra-ui/react';
 
-function IndustrialArea({ info, renderPageFooter, emsalPage }) {
+function IndustrialArea({ info, renderPageFooter, emsalPage , setEmsalResult }) {
     const { emsaller } = info.valueData.emsalData;
     const { menkulEkBilgi } = info.valueData.emsalData;
     const taks = Number(info.tapuData.parsel.taks.replace(",", "."));
@@ -27,7 +28,10 @@ function IndustrialArea({ info, renderPageFooter, emsalPage }) {
     // Ortalama birim inşaat hacmine düşen değeri, kendi inşaat hacmimiz ile çarpma işlemi
     const ourPropertyValue = avgValuePerVolume * alan * taks * katSayisi * katYüksekligi;
 
-
+    useEffect(() => {
+        setEmsalResult(ourPropertyValue);
+    }, []);
+    
     return (
         <Box>
             <Box style={{ pageBreakAfter: 'always' }} minHeight="850px" paddingBottom="50px" position="relative">

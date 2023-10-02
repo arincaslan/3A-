@@ -41,7 +41,7 @@ const ValuationMethodology = ({ info, currentPage, setNewPage, renderPageFooter 
 
   return (
     <Box p="5" borderRadius="md" boxShadow="lg">
-      <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl" mb={2}>BÖLÜM 8 - Değerleme Metodolojisi</Heading>
+      <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl" mb={2} borderBottom="2px solid" borderColor="teal.500" pb={6}>BÖLÜM 8 - Değerleme Metodolojisi</Heading>
       {emsalData.emsaller && (
         <Box minHeight="2050px">
           <Heading color="secondary.700" as="h3" size="lg" mb={2}>Emsal Karşılaştırma Metodu</Heading>

@@ -104,7 +104,7 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
     return (
         <Box p="5" borderRadius="md" boxShadow="lg" position="relative">
             <Box minHeight="1000px" position="relative" paddingBottom="50px">
-                <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl">BÖLÜM 5 - Konum ve Piyasa Analizi</Heading>
+                <Heading borderBottom="2px solid" borderColor="teal.500" pb={6} fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl">BÖLÜM 5 - Konum ve Piyasa Analizi</Heading>
                 <Text fontFamily="body" mt={4}>
                     Genel olarak Türkiye'deki gayrimenkul piyasası hakkında birkaç bilgi verelim:
                 </Text>

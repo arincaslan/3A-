@@ -1,7 +1,12 @@
+import { useEffect } from 'react';
 import React from 'react';
 import { Box, Text, Table, Thead, Tr, Th, Tbody, Td, VStack, Flex, Badge } from '@chakra-ui/react';
 
-function ResidentialArea({ info ,renderPageFooter, emsalPage }) {
+function ResidentialArea({ info ,renderPageFooter, emsalPage, setEmsalResult }) {
+    useEffect(() => {
+        setEmsalResult(ourPropertyValue);
+    }, []);
+    
     const { emsaller } = info.valueData.emsalData;
 
     // Her bir emsalin değerini m2'sine bölme işlemi

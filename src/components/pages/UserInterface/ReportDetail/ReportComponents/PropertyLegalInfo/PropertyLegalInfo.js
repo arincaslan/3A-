@@ -13,7 +13,7 @@ const PropertyLegalInfo = ({ info, renderPageFooter }) => {
         <Box minHeight="1000px" p="5" borderRadius="md" boxShadow="lg">
 
             <div style={{ pageBreakAfter: "always" , paddingBottom: "50px", position:"relative" }} >
-                <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h1" size="lg" mt={2}>BÖLÜM 4 - Gayrimenkulün Mülkiyet İmar ve Yasal Durumuna İlişkin Bilgiler </Heading>
+                <Heading borderBottom="2px solid" borderColor="teal.500" pb={6} fontFamily="heading2" color="teal" fontWeight="bold" as="h1" size="lg" mt={2}>BÖLÜM 4 - Gayrimenkulün Mülkiyet İmar ve Yasal Durumuna İlişkin Bilgiler </Heading>
 
                 <Heading mb={4} mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" >4.1) Gayrimenkulün Mülkiyet Bilgileri</Heading>
                 <List spacing={4}>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Text, VStack, Flex, Badge } from '@chakra-ui/react';
 
-function CostMethod({ info, renderPageFooter, maliyetPage }) {
+function CostMethod({ info, renderPageFooter, maliyetPage, setMaliyetResult }) {
     const { yeniden } = info.valueData?.maaliyetData;
     const alan = Number(info.tapuData?.parsel?.yuzolcumu?.replace(",", "."));
     const costYenidenYapim = Number(yeniden?.yapim_maliyeti?.replace(",", "."));
@@ -55,10 +55,11 @@ function CostMethod({ info, renderPageFooter, maliyetPage }) {
 
     useEffect(() => {
         calculateValues();
-    }, [yeniden]);
+        setMaliyetResult(propertyValue)
+    }, [yeniden, propertyValue]);
 
     return (
-        <Box style={{ pageBreakAfter: 'always' }} minHeight="850px" paddingBottom="50px" position="relative">
+        <Box style={{ pageBreakAfter: 'always' }} minHeight="950px" paddingBottom="50px" position="relative">
             <Text fontFamily="heading" color="secondary.700" fontSize="xl" fontWeight="bold" mt={4}>Maliyet Yaklaşımı Değerlemesi</Text>
             <Box>
                 <Text>
