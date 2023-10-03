@@ -35,7 +35,7 @@ function IncomeApproach({ info, renderPageFooter, gelirPage, setGelirResult }) {
     let brütKiraÇarpanı = kiraCarpani;  // bu değer genellikle bölgedeki emlak piyasası ve ekonomik koşullara bağlıdır
     let gayrimenkulDegeriKira = brütKiraÇarpanı * yillikKiraGeliri;
 
-    const result = gayrimenkulDegeriKira ? gayrimenkulDegeriKira : gayrimenkulDegeriKredi;
+    const result = gayrimenkulDegeriKira ? gayrimenkulDegeriKira : gayrimenkulDegeriKrediBugunku;
     
     useEffect(() => {
         setGelirResult(result);

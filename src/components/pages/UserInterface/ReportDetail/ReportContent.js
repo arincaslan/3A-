@@ -75,22 +75,22 @@ const ReportContent = ({ report, profileData, sectionRefs, onBarImageUpdate, onR
                 <PropertyLegalInfo renderPageFooter={renderPageFooter} info={report} />
                 {renderPageFooter(6)}
             </div>
-            <div style={{ marginBottom: "30px" }} ref={sectionRefs[7].ref}>
+            <div  ref={sectionRefs[7].ref}>
                 <LocationMarketInfo setPage={setPage} renderPageFooter={renderPageFooter} onBase64Upload={onBase64Upload} onBarImageUpdate={onBarImageUpdate}
                     onRadarImageUpdate={onRadarImageUpdate} info={report} />
                     
             </div>
-            <div style={{position: "relative" }} ref={sectionRefs[8].ref}>
+            <div style={{ pageBreakAfter:"always" }} ref={sectionRefs[8].ref}>
                 <PropertyPhysicalInfo renderPageFooter={renderPageFooter} currentPage={currentPage} info={report} />
-                {renderPageFooter(currentPage+1)}
+                
             </div>
-            <div style={{ pageBreakAfter:"always" }} ref={sectionRefs[9].ref}>
+            <div ref={sectionRefs[9].ref}>
                 <SWOTAnalysis currentPage={currentPage} renderPageFooter={renderPageFooter} info={report} />
             </div>
-            <div style={{  pageBreakAfter:"always" }} ref={sectionRefs[10].ref}>
+            <div ref={sectionRefs[10].ref}>
                 <ValuationMethodology setNewPage={setNewPage} currentPage={currentPage} renderPageFooter={renderPageFooter} info={report} />
             </div>
-            <div style={{ marginBottom: "30px", position: "relative" }} ref={sectionRefs[11].ref}>
+            <div style={{ marginBottom: "30px"}} ref={sectionRefs[11].ref}>
                 <EvaluationAndConclusion evalPage={evalPage} setNewEvalPage={setNewEvalPage} renderPageFooter={renderPageFooter} profileInfo={profileData} info={report} newCurrentPage={newCurrentPage} />
             </div>
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[12].ref}>

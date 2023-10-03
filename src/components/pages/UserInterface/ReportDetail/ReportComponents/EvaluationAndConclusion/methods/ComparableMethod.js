@@ -10,7 +10,7 @@ function ComparableMethod({ info, renderPageFooter , emsalPage, setEmsalResult }
 
 
     return (
-        <Box>
+        <Box >
             <Text fontFamily="heading" color="secondary.700" fontSize="xl" fontWeight="bold" mt={4}>Emsal Karşılaştırma Yaklaşımı Değerlemesi</Text>
             {cevreBilgisi === "yerlesim" && <ResidentialArea setEmsalResult={setEmsalResult} renderPageFooter={renderPageFooter} emsalPage={emsalPage} info={info} />}
             {cevreBilgisi === "sanayi" && <IndustrialArea setEmsalResult={setEmsalResult} renderPageFooter={renderPageFooter} emsalPage={emsalPage} info={info} />}

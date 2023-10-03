@@ -43,9 +43,9 @@ const ValuationMethodology = ({ info, currentPage, setNewPage, renderPageFooter 
     <Box p="5" borderRadius="md" boxShadow="lg">
       <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl" mb={2} borderBottom="2px solid" borderColor="teal.500" pb={6}>BÖLÜM 8 - Değerleme Metodolojisi</Heading>
       {emsalData.emsaller && (
-        <Box minHeight="2050px">
+        <Box >
           <Heading color="secondary.700" as="h3" size="lg" mb={2}>Emsal Karşılaştırma Metodu</Heading>
-          <Box mb={4} position="relative" minHeight="900px" >
+          <Box style={{pageBreakAfter:"always"}}  paddingBottom="50px" position="relative" minHeight="850px" >
 
             <Text mb={2}>
               Bu gayrimenkulün değerlemesinde {methods.join(', ')} kullanılmıştır. Bu bölüm kullanılan metodları detaylıca açıklar ve anlatır.
@@ -96,7 +96,7 @@ const ValuationMethodology = ({ info, currentPage, setNewPage, renderPageFooter 
           </Box>
 
 
-          <Box  minHeight="1000px" position="relative">
+          <Box style={{pageBreakAfter:"always"}} minHeight="900px" position="relative">
             <Box marginTop="50px" p={6} border="1px solid" borderRadius="md" borderColor="primary.900" backgroundColor="white" height="auto">
               <Text mb={2}>
                 Bu değerlemede kullanılan emsaller şunlardır:
@@ -138,7 +138,7 @@ const ValuationMethodology = ({ info, currentPage, setNewPage, renderPageFooter 
       )}
 
       {maaliyetData.yeniden.faktorler && (
-        <Box paddingBottom="50px" position="relative" minHeight="950px" mb={5}>
+        <Box style={{pageBreakAfter:"always"}}  paddingBottom="50px" position="relative" minHeight="900px" >
           <Heading color="secondary.700" as="h3" size="lg" mb={3}>Maaliyet Yaklaşımı Metodu</Heading>
           <Text mb={3}>
             Bu değerleme raporunda Maaliyet Yaklaşımı Metodu kullanılmıştır. Bu seçim, taşınmazın değerinin yapının maliyetine ve arsa değerine dayandığı durumlarda daha doğru bir değer sunacağı düşünüldüğü için yapılmıştır.
@@ -199,7 +199,7 @@ const ValuationMethodology = ({ info, currentPage, setNewPage, renderPageFooter 
       )}
 
       {gelirData && (
-        <Box paddingBottom="50px" position="relative" minHeight="950px" mb={5}>
+        <Box style={{pageBreakAfter:"always"}}  paddingBottom="50px" position="relative" minHeight="900px" >
           <Heading color="secondary.700" as="h3" size="lg" mb={3}>Gelir Yaklaşımı Metodu</Heading>
           <Text mb={2}>
             Gelir yaklaşımı, gayrimenkul değerlemesi için kullanılan bir başka popüler tekniktir.

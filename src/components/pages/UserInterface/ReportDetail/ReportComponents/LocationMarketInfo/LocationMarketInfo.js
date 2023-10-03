@@ -28,7 +28,7 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
     const nextPageNumber = isDataLoading ? 8 : 9;
 
     if (isDataLoading) {
-        setPage(9);
+        setPage(8);
     }else{
         setPage(10);
     }

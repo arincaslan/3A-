@@ -25,7 +25,7 @@ function ResidentialArea({ info ,renderPageFooter, emsalPage, setEmsalResult }) 
     });
     return (
         <Box >
-            <Box style={{pageBreakAfter: 'always'}} minHeight="850px" paddingBottom="50px" position="relative">
+            <Box style={{pageBreakAfter: 'always'}} minHeight="800px" paddingBottom="50px" position="relative">
             <Text my={4}>
                 Çevre bilgisi "yerleşim bölgesi" olan gayrimenkulün emsal karşılaştırma metodu ile değerlemesi aşağıdaki gibi gerçekleştirilecektir.
                 İlk olarak tüm emsallerin detaylı bilgileri aşağıda tablo halinde sunulmaktadır:
@@ -56,7 +56,7 @@ function ResidentialArea({ info ,renderPageFooter, emsalPage, setEmsalResult }) 
             </Box>
 
 
-        <Box style={{pageBreakAfter: 'always'}} minHeight="950px" paddingBottom="50px" position="relative">
+        <Box style={{pageBreakAfter: 'always'}} minHeight="900px" paddingBottom="50px" position="relative">
             <Text fontFamily="heading" color="secondary.700" fontSize="xl" fontWeight="bold" mt={4}>Değerleme Sürecinde Yapılan İşlemler</Text>
             <Text my={4}>Değerleme sürecinde yapılan işlemler aşağıdaki gibidir. Karşılaştırma kriteri olarak m² kullanılmıştır. Bölgede bulunan emsal olarak alınan gayrimenkuller uyarınca bölgedeki m² başına düşen ortalama fiyat {formatter.format(avgEmsalValuePerM2)} olarak hesaplanmıştır. Değerlemesi yapılan gayrimenkulun değeri, bu ortalama fiyatın gayrimenkulün m² ile çarpılması sonucu {formatter.format(ourPropertyValue)} olarak bulunmuştur.</Text>
             <VStack align="start" spacing={4}>

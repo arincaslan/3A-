@@ -47,7 +47,7 @@ function EvaluationAndConclusion({ info, profileInfo, newCurrentPage, renderPage
   }
 
   return (
-    <Box p="5" borderRadius="md" boxShadow="lg" position="relative">
+    <Box   p="5" borderRadius="md" boxShadow="lg" position="relative">
       <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl" mb={2} borderBottom="2px solid" borderColor="teal.500" pb={6}>BÖLÜM 9 - Analiz Sonuçlarının Değerlendirilmesi</Heading>
       <Box>
         
@@ -59,10 +59,10 @@ function EvaluationAndConclusion({ info, profileInfo, newCurrentPage, renderPage
         }
 
         {
-          gelirData && <IncomeApproach setGelirResult={setGelirResult} gelirPage={gelirPage} info={info} />
+          gelirData && <IncomeApproach renderPageFooter={renderPageFooter} setGelirResult={setGelirResult} gelirPage={gelirPage} info={info} />
         }
       </Box>
-      <Box minHeight="1000px">
+      <Box minHeight="950px" >
         
         <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl" mb={4} borderBottom="2px solid" borderColor="teal.500" pb={8}>BÖLÜM 10 - Sonuç</Heading>
         <Text mt={2} >
