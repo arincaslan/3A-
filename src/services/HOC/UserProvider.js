@@ -42,7 +42,7 @@ export function UserProvider({ children }) {
                     color="blue.500"
                     size="xl"
                 />
-                <Text>Lütfen Bekleyiniz sayfa yükleniyor...</Text>
+                <Text fontFamily="heading" color="secondary.700" fontSize="xl" fontWeight="bold">Lütfen Bekleyiniz sayfa yükleniyor...</Text>
             </Box>
         );
     }

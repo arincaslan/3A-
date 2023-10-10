@@ -96,7 +96,7 @@ const ValuationMethodology = ({ info, currentPage, setNewPage, renderPageFooter 
           </Box>
 
 
-          <Box style={{pageBreakAfter:"always"}} minHeight="900px" position="relative">
+          <Box p={5} style={{pageBreakAfter:"always"}} minHeight="1000px" position="relative">
             <Box marginTop="50px" p={6} border="1px solid" borderRadius="md" borderColor="primary.900" backgroundColor="white" height="auto">
               <Text mb={2}>
                 Bu değerlemede kullanılan emsaller şunlardır:
@@ -199,7 +199,7 @@ const ValuationMethodology = ({ info, currentPage, setNewPage, renderPageFooter 
       )}
 
       {gelirData && (
-        <Box style={{pageBreakAfter:"always"}}  paddingBottom="50px" position="relative" minHeight="900px" >
+        <Box p={5} style={{pageBreakAfter:"always"}}  paddingBottom="50px" position="relative" maxHeight="1000px" minHeight="850px" >
           <Heading color="secondary.700" as="h3" size="lg" mb={3}>Gelir Yaklaşımı Metodu</Heading>
           <Text mb={2}>
             Gelir yaklaşımı, gayrimenkul değerlemesi için kullanılan bir başka popüler tekniktir.

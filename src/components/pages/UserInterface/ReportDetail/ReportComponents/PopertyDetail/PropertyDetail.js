@@ -1,7 +1,7 @@
 import { Box, Heading, Text, List, ListItem, ListIcon } from '@chakra-ui/react';
 import { CheckCircleIcon } from '@chakra-ui/icons'; // Eğer madde işareti olarak bu ikonu kullanmak istemezseniz değiştirebilirsiniz.
 
-const PropertyDetail = ({ info }) => {
+const PropertyDetail = ({ info, renderPageFooter }) => {
     const faktorAciklamalari = {
         1: 'Düşük Kalite/Durum',
         2: 'Ortalama Altı Kalite/Durum',
@@ -11,7 +11,7 @@ const PropertyDetail = ({ info }) => {
     };
 
     return (
-        <Box minHeight="1000px" p="5" borderRadius="md" boxShadow="lg">
+        <Box  style={{position: "relative", pageBreakAfter: "always" }} minHeight="1000px" p={5} borderRadius="md" boxShadow="lg">
             <Heading borderBottom="2px solid" borderColor="teal.500" pb={6} color="teal" fontFamily="heading2" fontWeight="bold" as="h1" size="lg" my={4}>BÖLÜM 3 - Değerleme Konusu Hakkında Genel Bilgiler</Heading>
 
             <Heading mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" my={3}>3.1) Gayrimenkulün Yeri Konumu ve Tanımı</Heading>
@@ -75,6 +75,7 @@ const PropertyDetail = ({ info }) => {
                     )
                 }
             </List>
+            {renderPageFooter(4)}
         </Box>
     );
 }

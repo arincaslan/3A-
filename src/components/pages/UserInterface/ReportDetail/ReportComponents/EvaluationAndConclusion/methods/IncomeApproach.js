@@ -42,7 +42,7 @@ function IncomeApproach({ info, renderPageFooter, gelirPage, setGelirResult }) {
     }, []);
 
     return (
-        <Box style={{ pageBreakAfter: 'always' }} minHeight="850px" paddingBottom="50px" position="relative">
+        <Box p={5} style={{ pageBreakAfter: 'always', position:"relative" }} maxHeight="1000px" minHeight="800px" paddingBottom="50px" >
             <Text fontFamily="heading" color="secondary.700" fontSize="xl" fontWeight="bold" mt={4}>Gelir Yaklaşımı Değerlemesi</Text>
             <Text mt={2}>
                 Gelir yaklaşımı, bir gayrimenkulün değerini, gayrimenkulden elde edilebilecek potansiyel gelirler üzerinden belirler. Bu yöntem, genellikle gelir üreten gayrimenkullerin değerlemesi için kullanılır.

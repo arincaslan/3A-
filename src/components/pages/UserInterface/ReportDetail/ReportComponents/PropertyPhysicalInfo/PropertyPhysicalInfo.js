@@ -62,7 +62,7 @@ const PropertyPhysicalInfo = ({ info, currentPage, renderPageFooter }) => {
     zeminGrubuAciklama = 'Bu grup, zeminin performansını ifade eder';
   }
   return (
-    <Box p="5" borderRadius="md" boxShadow="lg" maxHeight="2000px" >
+    <Box p="5" borderRadius="md" boxShadow="lg"  >
 
       <Box style={{pageBreakAfter: "always"}} paddingBottom="50px" position="relative" minHeight="950px" >
         <Heading borderBottom="2px solid" borderColor="teal.500" pb={6} fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl">BÖLÜM 6 - Gayrimenkul Fiziksel Bilgileri / Yapı ve Arazi Bilgileri</Heading>
@@ -130,7 +130,7 @@ const PropertyPhysicalInfo = ({ info, currentPage, renderPageFooter }) => {
       
       </Box>
 
-      <Box style={{ pageBreakAfter:"always" }} paddingBottom="50px" position="relative" minHeight="950px" >
+      <Box p={5} style={{ pageBreakAfter:"always" }} paddingBottom="50px" position="relative" minHeight="1000px" >
       <Text mt={4}>
         Bir binanın güvenli ve dayanıklı olmasını sağlamak için zemin bilgileri büyük önem taşır. Değerlenen binanın önem katsayısı {info.zeminData.binaOnemKatsayisi} çıkmıştır. Binanın Önem katsayısı binanın kullanım amacına göre değişir ve yapıyı destekleyen zeminin önem derecesini belirler. Zeminin deprem sırasında hareketine ne kadar direnç gösterebileceğini belirleyen bir unsur etkin yer ivme katsayısıdır. Değerlenen gayrimenkul için bu katsayı {info.zeminData.etkinYerIvmeKatsayisi} olarak belirlenmiştir, bu değişken zeminin genel yapısına ve sismik aktiviteye olan direncine bağlıdır.
         Yerel zemin sınıfı, {info.zeminData.yerelZeminSinifi} olarak belirlenmiştir. {yerelZeminSinifiAciklama}. Zeminin deprem bölge derecesi {info.zeminData.zeminDepremBolgeDerecesi} olarak belirlenmiştir. {zeminDepremBolgeDerecesiAciklama}.

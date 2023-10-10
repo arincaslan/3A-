@@ -6,8 +6,8 @@ function AttachmentsSection() {
   const { files, getRootProps, getInputProps, isDragActive, handleOnDragEnd } = useFileDrop();
 
   return (
-    <Box minHeight="950px">
-      <Heading borderBottom="2px solid" borderColor="teal.500" pb={6} fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl">BÖLÜM 10 - Ekler</Heading>
+    <Box mt={20} p={10} minHeight="1000px">
+      <Heading borderBottom="2px solid" borderColor="teal.500" pb={6} fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl">BÖLÜM 11 - Ekler</Heading>
       <Text mt={10} textAlign="center" fontSize="10px">
         Bu bölümde, raporunuza eklemek istediğiniz belgeleri yükleyebilir, düzenleyebilir veya silebilirsiniz.
       </Text>

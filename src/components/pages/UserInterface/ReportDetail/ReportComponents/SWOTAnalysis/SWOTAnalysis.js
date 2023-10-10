@@ -117,7 +117,7 @@ function SWOTAnalysis({ info, currentPage, renderPageFooter }) {
 
 
     return (
-        <Box style={{ pageBreakAfter:"always" }}  paddingBottom="50px" minHeight="950px" p="5" borderRadius="md" boxShadow="lg" position="relative">
+        <Box style={{ pageBreakAfter:"always" }}  paddingBottom="50px" minHeight="1000px" p={5} borderRadius="md" boxShadow="lg" position="relative">
           
             <Heading fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl" borderBottom="2px solid" borderColor="teal.500" pb={6}>BÖLÜM 7 - SWOT Analizi</Heading>
             <Flex direction="column" align="center" justify="center">

@@ -31,7 +31,7 @@ function UserInterface({ onLogout }) {
 
   if (loading) {
     return (
-      <Box w={500} mt={300} display="flex" alignItems="center" justifyContent="center" >
+      <Box w="100%" mt={300} display="flex" alignItems="center" justifyContent="center" >
         <Spinner
           w={200}
           thickness="4px"
@@ -40,7 +40,7 @@ function UserInterface({ onLogout }) {
           color="blue.500"
           size="xl"
         />
-        <Text>Lütfen Bekleyiniz sayfa yükleniyor...</Text>
+        <Text fontFamily="heading4" color="secondary.700" fontSize="xl" fontWeight="bold">SAYFA YÜKLENİYOR...</Text>
       </Box>
     );
   } else {
@@ -59,15 +59,15 @@ function UserInterface({ onLogout }) {
             <Text fontFamily="heading4" mb={4}>Platformumuz üzerinde size sunduğumuz içerikler.</Text>
             <VStack spacing={4}>
               <Link to="/create-report">
-                <Button w="250px" colorScheme="teal">Rapor Oluştur</Button>
+                <Button fontFamily="heading1" w="250px" colorScheme="teal">Rapor Oluştur</Button>
               </Link>
               <Link to="my-reports">
-                <Button w="250px" colorScheme="blue">Raporlarım</Button>
+                <Button fontFamily="heading1" w="250px" colorScheme="blue">Raporlarım</Button>
               </Link>
               <Link to="my-profile">
-                <Button w="250px" colorScheme="blue" variant="outline">Profilim</Button>
+                <Button fontFamily="heading1" w="250px" colorScheme="blue" variant="outline">Profilim</Button>
               </Link>
-              <Button w="250px" colorScheme="red" onClick={onLogout}>Çıkış Yap</Button>
+              <Button fontFamily="heading1" w="250px" colorScheme="red" onClick={onLogout}>Çıkış Yap</Button>
             </VStack>
           </Box>
         </Flex>

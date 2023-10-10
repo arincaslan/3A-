@@ -10,9 +10,9 @@ const PropertyLegalInfo = ({ info, renderPageFooter }) => {
 
 
     return (
-        <Box minHeight="1000px" p="5" borderRadius="md" boxShadow="lg">
+        <Box  p="5" borderRadius="md" boxShadow="lg">
 
-            <div style={{ pageBreakAfter: "always" , paddingBottom: "50px", position:"relative" }} >
+            <div style={{ pageBreakAfter: "always" , paddingBottom: "50px", position:"relative", minHeight:"1000px" }} >
                 <Heading borderBottom="2px solid" borderColor="teal.500" pb={6} fontFamily="heading2" color="teal" fontWeight="bold" as="h1" size="lg" mt={2}>BÖLÜM 4 - Gayrimenkulün Mülkiyet İmar ve Yasal Durumuna İlişkin Bilgiler </Heading>
 
                 <Heading mb={4} mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" >4.1) Gayrimenkulün Mülkiyet Bilgileri</Heading>
@@ -97,11 +97,12 @@ const PropertyLegalInfo = ({ info, renderPageFooter }) => {
                     {renderPageFooter(5)}
               
             </div>
-            <Box width="790px" maxH="1050px" height="1000px"> {/* A4 boyutu genişlik olarak 210mm ve yükseklik olarak 297mm'dir */}
+            <Box  position="relative" width="770px" maxHeight="1000px" minHeight="1000px"> {/* A4 boyutu genişlik olarak 210mm ve yükseklik olarak 297mm'dir */}
                 <Heading mt={4} fontFamily="heading2" fontWeight="bold" as="h2" size="md" mb={6} >4.5) İmar Durumu Resmi</Heading>
 
                 {/* maxHeight'tan otomatik olarak başlık yüksekliği çıkarılacaktır. */}
                 <Image height="950px" src={imageSrc} alt="İmar Resmi" />
+                {renderPageFooter(6)}
             </Box>
 
         </Box>

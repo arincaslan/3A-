@@ -1,21 +1,21 @@
 import React from 'react';
 import { Box, Text, VStack, HStack } from "@chakra-ui/react";
 
-function IntroductionPage({ info }) {
+function IntroductionPage({ info, renderPageFooter }) {
     return (
         <Box
+        style={{ position: "relative", pageBreakAfter: "always" }}
             display="flex"
             flexDirection="column"
             justifyContent="center"
             height="auto"
             overflowY="auto"
-            padding={6}
+            padding={5}
             borderRadius="lg"
             boxShadow="lg"
             minHeight="1000px"
         >
             <Text
-            mt="20px"
             mb="20px" 
             fontSize="40px"
                 fontWeight="semibold"
@@ -105,6 +105,7 @@ function IntroductionPage({ info }) {
                     color="primary.900"
                     fontFamily="body">{info.projectData.valuationRequest} Gayrimenkulün Değerleme Raporu</Text>
             </VStack>
+            {renderPageFooter(1)}
         </Box>
     );
 }

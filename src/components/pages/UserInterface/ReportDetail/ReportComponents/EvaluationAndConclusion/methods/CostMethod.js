@@ -59,7 +59,7 @@ function CostMethod({ info, renderPageFooter, maliyetPage, setMaliyetResult }) {
     }, [yeniden, propertyValue]);
 
     return (
-        <Box style={{ pageBreakAfter: 'always' }} maxHeight="1000px" minHeight="850px" paddingBottom="50px" position="relative">
+        <Box p={5} style={{ pageBreakAfter: 'always' }} maxHeight="1000px" minHeight="950px" paddingBottom="50px" position="relative">
             <Text fontFamily="heading" color="secondary.700" fontSize="xl" fontWeight="bold" mt={4}>Maliyet Yaklaşımı Değerlemesi</Text>
             <Box>
                 <Text>

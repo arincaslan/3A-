@@ -19,9 +19,10 @@ function CoverPage({ info, profileInfo }) {
     }, [files]);
 
     return (
-        <Box height="auto"
+        <Box minHeight="1000px"
+        style={{ pageBreakAfter: "always" }}
             overflowY="auto"
-            padding={6} borderRadius="lg"
+            padding={5} borderRadius="lg"
             boxShadow="lg">
             <div
                 style={{

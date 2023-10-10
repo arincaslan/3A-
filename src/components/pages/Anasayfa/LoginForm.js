@@ -36,24 +36,24 @@ function LoginForm({ onLoginSuccess }) {
   return (
     <form onSubmit={handleSubmit}>
       <Stack spacing={4}>
-        <Text fontSize="xl" fontWeight="semibold" >Giriş Yapınız</Text>
+        <Text fontFamily="heading1" color="teal" fontSize="xl" fontWeight="bold" >Giriş Yapınız</Text>
         <FormControl id="email">
-          <FormLabel>Email Adresi</FormLabel>
+          <FormLabel fontFamily="heading1" color="teal">Email Adresi</FormLabel>
           <Input type="email" value={email} onChange={handleEmailChange} />
         </FormControl>
         <FormControl id="password">
-          <FormLabel>Parola</FormLabel>
+          <FormLabel fontFamily="heading1" color="teal">Parola</FormLabel>
           <Input type="password" value={password} onChange={handlePasswordChange} />
         </FormControl>
-        <Checkbox isChecked={rememberMe} onChange={handleRememberMeChange}>
+        <Checkbox fontFamily="heading1" color="teal" isChecked={rememberMe} onChange={handleRememberMeChange}>
           Beni Hatırla
         </Checkbox>
         <Stack direction="row" spacing={4}>
-          <Button colorScheme="teal" variant="solid" type="submit">
+          <Button fontFamily="heading1"  colorScheme="teal" variant="solid" type="submit">
             Giriş Yap
           </Button>
           <Link to="/register">
-            <Button colorScheme="gray">Kayıt Ol</Button>
+            <Button fontFamily="heading1" colorScheme="gray">Kayıt Ol</Button>
           </Link>
         </Stack>
       </Stack>
