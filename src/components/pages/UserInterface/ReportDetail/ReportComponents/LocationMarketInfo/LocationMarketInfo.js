@@ -103,23 +103,16 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
 
     return (
         <Box p="5" borderRadius="md" boxShadow="lg" position="relative">
-            <Box minHeight="1000px" position="relative" paddingBottom="50px">
+            <Box style={{pageBreakAfter: "always"}} minHeight="1000px" position="relative" paddingBottom="50px">
                 <Heading borderBottom="2px solid" borderColor="teal.500" pb={6} fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl">BÖLÜM 5 - Konum ve Piyasa Analizi</Heading>
+                
                 <Text fontFamily="body" mt={4}>
-                    Genel olarak Türkiye'deki gayrimenkul piyasası hakkında birkaç bilgi verelim:
-                </Text>
-                <Text fontFamily="body" mt={2}>
                     Türkiye, geniş bir gayrimenkul piyasasına sahip olup, emlak sektörü genellikle nüfus artışı, kentsel dönüşüm ve yatırımların çoğalması gibi faktörlerle büyümektedir. Gayrimenkul piyasası, özellikle büyük şehirlerde olmak üzere, konut, ofis, perakende ve endüstriyel segmentler olarak dört ana segmente ayrılmaktadır.
-                </Text>
-                <Text fontFamily="body" mt={2}>
                     Son yıllarda, konut fiyatlarındaki artış, büyük şehirlerdeki nüfus yoğunluğu, yabancı yatırımcıların artan ilgisi ve Türkiye'nin jeopolitik konumunun avantajları nedeniyle emlak sektörü önemli bir büyüme göstermiştir.
-                </Text>
-                <Text fontFamily="body" mt={2}>
                     Özellikle İstanbul, Ankara ve İzmir gibi büyük şehirler, yüksek talep nedeniyle en aktif gayrimenkul piyasalarına sahiptir.
+                    Ancak, Türkiye'nin gayrimenkul piyasası yerel ve küresel ekonomik koşullar, faiz oranları, demografik değişiklikler gibi çeşitli faktörlerden etkilenmektedir.
                 </Text>
-                <Text fontFamily="body" mt={2}>
-                    Ancak, Türkiye'nin gayrimenkul piyasası yerel ve küresel ekonomik koşullar, faiz oranları, demografik değişiklikler ve hükümet politikaları gibi çeşitli faktörlerden etkilenmektedir.
-                </Text>
+             
                 <Text fontFamily="body" mt={2}>
                     Aşağıdaki grafik, Türkiye'deki ortalama metrekare başına konut fiyatlarını göstermektedir. Bu grafik, Türkiye genelindeki konut fiyatlarının ne kadar değişken olduğunu ve bölgeden bölgeye nasıl farklılık gösterdiğini anlamamızı sağlar.
                 </Text>
@@ -145,7 +138,7 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                 <Box></Box>
             ) : (
                 <>
-                    <Box minHeight="1000px" position="relative" paddingBottom="50px">
+                    <Box style={{pageBreakAfter: "always"}}  minHeight="1000px" position="relative" paddingBottom="50px">
                         <Text fontFamily="body" mt={12}>
                             Proje, {info.projectData.location} konumunda bulunmaktadır. Bu konum, tapu bilgilerine göre {info.tapuData.location.il} / {info.tapuData.location.ilce} / {info.tapuData.location.mahalle}'de yer almaktadır. Bölgenin genel yapısı ve yerleşim koşullarına göre çevre bilgisi "{info.valueData.emsalData.cevreBilgisi}" bölgesi olarak tanımlanmıştır.
                         </Text>
@@ -164,7 +157,7 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                             {renderPageFooter(8)}
                    
                     </Box>
-                    <Box p={5} paddingBottom="50px" maxHeight="1050px" minHeight="1000px" position="relative" >
+                    <Box style={{pageBreakAfter: "always"}}  paddingBottom="50px" maxHeight="1000px" minHeight="1000px" position="relative" >
                         <Flex flexDirection="column" alignItems="center" justifyContent="center">
                             <Box mt={6} width="800px" ref={barChartRef}>
                                 <Text mb={4} fontFamily="heading2" align="center" fontWeight="bold" color="primary.900">Emsal M2 ve Değer Dağılımı</Text>
@@ -191,7 +184,6 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                    
                             {renderPageFooter(nextPageNumber)}
                      
-
                     </Box>
 
                 </>

@@ -64,10 +64,8 @@ const PropertyPhysicalInfo = ({ info, currentPage, renderPageFooter }) => {
   return (
     <Box p="5" borderRadius="md" boxShadow="lg"  >
 
-      <Box style={{pageBreakAfter: "always"}} paddingBottom="50px" position="relative" minHeight="950px" >
-        <Heading borderBottom="2px solid" borderColor="teal.500" pb={6} fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl">BÖLÜM 6 - Gayrimenkul Fiziksel Bilgileri / Yapı ve Arazi Bilgileri</Heading>
-        <Text fontFamily="body"  lineHeight="tall">Adres: {info.tapuData.location.il} / {info.tapuData.location.ilce} / {info.tapuData.location.mahalle}</Text>
-        <Text fontFamily="body" lineHeight="tall">Arazi Alanı: {info.tapuData.parsel.yuzolcumu} m². Bu alan, arsanın toplam metre kare cinsinden büyüklüğünü ifade eder.</Text>
+      <Box style={{pageBreakAfter: "always"}} paddingBottom="50px" position="relative" minHeight="1000px" >
+        <Heading borderBottom="2px solid" borderColor="teal.500" pb={6} fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl">BÖLÜM 6 - Gayrimenkul Fiziksel / Yapı ve Arazi Bilgileri</Heading>
         <Heading fontFamily="heading" color="secondary.700" fontWeight="bold" as="h3" size="lg" mt={6}>Zemin Bilgileri</Heading>
         <Text mt={4}>Aşağıdaki tabloda verilen veriler aracılığıyla detaylı bir zemin analizi yapılmıştır. Her bir değer ve kıstas, zeminin farklı özelliklerini temsil eder ve bir arada değerlendirildiğinde zeminin genel durumunu ve yapı inşa etme potansiyelini anlaşılmasına yardımcı olur.</Text>
         <Table variant="simple" size="md" borderWidth="1px" borderColor="gray.300" my={4}>
