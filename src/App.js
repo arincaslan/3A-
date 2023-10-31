@@ -15,6 +15,7 @@ import "@fontsource/nunito";
 import "@fontsource/roboto";
 import "@fontsource/open-sans";
 import "@fontsource/montserrat";
+import ReportDetailEnglish from "./components/pages/UserInterface/ReportDetailEnglish/ReportDetailEnglish";
 
 
 // Özel bir tema oluşturun
@@ -134,6 +135,7 @@ function App() {
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/create-report" element={<UserProvider><CreateForm onSubmit={handleFormSubmit} /></UserProvider>} />
           <Route path="/report-detail" element={<UserProvider><ReportDetail /></UserProvider>} />
+          <Route path="/report-detail-english" element={<UserProvider><ReportDetailEnglish /></UserProvider>} />
           <Route path="/my-reports" element={<MyReports />} />
           <Route path="/my-profile" element={<MyProfile />} />
         </Routes>

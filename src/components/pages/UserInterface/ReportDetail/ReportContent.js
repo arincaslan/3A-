@@ -13,6 +13,7 @@ import CoverPage from './ReportComponents/CoverPage/CoverPage';
 import IntroductionPage from './ReportComponents/IntroductionPage/IntroductionPage';
 import ValuationMethodology from './ReportComponents/ValuationMethodology/ValuationMethodology';
 import TableOfContents from './ReportComponents/TableOfContents/TableOfContents';
+import Declaration from './ReportComponents/Declaration/Declaration';
 
 
 const ReportContent = ({ report, profileData, sectionRefs, onBarImageUpdate, onRadarImageUpdate, onBase64Upload }) => {
@@ -48,6 +49,7 @@ const ReportContent = ({ report, profileData, sectionRefs, onBarImageUpdate, onR
             border="0px 1px 1px 1px solid #ccc"
             padding="5px" >
             <CoverPage info={report} profileInfo={profileData} />
+            <Declaration/>
             <TableOfContents evalPage={evalPage} currentPage={currentPage} newCurrentPage={newCurrentPage} ref={sectionRefs[1].ref} refs={sectionRefs} />
             <IntroductionPage renderPageFooter={renderPageFooter} info={report} />
             <ReportInfo renderPageFooter={renderPageFooter} info={report} profileInfo={profileData} />

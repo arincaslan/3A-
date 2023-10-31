@@ -12,7 +12,9 @@ const ReportCard = ({ report }) => {
     const handleClick = () => {
         navigate('/report-detail', { state: { report }, replace: true });
     };
-
+    const handleEnglishClick = () => {
+        navigate('/report-detail-english', { state: { report }, replace: true });
+    };
 
     return (
         <Box 
@@ -47,9 +49,14 @@ const ReportCard = ({ report }) => {
                         {formatDate(report.projectData.valuationDate)}
                     </Text>
                 </Box>
-                <Button w={300} onClick={handleClick} colorScheme="teal">
+                <Box display="flex" flexDirection="column">
+                <Button fontFamily="heading1" w="90%" onClick={handleClick} colorScheme="teal">
                     Raporu Görüntüle
                 </Button>
+                <Button fontFamily="heading1" mt={4} w="90%" onClick={handleEnglishClick} colorScheme="blue">
+                    Display English 
+                </Button>
+                </Box>
             </Flex>
         </Box>
     );

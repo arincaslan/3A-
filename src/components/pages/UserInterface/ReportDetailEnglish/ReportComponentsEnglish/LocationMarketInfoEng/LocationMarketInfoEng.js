@@ -20,7 +20,7 @@ function imageToBase64(imgUrl, callback) {
     img.src = imgUrl;
 }
 
-const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase64Upload, renderPageFooter, setPage }) => {
+const LocationMarketInfoEng = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase64Upload, renderPageFooter, setPage }) => {
     const isDataLoading = !info?.valueData?.emsalData?.emsaller;
     const barChartRef = useRef(null);
     const radarChartRef = useRef(null);
@@ -29,7 +29,7 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
 
     if (isDataLoading) {
         setPage(8);
-    }else{
+    } else {
         setPage(10);
     }
 
@@ -103,34 +103,33 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
 
     return (
         <Box p="5" borderRadius="md" boxShadow="lg" position="relative">
-            <Box style={{pageBreakAfter: "always"}} minHeight="1000px" position="relative" paddingBottom="50px">
-                <Heading borderBottom="2px solid" borderColor="teal.500" pb={6} fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl">BÖLÜM 5 - Konum ve Piyasa Analizi</Heading>
-                
+            <Box style={{ pageBreakAfter: "always" }} minHeight="1000px" position="relative" paddingBottom="50px">
+                <Heading borderBottom="2px solid" borderColor="teal.500" pb={6} fontFamily="heading2" color="teal" fontWeight="bold" as="h2" size="xl">SECTION 5 - Location and Market Analysis</Heading>
+
                 <Text fontFamily="body" mt={4}>
-                    Türkiye, geniş bir gayrimenkul piyasasına sahip olup, emlak sektörü genellikle nüfus artışı, kentsel dönüşüm ve yatırımların çoğalması gibi faktörlerle büyümektedir. Gayrimenkul piyasası, özellikle büyük şehirlerde olmak üzere, konut, ofis, perakende ve endüstriyel segmentler olarak dört ana segmente ayrılmaktadır.
-                    Son yıllarda, konut fiyatlarındaki artış, büyük şehirlerdeki nüfus yoğunluğu, yabancı yatırımcıların artan ilgisi ve Türkiye'nin jeopolitik konumunun avantajları nedeniyle emlak sektörü önemli bir büyüme göstermiştir.
-                    Özellikle İstanbul, Ankara ve İzmir gibi büyük şehirler, yüksek talep nedeniyle en aktif gayrimenkul piyasalarına sahiptir.
-                    Ancak, Türkiye'nin gayrimenkul piyasası yerel ve küresel ekonomik koşullar, faiz oranları, demografik değişiklikler gibi çeşitli faktörlerden etkilenmektedir.
+                    Turkey possesses an expansive real estate market, and the property sector typically grows due to factors like population growth, urban transformation, and the proliferation of investments. The real estate market, especially in major cities, is divided into four main segments: residential, office, retail, and industrial.
+                    In recent years, the rise in housing prices, population density in major cities, increasing interest from foreign investors, and the geopolitical advantages of Turkey have led to significant growth in the real estate sector.
+                    Particularly, large cities like Istanbul, Ankara, and Izmir have the most active real estate markets due to high demand.
+                    However, Turkey's real estate market is influenced by various factors such as local and global economic conditions, interest rates, and demographic changes.
                 </Text>
-             
+
                 <Text fontFamily="body" mt={2}>
-                    Aşağıdaki grafik, Türkiye'deki ortalama metrekare başına konut fiyatlarını göstermektedir. Bu grafik, Türkiye genelindeki konut fiyatlarının ne kadar değişken olduğunu ve bölgeden bölgeye nasıl farklılık gösterdiğini anlamamızı sağlar.
+                    The graph below shows the average price per square meter for housing in Turkey. This chart helps us understand how variable housing prices are across Turkey and how they differ from region to region.
                 </Text>
                 <Box mt={10} mb={6} display="flex" justifyContent="center">
-                    <ChakraImage src={imageURL} alt="Gayrimenkul Piyasası Grafiği" />
+                    <ChakraImage src={imageURL} alt="Real Estate Market Graph" />
                 </Box>
 
                 <Text fontFamily="body">
-                    Grafikte, 2015 - 2022 yılları arasında Türkiye'deki konut fiyatlarının İstanbul ve Türkiye ortalamasının kura bağlı olarak karşılaştırması yapılmıştır.
-                    Grafikteki zamana bağlı değişim incelenerek gayrimenkul sektöründeki talep trendinin genel olarak yükselişte olduğu çıkarılabilir.
-                    Ancak kur, faiz ve zamana bağlı inişler ve çıkışlarda gözlemlenmektedir.
-                    Bu, Türkiye'deki gayrimenkul piyasasının dinamik doğasını ve farklı bölgelerdeki ekonomik koşulların gayrimenkul fiyatları üzerindeki etkisini ifade eder.
+                    In the graph, a comparison of housing prices in Turkey between the years 2015 - 2022 is made, considering the average values in Istanbul and Turkey overall based on the exchange rate.
+                    Analyzing the time-based changes in the graph, it can be inferred that the demand trend in the real estate sector is generally on the rise.
+                    However, fluctuations based on the currency, interest rates, and time are observed.
+                    This depicts the dynamic nature of Turkey's real estate market and the impact of economic conditions in different regions on property prices.
                 </Text>
-            
-                    {renderPageFooter(7)}
-             
 
+                {renderPageFooter(7)}
             </Box>
+
 
 
 
@@ -138,29 +137,30 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                 <Box></Box>
             ) : (
                 <>
-                    <Box style={{pageBreakAfter: "always"}}  minHeight="1000px" position="relative" paddingBottom="50px">
+                    <Box style={{ pageBreakAfter: "always" }} minHeight="1000px" position="relative" paddingBottom="50px">
                         <Text fontFamily="body" mt={12}>
-                            Proje, tapu bilgilerine göre {info.tapuData.location.il} / {info.tapuData.location.ilce} / {info.tapuData.location.mahalle}'de yer almaktadır. Bölgenin genel yapısı ve yerleşim koşullarına göre çevre bilgisi "{info.valueData.emsalData.cevreBilgisi}" bölgesi olarak tanımlanmıştır.
+                            According to land registry data, project location is in {info.tapuData.location.il} / {info.tapuData.location.ilce} / {info.tapuData.location.mahalle}. Based on the general structure and settlement conditions of the region, the surrounding area is defined as the "{info.valueData.emsalData.cevreBilgisi}" area.
                         </Text>
                         <Text fontFamily="body" mt={4}>
-                            Bölgedeki emlak piyasasına genel bir bakış, mahalledeki ortalama gayrimenkul fiyatının {formattedVal} olduğunu göstermektedir. Bu, bölgenin genel ekonomik durumuna ve gayrimenkul piyasasındaki trendlere dair önemli bir göstergedir.
+                            A general overview of the real estate market in the area shows that the average property price in the neighborhood is {formattedVal}. This is an important indicator of the general economic condition of the region and trends in the real estate market.
                         </Text>
                         <Text fontFamily="body" mt={4}>
-                            Ayrıca, bölgede gayrimenkulün m2 başına düşen ortalama fiyatı {formattedM2Val}'dir. Bu, bölgenin genel emlak değerlerini ve m2 başına düşen gayrimenkul değerinin piyasadaki durumunu yansıtmaktadır.
+                            Also, the average price per square meter for real estate in the area is {formattedM2Val}. This reflects the general property values in the region and the market standing of the value of real estate per square meter.
                         </Text>
                         <Text fontFamily="body" mt={4}>
-                            Aşağıdaki grafikler, bölgedeki emsallerin değerlerini ve m2 başına değer projeksiyonlarını göstermektedir.
+                            The following graphs display the values of comparables in the area and projections of value per square meter.
                         </Text>
-                        <Text fontFamily="body" mt={4}>1. Blok Grafikte emsallerin ve bu emsallerin değerleri görülmektedir. Bu emsallerin {new Date(info.projectData.valuationDate).toLocaleDateString()} tarihteki piyasa değerleri aşağıda belirtilmiştir.</Text>
-                        <Text fontFamily="body">2. Radar grafikte, piyasa m2 başına fiyat üzerinden emsallerin değerleme projeksiyonu gösterilmektedir. Bu projeksiyonlara göre emsallerin değerlemeleri aşağıda belirtilmiştir.</Text>
-                
-                            {renderPageFooter(8)}
-                   
+                        <Text fontFamily="body" mt={4}>1. The bar graph shows the comparables and their values. The market values of these comparables as of {new Date(info.projectData.valuationDate).toLocaleDateString()} are stated below.</Text>
+                        <Text fontFamily="body">2. The radar graph displays the valuation projection of comparables based on the market price per square meter. Valuations of these comparables according to these projections are stated below.</Text>
+
+                        {renderPageFooter(8)}
+
                     </Box>
-                    <Box style={{pageBreakAfter: "always"}}  paddingBottom="50px" maxHeight="1000px" minHeight="1000px" position="relative" >
+
+                    <Box style={{ pageBreakAfter: "always" }} paddingBottom="50px" maxHeight="1000px" minHeight="1000px" position="relative" >
                         <Flex flexDirection="column" alignItems="center" justifyContent="center">
                             <Box mt={6} width="800px" ref={barChartRef}>
-                                <Text mb={4} fontFamily="heading2" align="center" fontWeight="bold" color="primary.900">Emsal M2 ve Değer Dağılımı</Text>
+                                <Text mb={4} fontFamily="heading2" align="center" fontWeight="bold" color="primary.900">Comparable m2 and Value Distribution</Text>
                                 <BarChart width={700} height={450} data={barData}>
                                     <CartesianGrid strokeDasharray="3 3" />
                                     <XAxis fontWeight="bold" dataKey="name" interval={0} angle={-45} textAnchor="end" height={80} fontSize={8} />
@@ -172,7 +172,7 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                             </Box>
 
                             <Box mt={8} maxWidth="800px" ref={radarChartRef}>
-                                <Text  fontFamily="heading2" align="center" fontWeight="bold" color="primary.900">Emsal M2 Başına Değer Projeksiyon Dağılımı</Text>
+                                <Text fontFamily="heading2" align="center" fontWeight="bold" color="primary.900">Projection Distribution of Value per Comparable m2</Text>
                                 <RadarChart cx={300} cy={250} outerRadius={150} width={600} height={450} data={radarData}>
                                     <PolarGrid />
                                     <PolarAngleAxis fontWeight="bold" height={80} fontSize={10} dataKey="subject" />
@@ -181,16 +181,16 @@ const LocationMarketInfo = ({ info, onBarImageUpdate, onRadarImageUpdate, onBase
                                 </RadarChart>
                             </Box>
                         </Flex>
-                   
-                            {renderPageFooter(nextPageNumber)}
-                     
+
+                        {renderPageFooter(nextPageNumber)}
+
                     </Box>
 
                 </>
             )}
-           
+
         </Box>
     );
 }
 
-export default LocationMarketInfo;
+export default LocationMarketInfoEng;
