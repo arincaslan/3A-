@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import { Box, Text } from '@chakra-ui/react';
-import EvaluationAndConclusion from '../ReportDetail/ReportComponents/EvaluationAndConclusion/EvaluationAndConclusion';
-import AttachmentsSection from '../ReportDetail/ReportComponents/AttachmentsSection/AttachmentsSection';
-import ValuationMethodology from '../ReportDetail/ReportComponents/ValuationMethodology/ValuationMethodology';
 import CoverPageEng from './ReportComponentsEnglish/CoverPageEng/CoverPageEng';
 import TableOfContentsEng from './ReportComponentsEnglish/TableOfContentsEng/TableOfContentsEng';
 import IntroductionPageEng from './ReportComponentsEnglish/IntroductionPageEng/IntroductionPageEng';
@@ -13,6 +10,10 @@ import PropertyLegalInfoEng from './ReportComponentsEnglish/PropertyLegalInfoEng
 import LocationMarketInfoEng from './ReportComponentsEnglish/LocationMarketInfoEng/LocationMarketInfoEng';
 import PropertyPhysicalInfoEng from './ReportComponentsEnglish/PropertyPhysicalInfoEng/PropertyPhysicalInfoEng';
 import SWOTAnalysisEng from './ReportComponentsEnglish/SWOTAnalysisEng/SWOTAnalysisEng';
+import ValuationMethodologyEng from './ReportComponentsEnglish/ValuationMethodologyEng/ValuationMethodologyEng';
+import EvaluationAndConclusionEng from './ReportComponentsEnglish/EvaluationAndConclusionEng/EvaluationAndConclusionEng';
+import AttachmentsSectionEng from './ReportComponentsEnglish/AttachmentsSectionEng/AttachmentsSectionEng';
+import DeclarationEng from './ReportComponentsEnglish/DeclarationEng/DeclarationEng';
 
 
 const ReportContentEnglish = ({ report, profileData, sectionRefs, onBarImageUpdate, onRadarImageUpdate, onBase64Upload }) => {
@@ -48,6 +49,7 @@ const ReportContentEnglish = ({ report, profileData, sectionRefs, onBarImageUpda
             border="0px 1px 1px 1px solid #ccc"
             padding="5px" >
             <CoverPageEng info={report} profileInfo={profileData} />
+            <DeclarationEng/>
             <TableOfContentsEng evalPage={evalPage} currentPage={currentPage} newCurrentPage={newCurrentPage} ref={sectionRefs[1].ref} refs={sectionRefs} />
             <IntroductionPageEng renderPageFooter={renderPageFooter} info={report} />
             <ReportInfoEng renderPageFooter={renderPageFooter} info={report} profileInfo={profileData} />
@@ -58,9 +60,9 @@ const ReportContentEnglish = ({ report, profileData, sectionRefs, onBarImageUpda
                 onRadarImageUpdate={onRadarImageUpdate} info={report} />
             <PropertyPhysicalInfoEng renderPageFooter={renderPageFooter} currentPage={currentPage} info={report} />
             <SWOTAnalysisEng currentPage={currentPage} renderPageFooter={renderPageFooter} info={report} />
-            <ValuationMethodology setNewPage={setNewPage} currentPage={currentPage} renderPageFooter={renderPageFooter} info={report} />
-            <EvaluationAndConclusion evalPage={evalPage} setNewEvalPage={setNewEvalPage} renderPageFooter={renderPageFooter} profileInfo={profileData} info={report} newCurrentPage={newCurrentPage} />
-            <AttachmentsSection />
+            <ValuationMethodologyEng setNewPage={setNewPage} currentPage={currentPage} renderPageFooter={renderPageFooter} info={report} />
+            <EvaluationAndConclusionEng evalPage={evalPage} setNewEvalPage={setNewEvalPage} renderPageFooter={renderPageFooter} profileInfo={profileData} info={report} newCurrentPage={newCurrentPage} />
+            <AttachmentsSectionEng />
         </Box>
     );
 }
