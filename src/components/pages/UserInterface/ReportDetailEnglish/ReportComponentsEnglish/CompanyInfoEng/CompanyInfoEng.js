@@ -15,7 +15,7 @@ function CompanyInfoEng({ profileInfo, info, renderPageFooter }) {
 
             <Heading fontFamily="Roboto" fontWeight="bold" as="h3" size="md" mt="4" mb={4}>2.1) Company Title and Address</Heading>
             <Box mb={4}>
-                <Text fontSize="16px" fontFamily="body" fontWeight="bold" display="inline">Customer:</Text>
+                <Text fontSize="16px" fontFamily="body" fontWeight="bold" display="inline">Company Title:</Text>
                 <Text fontSize="16px" fontFamily="body" display="inline"> {profileInfo.companyInfo.companyName}</Text>
             </Box>
             <Box mb={4}>
