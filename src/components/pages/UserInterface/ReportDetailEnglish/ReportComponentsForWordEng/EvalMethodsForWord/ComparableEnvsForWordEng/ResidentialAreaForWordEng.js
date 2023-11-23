@@ -1,8 +1,9 @@
 import React from 'react';
 import { Box, Text, Table, Thead, Tr, Th, Tbody, Td, VStack, Flex, Badge } from '@chakra-ui/react';
 
-function ResidentialAreaForWord({ info }) {
+function ResidentialAreaForWordEng({ info }) {
     const { emsaller } = info.valueData.emsalData;
+
 
     // Her bir emsalin değerini m2'sine bölme işlemi
     const emsalValuesPerM2 = emsaller.map(emsal => Number(emsal.deger) / Number(emsal.tasinmazAlani));
@@ -21,8 +22,8 @@ function ResidentialAreaForWord({ info }) {
     return (
         <div style={{ padding: "16px" }}>
             <p style={{ margin: "16px 0" }}>
-                Çevre bilgisi "yerleşim bölgesi" olan gayrimenkulün emsal karşılaştırma metodu ile değerlemesi aşağıdaki gibi gerçekleştirilecektir.
-                İlk olarak tüm emsallerin detaylı bilgileri aşağıda tablo halinde sunulmaktadır:
+                The valuation of the property with the environmental information "settlement area" will be conducted as follows using the benchmark comparison method.
+                First, the detailed information of all comparables is presented below in a table format:
             </p>
             <div style={{
                 backgroundColor: "white",
@@ -34,10 +35,10 @@ function ResidentialAreaForWord({ info }) {
                 <table style={{ borderCollapse: "collapse", width: "100%" }}>
                     <thead>
                         <tr>
-                            <th style={{ border: "1px solid gray", padding: "8px" }}>Taşınmaz Sahibi</th>
-                            <th style={{ border: "1px solid gray", padding: "8px" }}>Değer</th>
-                            <th style={{ border: "1px solid gray", padding: "8px" }}>Taşınmaz Alanı</th>
-                            <th style={{ border: "1px solid gray", padding: "8px" }}>Açıklama</th>
+                            <th style={{ border: "1px solid gray", padding: "8px" }}>Property Owner</th>
+                            <th style={{ border: "1px solid gray", padding: "8px" }}>Value</th>
+                            <th style={{ border: "1px solid gray", padding: "8px" }}>Property Area</th>
+                            <th style={{ border: "1px solid gray", padding: "8px" }}>Description</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,23 +53,22 @@ function ResidentialAreaForWord({ info }) {
                     </tbody>
                 </table>
             </div>
-            <p style={{ fontSize: "20px", fontWeight: "bold", margin: "16px 0" }}>Değerleme Sürecinde Yapılan İşlemler</p>
+            <p style={{ fontSize: "20px", fontWeight: "bold", margin: "16px 0" }}>Procedures Conducted During the Valuation Process</p>
             <p style={{ margin: "16px 0" }}>
-                Değerleme sürecinde yapılan işlemler aşağıdaki gibidir. Karşılaştırma kriteri olarak m² kullanılmıştır. Bölgede bulunan emsal olarak alınan gayrimenkuller uyarınca bölgedeki m² başına düşen ortalama fiyat {formatter.format(avgEmsalValuePerM2)} olarak hesaplanmıştır.
-                Değerlemesi yapılan gayrimenkulun değeri, bu ortalama fiyatın gayrimenkulün m² ile çarpılması sonucu {formatter.format(ourPropertyValue)} olarak bulunmuştur.
+            The procedures conducted during the valuation process are as follows. The comparison criterion is square meters (m²). The average price per square meter in the region has been calculated based on the properties selected as comparables. The value of the property being evaluated is determined by multiplying this average price by the property's square meters, resulting in {formatter.format(ourPropertyValue)}.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 {emsaller.map((emsal, index) => (
                     <p key={index}>
-                        Emsal ({emsal.tasinmazSahibi}): {formatter.format(emsal.deger)} / {emsal.tasinmazAlani} m² = {formatter.format(emsal.deger / emsal.tasinmazAlani)} / m²
+                            Comparable ({emsal.tasinmazSahibi}): {formatter.format(emsal.deger)} / {emsal.tasinmazAlani} m² = {formatter.format(emsal.deger / emsal.tasinmazAlani)} TL/m²
                     </p>
                 ))}
-                <p>   Ortalama m² başına değer:
+                <p>  Average value per m² =
                     ({emsaller.map((_, index) => `Emsal ${index + 1} değer/m²`).join(' + ')}) / {emsaller.length} =
                     {formatter.format(avgEmsalValuePerM2)} / m²</p>
                 <div style={{ margin: "16px 0", display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <span style={{ padding: "16px", backgroundColor: "green", fontSize: "20px", borderRadius: "8px" }}>
-                        Değerlemesi yapılan gayrimenkulün değeri: Ortalama m² başına değer {formatter.format(avgEmsalValuePerM2)} * Gayrimenkul alanı {Number(info.tapuData.parsel.yuzolcumu)} m² = <strong>{formatter.format(ourPropertyValue)}</strong>
+                    The estimated value of the property being evaluated: Average value per m² {formatter.format(avgEmsalValuePerM2)} * Property area {Number(info.tapuData.parsel.yuzolcumu)} m² = <strong>{formatter.format(ourPropertyValue)}</strong>
                     </span>
                 </div>
             </div>
@@ -76,6 +76,6 @@ function ResidentialAreaForWord({ info }) {
     );
 }
 
-export default ResidentialAreaForWord;
+export default ResidentialAreaForWordEng;
 
 

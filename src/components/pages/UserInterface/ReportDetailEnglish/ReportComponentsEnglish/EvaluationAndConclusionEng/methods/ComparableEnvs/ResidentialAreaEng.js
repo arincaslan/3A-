@@ -58,7 +58,7 @@ function ResidentialAreaEng({ info, renderPageFooter, emsalPage, setEmsalResult 
             <Box p={5} style={{ pageBreakAfter: 'always' }} minHeight="1000px" paddingBottom="50px" position="relative">
                 <Text fontFamily="heading" color="secondary.700" fontSize="xl" fontWeight="bold" mt={4}>Procedures Conducted During the Valuation Process</Text>
                 <Text my={4}>
-                    The procedures conducted during the valuation process are as follows. The comparison criterion is square meters (m²). The average price per square meter in the region has been calculated based on the properties selected as comparables. The value of the property being evaluated is determined by multiplying this average price by the property's square meters, resulting in {formatter.format(ourPropertyValue)} TL.
+                    The procedures conducted during the valuation process are as follows. The comparison criterion is square meters (m²). The average price per square meter in the region has been calculated based on the properties selected as comparables. The value of the property being evaluated is determined by multiplying this average price by the property's square meters, resulting in {formatter.format(ourPropertyValue)} .
                 </Text>
                 <VStack align="start" spacing={4}>
                     {emsaller.map((emsal, index) => (

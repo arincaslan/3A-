@@ -1,6 +1,7 @@
 import React from 'react';
 
-function SeperatedAreaForWord({ info }) {
+function SeperatedAreaForWordEng({ info }) {
+
     const formatter = new Intl.NumberFormat('tr-TR', {
         style: 'currency',
         currency: 'TRY',
@@ -47,23 +48,23 @@ function SeperatedAreaForWord({ info }) {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: '16px' }}>
             <p style={{ marginBottom: '16px' }}>
-                Çevre bilgisi "ayrık nizam" olan gayrimenkulün emsal karşılaştırma metodu ile değerlemesi aşağıdaki gibi gerçekleştirilecektir.
+                The appraisal of the property with "discrete order" environmental knowledge will be conducted as follows using the comparative sales method.
             </p>
             <p style={{ marginBottom: '16px' }}>
-                İlk olarak tüm emsallerin detaylı bilgileri aşağıda tablo halinde sunulmaktadır:
+                First, all comparables detailed information is presented below in table format:
             </p>
             <table style={{ width: '100%', margin: '16px 0', borderCollapse: 'collapse', borderSpacing: '0', fontSize: 'small' }}>
                 <thead>
                     <tr style={{ background: '#edf2f7' }}>
-                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Taşınmaz Sahibi</th>
-                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Ön/Yan Bahçe Mesafesi</th>
-                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Derinlik</th>
-                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Cephe</th>
-                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Kat Sayısı</th>
-                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Kat Yüksekliği</th>
-                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Arka Bahçe Mesafesi</th>
-                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Toplam İnşaat Alanı</th>
-                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Emsal Değeri</th>
+                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Property Owner</th>
+                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Front/Side Garden Distance</th>
+                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Depth</th>
+                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Frontage</th>
+                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Number of Floors</th>
+                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Floor Height</th>
+                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Back Garden Distance</th>
+                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Total Construction Area</th>
+                        <th style={{ padding: '8px', borderBottom: '1px solid #e2e8f0' }}>Comparative Value</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,44 +85,44 @@ function SeperatedAreaForWord({ info }) {
             </table>
 
             <p>
-                Ardından her bir emsal için bina cephesi ve derinliği hesaplanır. Bu değerler, menkulün cephesi, derinliği, ön ve yan bahçe mesafesi ile kat yüksekliğine bağlıdır.
+                The frontage and depth of each comparable building are calculated. These values depend on the property's frontage, depth, front and side garden distances, and floor height.
             </p>
             <p>
-                Bina Cephesi = Cephe - Yan Bahçe Mesafesi - Ön Bahçe Mesafesi = {cephe} - {yanBahceMesafesi} - {onBahceMesafesi} = {binaCephe} m
+                Building Frontage = Frontage - Side Garden Distance - Front Garden Distance = {cephe} - {yanBahceMesafesi} - {onBahceMesafesi} = {binaCephe} m
             </p>
             <p>
-                Bina Derinliği = Derinlik - Ön Bahçe Mesafesi - Arka Bahçe Mesafesi = {derinlik} - {onBahceMesafesi} - {arkabahceMesafesi} = {binaDerinlik} m
+                Building Depth = Depth - Front Garden Distance - Back Garden Distance = {derinlik} - {onBahceMesafesi} - {arkabahceMesafesi} = {binaDerinlik} m
             </p>
             <p>
-                Sonra, menkulün toplam inşaat alanı hesaplanır. Bu değer, bina cephesi, derinliği ve kat sayısı ile bulunur.
+                Then, the total construction area of the property is calculated. This value is found by the building frontage, depth, and number of floors.
             </p>
             <p>
-                Toplam İnşaat Alanı = Bina Cephesi x Bina Derinliği x Kat Sayısı = {binaCephe} x {binaDerinlik} x {katSayisi} = {toplamInsaatAlani} m²
+                Total Construction Area = Building Frontage x Building Depth x Number of Floors = {binaCephe} x {binaDerinlik} x {katSayisi} = {toplamInsaatAlani} m²
             </p>
             <p>
-                Sonraki adımda, her bir emsal için m² başına değer hesaplanır. Bu değer, emsalin değeri ile toplam inşaat alanının oranı olarak bulunur.
+                Next, the value per square meter for each comparable is calculated. This value is found as the ratio of the comparable's value to its total construction area.
             </p>
             {emsaller.map((emsal, index) => (
                 <p key={index}>
-                    Emsal {index + 1} İçin m² Başına Değer = Emsal Değeri / Toplam İnşaat Alanı = {formatter.format(emsal.deger)} / {toplamInsaatAlanlari[index]} = {formatter.format(emsalM2BasinaDegerleri[index])} /m²
+                    Value per m² for Comparable {index + 1} = Comparative Value / Total Construction Area = {formatter.format(emsal.deger)} / {toplamInsaatAlanlari[index]} = {formatter.format(emsalM2BasinaDegerleri[index])} /m²
                 </p>
             ))}
             <p>
-                Daha sonra tüm emsallerin m² başına değerlerinin ortalaması alınır. Bu değer, gayrimenkulün m² başına değerini temsil eder.
+                Then, the average value per square meter of all comparables is calculated. This value represents the property's value per square meter.
             </p>
             <p>
-                Ortalama m² Başına Değer = (Emsal 1 m² Başına Değer + Emsal 2 m² Başına Değer + ... + Emsal n m² Başına Değer) / n = {formatter.format(ortalamaM2BasinaDeger)} /m²
+                Average Value per m² = (Comparable 1 Value per m² + Comparable 2 Value per m² + ... + Comparable n Value per m²) / n = {formatter.format(ortalamaM2BasinaDeger)} /m²
             </p>
             <p>
-                Son adımda, gayrimenkulün toplam değeri bulunur. Bu değer, gayrimenkulün toplam inşaat alanı ile ortalama m² başına değerin çarpımı ile elde edilir.
+                In the final step, the total value of the property is found. This value is obtained by multiplying the property's total construction area by the average value per square meter.
             </p>
 
             <div style={{ display: 'flex', justifyContent: 'center', width: '100%', margin: '16px 0', padding: '16px', background: '#28a745', color: '#fff', fontSize: '18px' }}>
-                Gayrimenkul Değeri = Ortalama m² Başına Değer x Toplam İnşaat Alanı = {formatter.format(ortalamaM2BasinaDeger)} x {toplamInsaatAlani} = <strong>{formatter.format(gayrimenkulDeger)}</strong>
+                Property Value = Total Construction Area x Average Value per m² = {toplamInsaatAlani} m² x {formatter.format(ortalamaM2BasinaDeger)} = {formatter.format(gayrimenkulDeger)}
             </div>
         </div>
 
     );
 }
 
-export default SeperatedAreaForWord;
+export default SeperatedAreaForWordEng;

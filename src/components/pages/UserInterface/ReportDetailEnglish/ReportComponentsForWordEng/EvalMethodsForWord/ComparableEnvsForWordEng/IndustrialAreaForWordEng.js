@@ -1,12 +1,13 @@
 import React from 'react';
 
-function IndustrialAreaForWord({ info }) {
+function IndustrialAreaForWordEng({ info }) {
     const { emsaller } = info.valueData.emsalData;
     const { menkulEkBilgi } = info.valueData.emsalData;
     const taks = Number(info.tapuData.parsel.taks.replace(",", "."));
     const alan = Number(info.tapuData.parsel.yuzolcumu.replace(",", "."));
     const katSayisi = Number(menkulEkBilgi.katSayisi.replace(",", "."));
     const katYüksekligi = Number(menkulEkBilgi.katYuksekligi.replace(",", "."));
+
 
 
     const formatter = new Intl.NumberFormat('tr-TR', {
@@ -30,8 +31,8 @@ function IndustrialAreaForWord({ info }) {
     return (
         <div style={{ padding: "1rem" }}>
             <p style={{ marginBottom: "16px" }}>
-                Çevre bilgisi "sanayi bölgesi" olan gayrimenkulün emsal karşılaştırma metodu ile değerlemesi aşağıdaki gibi gerçekleştirilecektir.
-                İlk olarak tüm emsallerin detaylı bilgileri aşağıda tablo halinde sunulmaktadır:
+                The valuation of the property with the environmental information "industrial zone" will be carried out as follows using the benchmark comparison method.
+                First, the detailed information of all comparables is presented below in table format:
             </p>
             <div style={{
                 backgroundColor: "white",
@@ -46,11 +47,11 @@ function IndustrialAreaForWord({ info }) {
                 }}>
                     <thead>
                         <tr>
-                            <th style={{ border: "1px solid gray", padding: "8px" }}>Taşınmaz Sahibi</th>
-                            <th style={{ border: "1px solid gray", padding: "8px" }}>Değer</th>
-                            <th style={{ border: "1px solid gray", padding: "8px" }}>Taşınmaz Alanı</th>
-                            <th style={{ border: "1px solid gray", padding: "8px" }}>Kat Sayısı</th>
-                            <th style={{ border: "1px solid gray", padding: "8px" }}>Kat Yüksekliği</th>
+                            <th style={{ border: "1px solid gray", padding: "8px" }}>Property Owner</th>
+                            <th style={{ border: "1px solid gray", padding: "8px" }}>Value</th>
+                            <th style={{ border: "1px solid gray", padding: "8px" }}>Property Area</th>
+                            <th style={{ border: "1px solid gray", padding: "8px" }}>Number of Floors</th>
+                            <th style={{ border: "1px solid gray", padding: "8px" }}>Floor Height</th>
                             <th style={{ border: "1px solid gray", padding: "8px" }}>Açıklama</th>
                         </tr>
                     </thead>
@@ -70,13 +71,13 @@ function IndustrialAreaForWord({ info }) {
             </div>
 
             <p style={{ marginBottom: "16px" }}>
-                Değerlemesi yapılacak gayrimenkulün çevre bilgisi "Sanayi Bölgesi" olarak belirtilmiştir. Bu bağlamda, değerleme işlemi aşağıdaki hesaplamalar ile gerçekleştirilmiştir:
+            The environmental information for the property to be appraised is stated as "Industrial Zone". In this context, the valuation process has been carried out with the following calculations:
             </p>
             <p>
-                Ortalama birim inşaat hacmi başına düşen fiyat: {formatter.format(avgValuePerVolume)} TL
+                Average price per unit construction volume: {formatter.format(avgValuePerVolume)} TL
             </p>
             <p>
-                Değerlemesi yapılan gayrimenkulün değeri: {formatter.format(ourPropertyValue)}
+                The value of the property being appraised: {formatter.format(ourPropertyValue)}
             </p>
             <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "16px" }}>
                 {emsaller.map((emsal, index) => (
@@ -85,14 +86,14 @@ function IndustrialAreaForWord({ info }) {
                     </p>
                 ))}
                 <p>
-                    Ortalama birim inşaat hacmi başına düşen fiyat: ({valuePerVolume.join(' + ')}) / {valuePerVolume.length} = {avgValuePerVolume.toFixed(2)} TL/m³
+                    Average price per unit construction volume: ({valuePerVolume.join(' + ')}) / {valuePerVolume.length} = {avgValuePerVolume.toFixed(2)} TL/m³
                 </p>
                 <div style={{ margin: "16px 0", width: "100%", display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "green", padding: "16px", fontSize: "24px", color: "white", borderRadius: "8px" }}>
-                    Değerlemesi yapılan gayrimenkulün değeri: Ortalama birim inşaat hacmi başına düşen fiyat {avgValuePerVolume.toFixed(2)} TL/m³ * Gayrimenkul alanı {alan} m² = <strong>{formatter.format(ourPropertyValue)}</strong>
+                    The value of the property being appraised: Average price per unit construction volume {avgValuePerVolume.toFixed(2)} TL/m³ * Property Area {alan} m² = <strong>{formatter.format(ourPropertyValue)}</strong>
                 </div>
             </div>
         </div>
     );
 }
 
-export default IndustrialAreaForWord;
+export default IndustrialAreaForWordEng;

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 
-function CostMethodForWord({ info }) {
+function CostMethodForWordEng({ info }) {
+
     const { yeniden } = info.valueData?.maaliyetData;
     const alan = Number(info.tapuData?.parsel?.yuzolcumu?.replace(",", "."));
     const costYenidenYapim = Number(yeniden?.yapim_maliyeti?.replace(",", "."));
@@ -55,46 +56,43 @@ function CostMethodForWord({ info }) {
 
     return (
         <div>
-            <h2>Maliyet Yaklaşımı Değerlemesi</h2>
+            <h2>Cost Approach Valuation</h2>
             <div>
                 <p>
-                    "Yeniden" üretim değerleme metodu ile gayrimenkul değerlemesi tercih edilmiştir. Bu yöntem, genellikle benzersiz ya da nadiren satılan gayrimenkuller (örneğin, özel yapılar, endüstriyel tesisler, vs.) için uygundur. Bu tür gayrimenkullerin piyasada karşılaştırılabilir örnekleri genellikle bulunmaz ve bu nedenle yeniden üretim maliyetine dayalı değerleme yöntemi kullanılır.
+                    The reproduction cost valuation method has been preferred. This method is usually suitable for properties that are unique or not sold frequently (for example, special buildings, industrial facilities, etc.). It is often not possible to find comparable examples in the market for such properties, therefore the valuation method based on reproduction cost is utilized.
 
                 </p>
 
                 <div style={{ margin: '16px 0' }}>
                     <p>
-                        1. Arsa Değeri: Arsa birim maliyeti ile arsa alanının çarpımı ile elde edilir. Bu, gayrimenkulün üzerinde bulunduğu arsanın güncel piyasa değerini temsil eder.
+                    1. Land Value: The land value is obtained by multiplying the unit cost of the land by the area of the land...
 
                     </p>
                     <p>
-                        Arsa değeri = Alan ({alan} m²) * Ortalama emsal değeri/m² ({formatCurrency(avgLandValuePerM2)} /m²) = {formatCurrency(landValue)};
+                    Land value = Area ({alan} m²) x Average benchmark value/m² ({formatCurrency(avgLandValuePerM2)} /m²) = {formatCurrency(landValue)}
                     </p>
                     <p>
-                        2. Bina Değeri: Bina değeri, inşaat maliyetleri ve amortisman miktarı göz önünde bulundurularak hesaplanır. İlk olarak, toplam inşaat alanı ile yeniden üretim birim maliyeti çarpılır. Ardından, bu değerden belirli bir amortisman miktarı çıkarılır. Amortisman oranı, gayrimenkulün yaşı, bakım durumu, malzeme kalitesi, konumu ve inşaat & tasarım kalitesi gibi faktörler dikkate alınarak hesaplanır.
+                    2. Building Value: The building value is calculated by taking into account construction costs and the amount of depreciation...
                     </p>
                     <p>
-                        Amortisman oranı = ({Object.values(yeniden?.faktorler).join(' + ')}) / {Object.values(yeniden?.faktorler).length} = {depreciation.toFixed(2)} %
+                    Depreciation rate = ({Object.values(yeniden?.faktorler).join(' + ')}) / {Object.values(yeniden?.faktorler).length} = {depreciation.toFixed(2)}%
                     </p>
                     <p>
-                        Bina değeri = Yeniden yapım maliyeti ({formatCurrency(costYenidenYapim)}) - (Yeniden yapım maliyeti ({formatCurrency(costYenidenYapim)}) * Amortisman Oranı ({depreciation.toFixed(2)}) / 100) = {formatCurrency(buildingValue)}
+                    Building value = Reconstruction cost ({formatCurrency(costYenidenYapim)}) - (Reconstruction cost ({formatCurrency(costYenidenYapim)}) x Depreciation Rate (%{depreciation.toFixed(2)}) / 100) = {formatCurrency(buildingValue)}
                     </p>
                     <p>
-                        3. Gayrimenkul Değeri: Gayrimenkul değeri, arsa değeri ve bina değeri toplamıdır. Bu değer, gayrimenkulün bugünkü piyasa koşullarında yeniden üretilebilme maliyetini temsil eder.
+                    3. Property Value: The property value is the sum of the land value and the building value...
                     </p>
                     <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0' }}>
                         <span style={{ padding: '8px 16px', backgroundColor: '#48BB78', color: 'white', fontSize: '20px' }}>
-                            Gayrimenkul Değeri = Arsa Değeri ({formatCurrency(landValue)}) + Bina Değeri ({formatCurrency(buildingValue)}) = <strong>{formatCurrency(propertyValue)}</strong>
+                        The value of the property being appraised =   Land Value ({formatCurrency(landValue)}) + Building Value ({formatCurrency(buildingValue)})  = <strong>{formatCurrency(propertyValue)}</strong>
                         </span>
                     </div>
                 </div>
 
                 <p>
-                    Yeniden üretim maliyet metodu, gayrimenkulün değerini belirlerken inşaat maliyetlerini,
-                    arsa değerini ve amortismanı dikkate alır. Bu yöntem, mülkiyetin yeniden üretim veya
-                    inşa maliyetlerinin, belirli bir amortisman miktarı düşüldükten sonra, arsa maliyeti ile
-                    toplanmasına dayanır. Amortisman, gayrimenkulün yaşı, bakım durumu, malzeme kalitesi,
-                    konumu ve inşaat & tasarım kalitesi gibi faktörler dikkate alınarak hesaplanır.
+                The reproduction cost method takes into account construction costs, land value, and depreciation to determine the value of the property. This method is based on adding the cost of the land to the reproduction or construction costs after deducting a certain amount of depreciation. Depreciation is calculated considering factors such as the age of the property, its maintenance condition, material quality, location, and the quality of construction & design.
+
                 </p>
             </div>
             <br style={{ pageBreakAfter: 'always', clear: 'both' }}></br>
@@ -102,4 +100,4 @@ function CostMethodForWord({ info }) {
     );
 }
 
-export default CostMethodForWord;
+export default CostMethodForWordEng;

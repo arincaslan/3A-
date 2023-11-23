@@ -1,8 +1,5 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
-import TableOfContentsForWord from '../ReportDetail/ReportComponentsForWord/TableOfContentsForWord';
-import ValuationMethodologyForWord from '../ReportDetail/ReportComponentsForWord/ValuationMethodologyForWord';
-import EvaluationAndConclusionForWord from '../ReportDetail/ReportComponentsForWord/EvaluationAndConclusionForWord';
 import AttachmentsSectionForWord from '../ReportDetail/ReportComponentsForWord/AttachmentsSectionForWord';
 import CoverPageForWordEng from './ReportComponentsForWordEng/CoverPageForWordEng';
 import IntroductionPageForWordEng from './ReportComponentsForWordEng/IntroductionPageForWordEng';
@@ -13,16 +10,23 @@ import PropertyLegalInfoForWordEng from './ReportComponentsForWordEng/PropertyLe
 import LocationMarketInfoForWordEng from './ReportComponentsForWordEng/LocationMarketInfoForWordEng';
 import PropertyPhysicalInfoForWordEng from './ReportComponentsForWordEng/PropertyPhysicalInfoForWordEng';
 import SWOTAnalysisForWordEng from './ReportComponentsForWordEng/SwotAnalysisForWordEng';
+import ValuationMethodologyForWordEng from './ReportComponentsForWordEng/ValuationMethodologyForWordEng';
+import EvaluationAndConclusionForWordEng from './ReportComponentsForWordEng/EvaluationAndConclusionForWordEng';
+import TableOfContentsForWordEng from './ReportComponentsForWordEng/TableOfContentsForWordEng';
+import DeclarationForWordEng from './ReportComponentsForWordEng/DeclarationForWordEng';
 
 
 
-const ReportContentForWordEnglish = ({ report, profileData, sectionRefs, barImage, radarImage , base64Img}) => {
+const ReportContentForWordEnglish = ({ report, profileData, sectionRefs, barImage, radarImage, base64Img }) => {
     return (
         <Box>
             <div ref={sectionRefs[0].ref} style={{ marginBottom: "30px", pageBreakAfter: "always" }}>
                 <CoverPageForWordEng info={report} profileInfo={profileData} />
             </div>
-            <TableOfContentsForWord ref={sectionRefs[1].ref} refs={sectionRefs} />
+            <div style={{ marginBottom: "30px" }}>
+                <DeclarationForWordEng />
+            </div>
+            <TableOfContentsForWordEng ref={sectionRefs[1].ref} refs={sectionRefs} />
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[2].ref}>
                 <IntroductionPageForWordEng info={report} />
             </div>
@@ -48,13 +52,13 @@ const ReportContentForWordEnglish = ({ report, profileData, sectionRefs, barImag
                 <SWOTAnalysisForWordEng info={report} />
             </div>
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[10].ref}>
-                <ValuationMethodologyForWord info={report} />
+                <ValuationMethodologyForWordEng info={report} />
             </div>
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[11].ref}>
-                <EvaluationAndConclusionForWord profileInfo={profileData} info={report} />
+                <EvaluationAndConclusionForWordEng profileInfo={profileData} info={report} />
             </div>
             <div style={{ marginBottom: "30px" }} ref={sectionRefs[12].ref}>
-                <AttachmentsSectionForWord  />
+                <AttachmentsSectionForWord />
             </div>
         </Box>
     );

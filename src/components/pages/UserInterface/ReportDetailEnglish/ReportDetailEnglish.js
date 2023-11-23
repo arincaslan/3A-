@@ -12,7 +12,7 @@ import ReportContentForWordEnglish from './ReportContentForWordEnglish';
 function ReportDetailEnglish() {
     const userData = useUser();
     const location = useLocation();
-    const report = location.state.report;
+    const reportEng = location.state.report;
     const profileData = userData.profile;
     const [base64Img, setBase64Image] = useState(null);
     const [barImage, setBarImage] = useState(null);
@@ -61,15 +61,17 @@ function ReportDetailEnglish() {
         });
     }
 
+
     const exportToWord = () => {
         // React component to HTML string
         let htmlString = renderToString(
             <ChakraProvider theme={extendTheme()}>
                 <CSSReset />
-                <ReportContentForWordEnglish base64Img={base64Img} barImage={barImage} radarImage={radarImage} report={report} profileData={profileData} sectionRefs={sectionRefs} />
+                <ReportContentForWordEnglish base64Img={base64Img} barImage={barImage} radarImage={radarImage} report={reportEng} profileData={profileData} sectionRefs={sectionRefs} />
             </ChakraProvider>
         );
 
+        htmlString = '<html><head><meta charset="UTF-8"></head><body>' + htmlString + '</body></html>';
         // HTML string to Word document
         let converted = htmlDocx.asBlob(htmlString);
 
@@ -85,7 +87,7 @@ function ReportDetailEnglish() {
                 alignItems="center"
                 id="report-content">
                 <ReportContentEnglish onBase64Upload={handleBase64ImageUpdate} onBarImageUpdate={handleBarImageUpdate}
-                    onRadarImageUpdate={handleRadarImageUpdate} report={report} profileData={profileData} sectionRefs={sectionRefs} />
+                    onRadarImageUpdate={handleRadarImageUpdate} report={reportEng} profileData={profileData} sectionRefs={sectionRefs} />
             </Box>
             <Button disabled={!isExportEnabled} colorScheme='teal' mt="20px" onClick={exportToWord}>Word'e Dönüştür</Button>
             <Button colorScheme='blue' ml="10px" mt="20px" onClick={exportToPdf}>PDF'e Dönüştür</Button>
