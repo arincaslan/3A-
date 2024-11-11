@@ -39,9 +39,15 @@ function MyReports() {
     );
 
     return (
+        <Box width={[
+            "100%", // base
+            "30em", // 480px upwards
+            "48em", // 768px upwards
+            "100%", // 992px upwards
+          ]}>
         <Box p={5}>
             <Flex justifyContent="space-between" alignItems="center" mb={6}>
-                <Box>
+                <Box >
                     <Heading mb={2} color="teal.500">Raporlarım</Heading>
                     <Text fontSize="lg" color="gray.600">Raporlarınızı bu sayfadan seçerek görüntüleyebilirsiniz.</Text>
                 </Box>
@@ -59,13 +65,14 @@ function MyReports() {
                 />
             </Box>
 
-            <Box backgroundColor="green.800" p={5}>
-                <Grid templateColumns={['1fr', '1fr 1fr', '1fr 1fr 1fr']} gap={6}>
+            <Box   backgroundColor="green.800" p={5}>
+                <Grid justifyContent='center'  templateColumns={['1fr', '1fr 1fr', '1fr 1fr', '1fr 1fr 1fr']} gap={6}>
                     {filteredReports.map((report) => (
                         <ReportCard key={report.id} report={report.data} />
                     ))}
                 </Grid>
             </Box>
+        </Box>
         </Box>
     );
 }

@@ -49,7 +49,12 @@ function ProjectForm({ onNext, profileData }) {
         onNext(projectData);
     }
     return (
-        <Box width="800px" p={6} boxShadow="2xl" bg="white" rounded="md">
+        <Box width={[
+            "800px", // base
+            "30em", // 480px upwards
+            "48em", // 768px upwards
+            "800px", // 992px upwards
+          ]} p={6} boxShadow="2xl" bg="white" rounded="md">
             <Text fontSize="2xl" fontWeight="bold" color="primary.700" fontFamily="heading1" mb={4}>
                 1. Adım: Proje Bilgileri Formu
             </Text>

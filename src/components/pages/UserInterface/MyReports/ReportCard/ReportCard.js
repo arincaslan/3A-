@@ -22,7 +22,12 @@ const ReportCard = ({ report }) => {
             borderRadius="lg" 
             p={5} 
             my={4} 
-            width={['100%', '80%', '60%', '400px']}
+            width={[
+                "100%", // base
+                "40%", // 480px upwards
+                "85%", // 768px upwards
+                "90%", // 992px upwards
+              ]}
             mx="auto"
             bg="white"
             boxShadow="md" 
@@ -49,11 +54,11 @@ const ReportCard = ({ report }) => {
                         {formatDate(report.projectData.valuationDate)}
                     </Text>
                 </Box>
-                <Box display="flex" flexDirection="column">
-                <Button fontFamily="heading1" w="90%" onClick={handleClick} colorScheme="teal">
+                <Box p={5} display="flex"  flexDirection="column">
+                <Button fontSize={["sm", "md", 'md', "xl"]} fontFamily="heading1" w='90%' onClick={handleClick} colorScheme="teal">
                     Raporu Görüntüle
                 </Button>
-                <Button fontFamily="heading1" mt={4} w="90%" onClick={handleEnglishClick} colorScheme="blue">
+                <Button fontSize={["sm", "md", 'md', "xl"]} fontFamily="heading1" mt={4} w='90%' onClick={handleEnglishClick} colorScheme="blue">
                     Display English 
                 </Button>
                 </Box>

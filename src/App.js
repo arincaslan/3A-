@@ -20,6 +20,12 @@ import ReportDetailEnglish from "./components/pages/UserInterface/ReportDetailEn
 
 // Özel bir tema oluşturun
 const customTheme = extendTheme({
+  breakpoints: {
+    sm: "30em", // Mobile devices
+    md: "48em", // Tablets
+    lg: "62em", // Small laptops
+    xl: "80em", // Desktops
+  },
   colors: {
     // örneğin yeni bir renk ekleyin
     primary: {
@@ -118,9 +124,14 @@ function App() {
   };
 
   return (
-    <ChakraProvider theme={customTheme}>
+    <ChakraProvider  theme={customTheme}>
       <Router>
-      {isAuthenticated && <Navbar onLogout={handleLogout}/>}
+      {isAuthenticated && <Navbar width={[
+            "100%", // base
+            "30em", // 480px upwards
+            "48em", // 768px upwards
+            "100%", // 992px upwards
+          ]} onLogout={handleLogout}/>}
         <Routes>
           <Route
             path="/"
@@ -133,10 +144,20 @@ function App() {
             }
           />
           <Route path="/register" element={<RegisterForm />} />
-          <Route path="/create-report" element={<UserProvider><CreateForm onSubmit={handleFormSubmit} /></UserProvider>} />
+          <Route path="/create-report" element={<UserProvider><CreateForm width={[
+            "100%", // base
+            "30em", // 480px upwards
+            "48em", // 768px upwards
+            "100%", // 992px upwards
+          ]}  onSubmit={handleFormSubmit} /></UserProvider>} />
           <Route path="/report-detail" element={<UserProvider><ReportDetail /></UserProvider>} />
           <Route path="/report-detail-english" element={<UserProvider><ReportDetailEnglish /></UserProvider>} />
-          <Route path="/my-reports" element={<MyReports />} />
+          <Route path="/my-reports" element={<MyReports width={[
+            "100%", // base
+            "30em", // 480px upwards
+            "48em", // 768px upwards
+            "100%", // 992px upwards
+          ]}/>} />
           <Route path="/my-profile" element={<MyProfile />} />
         </Routes>
       </Router>

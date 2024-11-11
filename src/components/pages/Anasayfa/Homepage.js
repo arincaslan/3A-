@@ -8,18 +8,19 @@ function Homepage({ onLoginSuccess }) {
   return (
     <Box>
       <Box
+      
         padding={4}
         backgroundImage={`url(${backGroundImg})`}
         backgroundSize="cover"
         backgroundRepeat="no-repeat"
-        backgroundPosition="right"
+        backgroundPosition="center"
         minHeight="100vh"
       >
-        <Flex direction="column" justifyContent="flex-end" height="100%" alignItems="flex-end">
+        <Flex md='row' direction="column" justifyContent="flex-end" height="100%" alignItems="flex-end">
           <Box
 
             maxW="400px"
-            width="400px"
+          
             backgroundColor="rgba(255, 255, 255)" // Opacity'yi biraz düşürdüm
             p={12}
             borderRadius="md"
@@ -28,7 +29,7 @@ function Homepage({ onLoginSuccess }) {
             transition="opacity 0.3s"
             _hover={{ opacity: 1 }} // Hover olduğunda opacity tam olarak ayarlandı
           >
-            <LoginForm onLoginSuccess={onLoginSuccess} />
+            <LoginForm  onLoginSuccess={onLoginSuccess} />
           </Box>
         </Flex>
       </Box>

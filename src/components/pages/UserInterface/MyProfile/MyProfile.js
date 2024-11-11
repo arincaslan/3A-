@@ -102,7 +102,7 @@ function MyProfile() {
                     {/* Bilgiler kısmı */}
                     <VStack spacing={5} flex={1}>
                         {isEditing ? (
-                            <>
+                            <Box>
                                 <Input
                                     type="file"
                                     onChange={handleLogoUpload}
@@ -118,16 +118,26 @@ function MyProfile() {
                                 <Input fontFamily="heading1" fontSize="md" type="date" name="companyEstablishDate" value={companyInfo.companyEstablishDate} onChange={handleChange} />
                                 <Input fontFamily="heading1" fontSize="md" type="date" name="agreementDate" value={companyInfo.agreementDate} onChange={handleChange} />
                                 <Input fontFamily="heading1" fontSize="md" type="text" name="agreementNo" value={companyInfo.agreementNo} onChange={handleChange} placeholder="Agreement No" />
-                                <Button colorScheme="primary.900" variant="outline" onClick={handleEdit}>Kaydet</Button>
-                            </>
+                                <Button mt='0.5em' fontFamily="heading1" colorScheme="primary.900" variant="outline" onClick={handleEdit}>Kaydet</Button>
+                            </Box>
                         ) : (
-                            <>
-                                <Text fontFamily="heading1" fontSize="lg">Company Name: {companyInfo.companyName}</Text>
-                                <Text fontFamily="heading1" fontSize="lg">Company Location: {companyInfo.companyLocation}</Text>
-                                <Text fontFamily="heading1" fontSize="lg">Company Establish Date: {new Date(companyInfo.companyEstablishDate).toLocaleDateString()}</Text>
-                                <Text fontFamily="heading1" fontSize="lg">Agreement Date: {new Date(companyInfo.agreementDate).toLocaleDateString()}</Text>
-                                <Text fontFamily="heading1" fontSize="lg">Agreement No: {companyInfo.agreementNo}</Text>
-                            </>
+                            <Box>
+                                <Box alignItems='center' justifyContent='baseline' display='flex'>
+                                    <Text fontFamily="heading1" fontSize="lg">Company Name:</Text><Text ml='0.5em' color='teal.800' fontFamily="heading1" fontWeight='bold' fontSize="xl">{companyInfo.companyName}</Text>
+                                </Box>
+                                <Box alignItems='center' justifyContent='baseline' display='flex'>
+                                    <Text fontFamily="heading1" fontSize="lg">Company Location:</Text><Text ml='0.5em' color='teal.800' fontFamily="heading1" fontWeight='bold' fontSize="xl">{companyInfo.companyLocation}</Text>
+                                </Box>
+                                <Box alignItems='center' justifyContent='baseline' display='flex'>
+                                    <Text fontFamily="heading1" fontSize="lg">Company Establish Date:</Text><Text ml='0.5em' color='teal.800' fontFamily="heading1" fontWeight='bold' fontSize="xl">{new Date(companyInfo.companyEstablishDate).toLocaleDateString()}</Text>
+                                </Box>
+                                <Box alignItems='center' justifyContent='baseline' display='flex'>
+                                    <Text fontFamily="heading1" fontSize="lg">Agreement Date:</Text><Text ml='0.5em' color='teal.800' fontFamily="heading1" fontWeight='bold' fontSize="xl">{new Date(companyInfo.agreementDate).toLocaleDateString()}</Text>
+                                </Box>
+                                <Box alignItems='center' justifyContent='baseline' display='flex'>
+                                    <Text fontFamily="heading1" fontSize="lg">Agreement No:</Text><Text ml='0.5em' color='teal.800' fontFamily="heading1" fontWeight='bold' fontSize="xl">{companyInfo.agreementNo}</Text>
+                                </Box>
+                            </Box>
                         )}
                     </VStack>
 
@@ -138,14 +148,15 @@ function MyProfile() {
                             backgroundColor: 'transparent',
                             color: 'teal.300',
                             transition: 'all 0.3s'
-                        }} colorScheme="primary.900" variant="outline" onClick={handleEdit} mr={150} ml={[0, 5]}>Düzenle</Button>
+                        }} colorScheme="primary.900" variant="outline" onClick={handleEdit} mr='1em' ml={[0, 5]} fontFamily="heading1">Düzenle</Button>
                     )}
 
                 </Box>
             </Flex>
 
             <Box borderRadius="md" mt="20px" bg="secondary.900" p={5} >
-                <Button borderColor="white"
+                <Button
+                    fontFamily="heading1" borderColor="white"
                     color="white"
                     colorScheme="secondary"
                     variant="outline"

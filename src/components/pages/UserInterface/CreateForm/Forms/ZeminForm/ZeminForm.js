@@ -36,7 +36,12 @@ function ZeminForm({ onNext, onBack }) {
   }
 
   return (
-    <Box width="800px" p={3} boxShadow="lg">
+    <Box width={[
+      "800px", // base
+      "30em", // 480px upwards
+      "48em", // 768px upwards
+      "800px", // 992px upwards
+    ]} p={3} boxShadow="lg">
       <Heading mt={4} color="secondary.500" fontFamily="heading2" size="lg">3. Adım: Zemin Bilgileri Formu</Heading>
       <Text fontFamily="heading4" fontSize="sm" color="gray.500">
         Bu bilgilere değerlenecek gayrimenkulün zemin etüt raporunun sonuçlar kısmından ulaşabilirsiniz.

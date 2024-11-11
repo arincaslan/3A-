@@ -18,6 +18,12 @@ const Navbar = ({ onLogout }) => {
     
     return (
         <Flex
+        width={[
+            "100%", // base
+            "30em", // 480px upwards
+            "48em", // 768px upwards
+            "100%", // 992px upwards
+          ]}
             as="nav"
             align="center"
             justify="space-between"
@@ -69,6 +75,7 @@ const Navbar = ({ onLogout }) => {
                 </Text>
 
                 <Button
+                fontFamily='heading1'
                     onClick={handleLogout}
                     colorScheme="teal"
                     variant="outline"
@@ -82,7 +89,7 @@ const Navbar = ({ onLogout }) => {
                     }}
                     marginRight="2"
                 >
-                    LogOut
+                    Çıkış
                 </Button>
             </Box>
         </Flex>

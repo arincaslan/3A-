@@ -103,17 +103,19 @@ function RegisterForm() {
   };
   const textPositions = [
     { text: "Kayıt olda başlayalım...", position: { top: '2%', left: '5%' } },
-    { text: "Hoşgeldin!", position: { top: '20%', right: '5%' } },
-    { text: "Raporla!!", position: { bottom: '35%', left: '5%' } },
-    { text: "Kimler gelmiş.", position: { bottom: '45%', right: '10%' } },
-    { text: "Hazır mıyız?", position: { top: '30%', left: '10%' } },
+    { text: "Hoşgeldin!", position: { top: '23%', right: '5%' } },
+    { text: "Raporla!!", position: { bottom: '20%', left: '5%' } },
+    { text: "Kimler gelmiş.", position: { bottom: '42%', right: '5%' } },
+    { text: "Hazır mıyız?", position: { top: '7%', left: '50%' } },
   ];
 
   return (
-    <VStack spacing={10} align="center" width="100%" position="relative">
+    <Box  width='100%'>
+         
+    <VStack  spacing={10} align="center" width="100%" position="relative">
       {textPositions.map((item, index) => (
         <AnimatedText position={item.position} key={index}>
-          <Heading as="h2" size="xl" fontFamily="heading2" color="primary.900">
+          <Heading  fontSize={["sm", "md", "xl"]} fontFamily="heading2" color="primary.900">
             {item.text}
           </Heading>
         </AnimatedText>
@@ -128,7 +130,7 @@ function RegisterForm() {
         marginBottom="50px"
       >
         <Box
-          w="500px"
+          w="32rem"
           maxW="600px"
           marginX="auto"
           padding="20px"
@@ -145,20 +147,20 @@ function RegisterForm() {
             <VStack spacing={4} w="100%" alignItems="start"> {/* Bu satırda değişiklik yapıldı */}
               <VStack w="90%" spacing={4} alignItems="start"> {/* Bu satırda değişiklik yapıldı */}
                 <FormControl id="name">
-                  <FormLabel>Ad</FormLabel>
+                  <FormLabel fontFamily="heading1">Ad</FormLabel>
                   <Input type="text" value={name} onChange={handleNameChange} />
                 </FormControl>
                 <FormControl id="surname">
-                  <FormLabel>Soyad</FormLabel>
+                  <FormLabel fontFamily="heading1">Soyad</FormLabel>
                   <Input type="text" value={surname} onChange={handleSurnameChange} />
                 </FormControl>
                 <FormControl id="email">
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel fontFamily="heading1">Email</FormLabel>
                   <Input type="email" value={email} onChange={handleEmailChange} />
                 </FormControl>
                 <FormControl id="password" position="relative">
                   <Flex justifyContent="start">
-                    <FormLabel>Parola</FormLabel>
+                    <FormLabel fontFamily="heading1">Parola</FormLabel>
                     <Tooltip label="Parola minimum 6 karakterli olmalıdır." aria-label="Parola bilgisi">
                       <Icon as={InfoOutlineIcon} color="gray.500" w={5} h={5} cursor="pointer" />
                     </Tooltip>
@@ -166,24 +168,25 @@ function RegisterForm() {
                   <Input type="password" value={password} onChange={handlePasswordChange} />
                 </FormControl>
                 <FormControl id="phone">
-                  <FormLabel>Telefon</FormLabel>
+                  <FormLabel fontFamily="heading1">Telefon</FormLabel>
                   <Input type="tel" value={phone} onChange={handlePhoneChange} />
                 </FormControl>
                 <FormControl id="firm">
-                  <FormLabel>Firma Adı</FormLabel>
+                  <FormLabel fontFamily="heading1">Firma Adı</FormLabel>
                   <Input type="text" value={firm} onChange={handleFirmChange} />
                 </FormControl>
               </VStack>
             </VStack>
-            <Button alignSelf="center" colorScheme="teal" w="40%" type="submit">Kayıt Ol</Button>
-            <Button alignSelf="center" onClick={handleGoBack} variant="link" colorScheme="teal">
+            <Button fontFamily="heading1" alignSelf="center" colorScheme="teal" w="40%" type="submit">Kayıt Ol</Button>
+            <Button fontFamily="heading1" colorScheme="gray" alignSelf="center" onClick={handleGoBack} variant="link" >
               Anasayfaya Geri Dön
             </Button>
           </VStack>
         </Box>
       </Flex>
-      <Footer />
     </VStack>
+    <Footer />
+    </Box>
   );
 }
 

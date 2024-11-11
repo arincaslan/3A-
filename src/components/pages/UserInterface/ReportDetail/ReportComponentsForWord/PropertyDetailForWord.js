@@ -39,12 +39,12 @@ const PropertyDetailForWord = ({ info }) => {
 
             {info.valueData?.maaliyetData?.yeniden?.bina_yasi && <p style={styles.text}>Değerlemeye konu gayrimenkulün bina yaşı {info.valueData.maaliyetData.yeniden.bina_yasi} yıldır.</p>}
             {info.valueData?.maaliyetData?.yeniden?.ekonomik_omur && <p style={styles.text}>Gayrimenkulün ekonomik ömrü {info.valueData.maaliyetData.yeniden.ekonomik_omur} yıldır.</p>}
-            {info.zeminData.zeminHakimTitresimPeriyodu && <p style={styles.text}>Gayrimenkulün zemin hakim titreşim periyodu {info.zeminData.zeminHakimTitresimPeriyodu} şeklindedir.</p>}
-            {info.zeminData.zeminFormasyonCinsi && <p style={styles.text}>Gayrimenkulün zemin formasyon cinsi {info.zeminData.zeminFormasyonCinsi} şeklindedir.</p>}
-            {info.valueData?.maaliyetData?.yeniden?.faktorler.malzemeKalitesi && <p style={styles.text}>Yapının malzeme kalitesi {info.valueData.maaliyetData.yeniden.faktorler.malzemeKalitesi} ({faktorAciklamalari[info.valueData.maaliyetData.yeniden.faktorler.malzemeKalitesi]}) olarak değerlendirilmiştir.</p>}
-            {info.valueData?.maaliyetData?.yeniden?.faktorler.insaatKalitesi && <p style={styles.text}>Yapının inşaat kalitesi {info.valueData.maaliyetData.yeniden.faktorler.insaatKalitesi} ({faktorAciklamalari[info.valueData.maaliyetData.yeniden.faktorler.insaatKalitesi]}) olarak değerlendirilmiştir.</p>}
-            {info.valueData?.maaliyetData?.yeniden?.faktorler.konum && <p style={styles.text}>Gayrimenkulün konumu {info.valueData.maaliyetData.yeniden.faktorler.konum} ({faktorAciklamalari[info.valueData.maaliyetData.yeniden.faktorler.konum]}) puanına sahiptir.</p>}
-            {info.valueData?.maaliyetData?.yeniden?.faktorler.bakimDurumu && <p style={styles.text}>Gayrimenkulün bakım durumu {info.valueData.maaliyetData.yeniden.faktorler.bakimDurumu} ({faktorAciklamalari[info.valueData.maaliyetData.yeniden.faktorler.bakimDurumu]}) puanına sahiptir.</p>}
+            {info.zeminData.zeminHakimTitresimPeriyodu  !== "" && <p style={styles.text}>Gayrimenkulün zemin hakim titreşim periyodu {info.zeminData.zeminHakimTitresimPeriyodu} şeklindedir.</p>}
+            {info.zeminData.zeminFormasyonCinsi  !== "" && <p style={styles.text}>Gayrimenkulün zemin formasyon cinsi {info.zeminData.zeminFormasyonCinsi} şeklindedir.</p>}
+            {info.valueData?.maaliyetData?.yeniden?.faktorler?.malzemeKalitesi && <p style={styles.text}>Yapının malzeme kalitesi {info.valueData.maaliyetData.yeniden.faktorler.malzemeKalitesi} ({faktorAciklamalari[info.valueData.maaliyetData.yeniden.faktorler.malzemeKalitesi]}) olarak değerlendirilmiştir.</p>}
+            {info.valueData?.maaliyetData?.yeniden?.faktorler?.insaatKalitesi && <p style={styles.text}>Yapının inşaat kalitesi {info.valueData.maaliyetData.yeniden.faktorler.insaatKalitesi} ({faktorAciklamalari[info.valueData.maaliyetData.yeniden.faktorler.insaatKalitesi]}) olarak değerlendirilmiştir.</p>}
+            {info.valueData?.maaliyetData?.yeniden?.faktorler?.konum && <p style={styles.text}>Gayrimenkulün konumu {info.valueData.maaliyetData.yeniden.faktorler.konum} ({faktorAciklamalari[info.valueData.maaliyetData.yeniden.faktorler.konum]}) puanına sahiptir.</p>}
+            {info.valueData?.maaliyetData?.yeniden?.faktorler?.bakimDurumu && <p style={styles.text}>Gayrimenkulün bakım durumu {info.valueData.maaliyetData.yeniden.faktorler.bakimDurumu} ({faktorAciklamalari[info.valueData.maaliyetData.yeniden.faktorler.bakimDurumu]}) puanına sahiptir.</p>}
             {
                 info.valueData.emsalData.cevreBilgisi && (
                     <p style={styles.text}>
